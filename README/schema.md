@@ -3,7 +3,7 @@ ____
 ####  Spots Table
 | id | title | location | price | type | img_url | info | host_id      |
 | :- | :- | :- | :- | :- | :- | :- | :- |
-|  integer  |  string  |  jsonb  | integer | string | string | json | integer |
+|  integer  |  string  |  string  | integer | string | string | json | integer |
 
 ____
 
