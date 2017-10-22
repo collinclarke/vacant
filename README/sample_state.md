@@ -1,3 +1,5 @@
+###### Sample State
+``` javascript
 const sampleState = {
   entities: {
     spots: {
@@ -90,3 +92,5 @@ const sampleState = {
     path: `/images/${id}`
   }
 };
+
+```

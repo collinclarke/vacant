@@ -43,6 +43,6 @@ ____
  | :- | :- |
  |  integer  |  string  | date | string | string |
 
- | description | img_url | birth_date | currency | language |
+ | description |
  | :- | :- |
- |  string  |  string  | date | string | string |
+ |  string  | 
