@@ -1,0 +1,52 @@
+
+
+.session-form {
+  font-size: 1.2rem;
+  font-weight: lighter;
+  background: white;
+  position: relative;
+  width: 35rem;
+  height: 35rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.session-form form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  height: 13rem;
+}
+
+.session-form h1 {
+  margin-bottom: 1.4rem;
+}
+
+.session-form a {
+  margin-left: .8rem;
+}
+
+
+.session-form-input {
+  width: 32rem;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: .2rem;
+}
+
+.session-form input:placeholder-shown {
+  color: #aaa;
+}
+
+.session-form button {
+  width: 32rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  background-color: #FF5A5F;
+  color: white;
+  border-radius: .2rem;
+}

@@ -1,0 +1,26 @@
+main {
+  font-family: helvetica, sans-serif;
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  grid-template-rows: 4rem 1fr 2rem;
+  grid-gap: 1rem;
+  background: #eee
+}
+
+.full-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+a {
+  margin-right: 1rem;
+}
+
+hr {
+  width: 91%;
+  color: #eee;
+  margin: 1.5rem 0;
+}
