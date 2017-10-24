@@ -11,7 +11,6 @@ const sessionErrorsReducer = (state = initialState, action) => {
     case RECEIVE_ERRORS:
       return action.errors.responseJSON;
     case CLEAR_ERRORS:
-      debugger
       return [];
     default:
       return state;
