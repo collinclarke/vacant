@@ -40,6 +40,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'jquery-rails'
   gem 'pry-rails'
   gem 'annotate'
   gem 'better_errors'
