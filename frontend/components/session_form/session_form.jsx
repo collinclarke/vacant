@@ -39,7 +39,7 @@ class SessionForm extends Component {
       return (
         <div className="full-screen modal">
           <section className="session-form">
-
+            <i onClick={() => this.props.history.push('/') } className="modal-close">X</i>
             <h1>{ action }</h1>
 
             <form onSubmit={ this.handleSubmit }>
