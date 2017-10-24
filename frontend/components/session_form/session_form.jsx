@@ -49,7 +49,7 @@ class SessionForm extends Component {
               </div>
 
               <div className="session-form-input">
-                <input type="text" value={ this.state.password }
+                <input type="password" value={ this.state.password }
                   onChange={ this.update('password') }  placeholder="Password"/>
               </div>
 
