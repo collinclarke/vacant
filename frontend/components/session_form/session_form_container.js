@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login, signup } from '../../actions/session_actions';
+import { login, signup, clearErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,12 +12,11 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return (ownProps.location.pathname === '/login' ?
-
-    { processForm: (user) => dispatch(login(user)) } :
-
-    { processForm: (user) => dispatch(signup(user)) }
-  );
+  const action = ownProps.location.pathname === '/login' ? login : signup;
+  return {
+    processForm: user => dispatch(action(user)),
+    clearErrors: () => dispatch(clearErrors())
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);

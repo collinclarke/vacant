@@ -5,7 +5,7 @@ class SessionForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,34 +27,53 @@ class SessionForm extends Component {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
+
   render() {
     const { formType, errors } = this.props;
     const alternative = formType === '/login' ? '/signup' : '/login';
+    const altMessage = formType === '/login' ? 'Sign Up' : 'Log In';
+    const message = formType === '/login' ? "Don't have an account?" :
+      "Already have an account?";
+    const action = formType === '/login' ? "Log In" : "Sign Up";
+
       return (
-        <section className="session-form">
-          <h1>{ capitalize(formType.slice(1)) }</h1>
-          <Link to={ alternative }>{ capitalize(alternative.slice(1)) }</Link>
-          <form onSubmit={ this.handleSubmit }>
-            <label>Username
-              <input type="text" value={ this.state.username } onChange={ this.update('username') }/>
-            </label>
-            <label>Password
-              <input type="text" value={ this.state.password } onChange={ this.update('password') }/>
-            </label>
-            <button>{ capitalize(formType.slice(1)) }</button>
+        <div className="full-screen modal">
+          <section className="session-form">
+
+            <h1>{ action }</h1>
+
+            <form onSubmit={ this.handleSubmit }>
+              <div className="session-form-input">
+                <input id="email" type="text" value={ this.state.email }
+                  onChange={ this.update('email') } placeholder="Email Address"/>
+              </div>
+
+              <div className="session-form-input">
+                <input type="text" value={ this.state.password }
+                  onChange={ this.update('password') }  placeholder="Password"/>
+              </div>
+
+              <button>{ action }</button>
+
+            </form>
+
             <section className="errors">
               <ul>
                 { errors.map( (error, i) => <li key={i}>{ error }</li>) }
               </ul>
             </section>
-          </form>
-        </section>
+
+            <hr />
+
+            <span className="form-alternative">
+              <span>{ message }</span>
+              <Link onClick={() => this.props.clearErrors()} to={ alternative }>{ altMessage }</Link>
+             </span>
+
+          </section>
+        </div>
       );
   }
 }
-
-const capitalize = (word) => {
-  return word[0].toUpperCase() + word.slice(1);
-};
 
 export default SessionForm;
