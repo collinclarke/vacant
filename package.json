@@ -19,6 +19,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --watch"
+    "webpack": "webpack --watch",
+    "postinstall": "webpack"
+  },
+  "engines": {
+    "npm": "3.10.8",
+    "node": "6.9.1"
   }
 }
