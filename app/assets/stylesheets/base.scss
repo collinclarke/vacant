@@ -24,3 +24,16 @@ hr {
   color: #eee;
   margin: 1.5rem 0;
 }
+
+i.placeholder {
+  font-size: 8px;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid #eee;
+  color: #bbb;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
