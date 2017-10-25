@@ -1,15 +1,5 @@
 // icons
 
-
-.i-pw {
-  padding-left: .2rem;
-  font-size: 2rem;
-}
-
-.i-email {
-  font-size: 2rem;
-}
-
 //form
 .session-form {
   font-size: 1.2rem;
@@ -44,6 +34,16 @@
   margin-bottom: 1.4rem;
 }
 
+.session-form p {
+  font-size: .8rem;
+}
+
+.loose {
+  align-self: flex-start;
+  margin: .2rem;
+  margin-left: .6rem;
+}
+
 .session-form a {
   margin-left: .8rem;
 }
@@ -51,10 +51,69 @@
 .session-form-input {
   width: 32rem;
   box-sizing: border-box;
-  border: 1px solid #eee;
+  border: 1px solid #ddd;
   border-radius: .2rem;
-  margin: 1rem;
+  margin: .5rem;
   align-items: center;
+}
+
+.session-form-birthday {
+  width: 32rem;
+  box-sizing: border-box;
+  margin: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.select select {
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: .2rem;
+}
+
+.select {
+  position: relative;
+  margin: 0;
+  align-self: center;
+}
+
+.select:after {
+  content:"\f3d0";
+  font-family: Ionicons;
+  color: #666666;
+  position: absolute;
+  right: 1.2rem;
+  top: 1.3rem;
+}
+
+#birth-month {
+  width: 12rem
+}
+
+#birth-day {
+  width: 8rem;
+}
+
+#birth-year {
+  width: 10rem;
+}
+
+[disabled] {
+  color: #aaa;
+}
+
+.session-form-input i {
+  margin-right: 1rem;
+  font-size: 2rem;
+}
+
+#i-email {
+  margin-right: .9rem;
 }
 
 .session-form input:placeholder-shown {
@@ -74,7 +133,7 @@
   background-color: #FF5A5F;
   color: white;
   border-radius: .2rem;
-  margin: 1rem;
+  margin: .5rem;
 }
 
 .form-alternative {
