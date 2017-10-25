@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+
 class SessionForm extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +15,7 @@ class SessionForm extends Component {
       birth_year: "Year",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loginDemoUser = this.loginDemoUser.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -58,6 +60,11 @@ class SessionForm extends Component {
       days.push(<option key={i} value={`${i}`}>{ i }</option>);
     }
     return days;
+  }
+
+  loginDemoUser() {
+    const demo = {email:"demovacantuser@gmail.com", password:"starwars"};
+    this.props.demoLogin(demo);
   }
 
   signupFields() {
@@ -166,7 +173,7 @@ class SessionForm extends Component {
               <button>{ action }</button>
 
             </form>
-
+            <button className="demo-login" onClick={this.loginDemoUser}>Guest Login</button>
             <hr />
             <section className="errors">
               <ul>
