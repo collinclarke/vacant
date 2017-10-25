@@ -39,6 +39,7 @@ class SessionForm extends Component {
       return (
         <div className="full-screen modal">
           <section className="session-form">
+            
             <i onClick={() => this.props.history.push('/') } className="icon ion-ios-close-empty modal-close"></i>
             <h1>{ action }</h1>
 
@@ -58,12 +59,6 @@ class SessionForm extends Component {
               <button>{ action }</button>
 
             </form>
-
-            <section className="errors">
-              <ul>
-                { errors.map( (error, i) => <li key={i}>{ error }</li>) }
-              </ul>
-            </section>
 
             <hr />
 
