@@ -1,7 +1,19 @@
+// icons
 
 
+  .i-pw {
+    padding-left: .1rem;
+    font-size: 2rem;
+  }
+
+  .i-email {
+    font-size: 2rem;
+  }
+
+//form
 .session-form {
   font-size: 1.2rem;
+  letter-spacing: .04rem;
   font-weight: lighter;
   background: white;
   position: relative;
@@ -27,7 +39,6 @@
 .session-form a {
   margin-left: .8rem;
 }
-
 
 .session-form-input {
   width: 32rem;

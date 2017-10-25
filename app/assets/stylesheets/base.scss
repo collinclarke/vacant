@@ -37,3 +37,7 @@ i.placeholder {
   flex-direction: column;
   justify-content: center;
 }
+
+i[class*="i"] {
+  color: #666666;
+}
