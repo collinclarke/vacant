@@ -7,9 +7,6 @@ main {
   background: #eee
 }
 
-a {
-  margin-right: 1rem;
-}
 
 i.placeholder {
   font-size: 8px;
@@ -25,10 +22,10 @@ i.placeholder {
 }
 
 hr {
-  width: 91%;
-  color: #eee;
-  margin-top: 0;
-  margin-bottom: 1rem;
+  width: 32rem;
+  border-color: #bbb;
+  border-top: 0;
+  margin: 1.5rem 0;
 }
 
 i[class*="i"] {

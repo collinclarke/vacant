@@ -1,0 +1,9 @@
+.greeting {
+  flex-flow: row nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.greeting * {
+  margin-right: 2rem;
+}

@@ -158,6 +158,7 @@ class SessionForm extends Component {
 
             <i onClick={() => this.props.history.push('/') } className="icon ion-ios-close-empty modal-close"></i>
             <h1>{ action }</h1>
+            <hr />
             <form onSubmit={this.handleSubmit}>
 
               { formType === '/login' ? this.loginFields() : this.signupFields() }
