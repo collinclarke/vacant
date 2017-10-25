@@ -7,6 +7,7 @@ class Greeting extends Component {
       (
         <section className="greeting">
           <p>Welcome { this.props.currentUser.first_name}!</p>
+          <img src={this.props.currentUser.image_url}/>
           <button type="logout" onClick={this.props.logout}>Logout</button>
         </section>
       ) : (
