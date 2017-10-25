@@ -6,7 +6,7 @@ class Greeting extends Component {
     return (this.props.currentUser ?
       (
         <section className="greeting">
-          <p>Welcome { this.props.currentUser.username }!</p>
+          <p>Welcome { this.props.currentUser.first_name}!</p>
           <button type="logout" onClick={this.props.logout}>Logout</button>
         </section>
       ) : (
