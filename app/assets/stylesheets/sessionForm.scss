@@ -1,14 +1,14 @@
 // icons
 
 
-  .i-pw {
-    padding-left: .1rem;
-    font-size: 2rem;
-  }
+.i-pw {
+  padding-left: .2rem;
+  font-size: 2rem;
+}
 
-  .i-email {
-    font-size: 2rem;
-  }
+.i-email {
+  font-size: 2rem;
+}
 
 //form
 .session-form {
@@ -18,7 +18,6 @@
   background: white;
   position: relative;
   width: 35rem;
-  height: 32rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -27,11 +26,18 @@
   padding: 2rem;
 }
 
-.session-form form {
+.session-form section {
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.session-form form{
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-  height: 15.5rem;
+  align-items: center;
 }
 
 .session-form h1 {
@@ -46,8 +52,9 @@
   width: 32rem;
   box-sizing: border-box;
   border: 1px solid #eee;
-  padding: 1rem;
   border-radius: .2rem;
+  margin: 1rem;
+  align-items: center;
 }
 
 .session-form input:placeholder-shown {
@@ -56,6 +63,7 @@
 
 .session-form input {
   width: 28rem;
+  padding: 1rem;
 }
 
 .session-form button {
@@ -66,7 +74,7 @@
   background-color: #FF5A5F;
   color: white;
   border-radius: .2rem;
-  margin-top: 1rem;
+  margin: 1rem;
 }
 
 .form-alternative {
