@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Modal from 'react-modal';
 
 class SessionForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
-   if (newProps.loggedIn) {
-     this.props.history.push('/');
-   }
+    if (newProps.loggedIn) {
+      this.props.closeModal();
+    }
   }
 
   handleSubmit(e) {
@@ -27,6 +28,18 @@ class SessionForm extends Component {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
+  handleFormChange() {
+    this.setState({})
+  }
+
 
   render() {
     const { formType, errors } = this.props;
@@ -37,10 +50,10 @@ class SessionForm extends Component {
     const action = formType === '/login' ? "Log In" : "Sign Up";
 
       return (
-        <div className="full-screen modal">
-          <section className="session-form">
-            
-            <i onClick={() => this.props.history.push('/') } className="icon ion-ios-close-empty modal-close"></i>
+        <div>
+        <button onClick={this.openModal}>{ action }</button>
+
+            <i onClick={this.closeModal} className="icon ion-ios-close-empty modal-close"></i>
             <h1>{ action }</h1>
 
             <form onSubmit={ this.handleSubmit }>
@@ -64,10 +77,9 @@ class SessionForm extends Component {
 
             <span className="form-alternative">
               <span>{ message }</span>
-              <Link onClick={() => this.props.clearErrors()} to={ alternative }>{ altMessage }</Link>
-             </span>
+              <button onClick={this.handleFormChange}</button>
+            </span>
 
-          </section>
         </div>
       );
   }
