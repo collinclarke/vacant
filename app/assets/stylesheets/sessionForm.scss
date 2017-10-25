@@ -1,23 +1,37 @@
+// icons
 
 
+  .i-pw {
+    padding-left: .1rem;
+    font-size: 2rem;
+  }
+
+  .i-email {
+    font-size: 2rem;
+  }
+
+//form
 .session-form {
   font-size: 1.2rem;
+  letter-spacing: .04rem;
   font-weight: lighter;
   background: white;
   position: relative;
   width: 35rem;
-  height: 30rem;
+  height: 32rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+  padding: 2rem;
 }
 
 .session-form form {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-  height: 13rem;
+  height: 15.5rem;
 }
 
 .session-form h1 {
@@ -27,7 +41,6 @@
 .session-form a {
   margin-left: .8rem;
 }
-
 
 .session-form-input {
   width: 32rem;
@@ -53,4 +66,9 @@
   background-color: #FF5A5F;
   color: white;
   border-radius: .2rem;
+  margin-top: 1rem;
+}
+
+.form-alternative {
+
 }

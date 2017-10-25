@@ -19,11 +19,6 @@ a {
   margin-right: 1rem;
 }
 
-hr {
-  width: 91%;
-  color: #eee;
-  margin: 1.5rem 0;
-}
 
 i.placeholder {
   font-size: 8px;
@@ -36,4 +31,8 @@ i.placeholder {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+i[class*="i"] {
+  color: #666666;
 }
