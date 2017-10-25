@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_attached_file :image, default_url: "userIcon.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64
   end
