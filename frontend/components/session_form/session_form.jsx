@@ -39,20 +39,20 @@ class SessionForm extends Component {
       return (
         <div className="full-screen modal">
           <section className="session-form">
-            <i onClick={() => this.props.history.push('/') } className="placeholder modal-close">X</i>
+            <i onClick={() => this.props.history.push('/') } className="icon ion-ios-close-empty modal-close"></i>
             <h1>{ action }</h1>
 
             <form onSubmit={ this.handleSubmit }>
               <div className="session-form-input">
                 <input id="email" type="text" value={ this.state.email }
                   onChange={ this.update('email') } placeholder="Email Address"/>
-                <i className="placeholder">icon</i>
+                <i className="icon ion-ios-email-outline i-email"></i>
               </div>
 
               <div className="session-form-input">
                 <input type="password" value={ this.state.password }
                   onChange={ this.update('password') }  placeholder="Password"/>
-                <i className="placeholder">icon</i>
+                <i className="icon ion-ios-locked-outline i-pw"></i>
               </div>
 
               <button>{ action }</button>
