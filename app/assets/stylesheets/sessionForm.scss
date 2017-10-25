@@ -22,14 +22,17 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+  padding: 2rem;
 }
 
 .session-form form {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-  height: 13rem;
+
+  height: 15rem;
 }
 
 .session-form h1 {
@@ -64,4 +67,8 @@
   background-color: #FF5A5F;
   color: white;
   border-radius: .2rem;
+}
+
+.form-alternative {
+
 }
