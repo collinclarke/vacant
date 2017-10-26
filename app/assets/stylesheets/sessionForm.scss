@@ -7,6 +7,7 @@
   font-weight: lighter;
   background: white;
   width: 35rem;
+  max-height: 80rem;
   padding: 2rem;
   position: relative;
   justify-self: center;
@@ -16,7 +17,6 @@
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-around;
-  height: 100%;
 }
 
 .session-form form{
@@ -32,7 +32,7 @@
   justify-self: center;
 }
 
-.session-form hr, h1, span {
+.session-form hr, h1{
   justify-self: center;
 }
 
@@ -147,4 +147,5 @@ button.demo-login {
 .form-alternative {
   flex-flow: row nowrap;
   justify-content: center;
+  display: inline-flex;
 }
