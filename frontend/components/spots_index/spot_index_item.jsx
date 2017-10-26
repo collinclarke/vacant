@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 class SpotIndexItem extends Component {
 
   render() {
-    const { title, address, price, kind } = this.props.spot;
+    const { title, address, price, kind, image_url } = this.props.spot;
     return (
       <li>
-        <img src= {window.placeholderImage} alt="spot image"/>
+        <img src= { image_url } alt="spot image"/>
         <span className="spot-type">{ kind }</span>
         <span className="spot-title">{ title }</span>
         <span className="spot-title">From { price } per night</span>

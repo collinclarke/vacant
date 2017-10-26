@@ -15,5 +15,6 @@
 class Spot < ApplicationRecord
   validates :title, :address, :price, :kind, :host_id, presence: true
 
-
+  has_attached_file :main_image, default_url: "sampleOffice.jpg"
+  validates_attachment_content_type :main_image, content_type: /\Aimage\/.*\Z/
 end
