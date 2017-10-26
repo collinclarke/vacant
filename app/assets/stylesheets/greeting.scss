@@ -1,7 +1,9 @@
 .greeting {
+  grid-column: 2;
+  display: flex;
   flex-flow: row nowrap;
-  align-items: baseline;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .greeting * {

@@ -1,8 +1,9 @@
 header {
-  grid-column: 1 / 4;
+  grid-column: 1;
   grid-row: 1;
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  justify-content: flex-end;
+  display: grid;
+  grid-gap: .5rem;
+  grid-template-columns: 4rem 1fr;
+  grid-template-rows: 4rem 1fr;
+  height: 100%;
 }
