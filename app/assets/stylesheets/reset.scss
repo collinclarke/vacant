@@ -11,6 +11,10 @@ body, div, form, input, button, p, section, article, main, header, footer, span,
   letter-spacing: inherit;
 }
 
+html {
+  overflow: hidden;
+}
+
 input:focus {
   outline: none;
 }

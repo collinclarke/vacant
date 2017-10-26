@@ -2,9 +2,9 @@ main {
   font-family: helvetica, sans-serif;
   display: grid;
   grid-template-columns: 4rem 1fr;
-  grid-template-rows: 4rem 1fr 2rem;
+  grid-template-rows: 4rem 1fr;
   grid-gap: 1rem;
-  background: #eee
+  background: #eee;
 }
 
 
@@ -23,8 +23,8 @@ i.placeholder {
 
 hr {
   width: 32rem;
-  border-color: #bbb;
-  border-top: 0;
+  border: 0;
+  border-bottom: 1px solid #ddd;
   margin: 1.5rem 0;
 }
 

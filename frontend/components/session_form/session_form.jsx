@@ -128,6 +128,7 @@ class SessionForm extends Component {
             </select>
           </label>
         </div>
+
       </section>
     );
   }
@@ -160,7 +161,7 @@ class SessionForm extends Component {
     const action = formType === '/login' ? "Log In" : "Sign Up";
 
       return (
-        <div className="full-screen modal">
+        <div className="modal-overlay-dark">
           <section className="session-form">
 
             <i onClick={() => this.props.history.push('/') } className="icon ion-ios-close-empty modal-close"></i>
@@ -173,17 +174,21 @@ class SessionForm extends Component {
               <button>{ action }</button>
 
             </form>
+
             <button className="demo-login" onClick={this.loginDemoUser}>Guest Login</button>
+
             <hr />
+
             <section className="errors">
               <ul>
-                {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
+                {this.props.errors.map((error, i) => <li key={i}>{error.stack}</li>)}
               </ul>
             </section>
-            <span className="form-alternative">
+
+            <section className="form-alternative">
               <span>{ message }</span>
               <Link onClick={() => this.props.clearErrors()} to={ alternative }>{ altMessage }</Link>
-             </span>
+            </section>
 
           </section>
         </div>
