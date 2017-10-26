@@ -4,11 +4,11 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: flex-end;
+  margin-right: 1rem;
 }
 
-.greeting * {
-  margin-right: 2rem;
-  margin-top: .5rem;
+#logout {
+  cursor: pointer;
 }
 
 .user-avatar {
@@ -18,6 +18,8 @@
   margin-top: 0;
 }
 
-.greeting a {
-  margin-bottom: .2rem;
+.greeting a, p {
+  padding: 0 1rem;
+  color: #666666;
+  font-size: .85rem;
 }

@@ -7,8 +7,9 @@ class Greeting extends Component {
       (
         <section className="greeting">
           <p>Welcome { this.props.currentUser.first_name}!</p>
-          <img className="user-avatar" src={this.props.currentUser.image_url}/>
-          <button type="logout" onClick={this.props.logout}>Logout</button>
+          <img className="user-avatar" src={this.props.currentUser.image_url}
+            alt="user avatar thumbnail"/>
+          <p id="logout" onClick={this.props.logout}>Logout</p>
         </section>
       ) : (
         <section className="greeting">

@@ -2,6 +2,7 @@
 <% if logged_in? %>
 window.currentUser = <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
 <% end %>
+window.logoUrl = "<%= image_url('VacantLogo333.svg') %>"
 </script>
 
 <div id='root'></div>
