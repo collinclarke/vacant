@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { receiveSpots } from '../../actions/spots_actions';
+import { fetchSpots } from '../../actions/spots_actions';
 import SpotsIndex from './spots_index';
 
 
@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    receiveSpots: () => dispatch(receiveSpots()),
+    fetchSpots: () => dispatch(fetchSpots()),
   };
 };
 

@@ -4,7 +4,7 @@ import SpotIndexItem from './spot_index_item';
 class SpotsIndex extends Component {
 
   componentDidMount() {
-    this.props.receiveSpots();
+    this.props.fetchSpots();
   }
 
   render() {

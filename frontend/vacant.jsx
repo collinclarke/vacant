@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+import { receiveSpots } from './actions/spots_actions';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,5 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
   window.getState = store.getState;
+  window.receiveSpots = receiveSpots;
   ReactDOM.render(<Root store={store}/>, document.getElementById('root'));
 });
