@@ -28,7 +28,7 @@ a = User.create({
 Spot.create({
   title: "My first spot",
   address: "5360 Queen Ann Lane",
-  price: "User",
+  price: "300",
   kind: "office",
   host_id: a.id
 });
@@ -36,7 +36,82 @@ Spot.create({
 Spot.create({
   title: "Another spot",
   address: "205 Washington Avenue",
-  price: "User",
+  price: "224",
+  kind: "office",
+  host_id: a.id
+});
+Spot.create({
+  title: "My first spot",
+  address: "5360 Queen Ann Lane",
+  price: "300",
+  kind: "office",
+  host_id: a.id
+});
+
+Spot.create({
+  title: "Another spot",
+  address: "205 Washington Avenue",
+  price: "224",
+  kind: "office",
+  host_id: a.id
+});
+Spot.create({
+  title: "My first spot",
+  address: "5360 Queen Ann Lane",
+  price: "300",
+  kind: "office",
+  host_id: a.id
+});
+
+Spot.create({
+  title: "Another spot",
+  address: "205 Washington Avenue",
+  price: "224",
+  kind: "office",
+  host_id: a.id
+});
+Spot.create({
+  title: "My first spot",
+  address: "5360 Queen Ann Lane",
+  price: "300",
+  kind: "office",
+  host_id: a.id
+});
+
+Spot.create({
+  title: "Another spot",
+  address: "205 Washington Avenue",
+  price: "224",
+  kind: "office",
+  host_id: a.id
+});
+Spot.create({
+  title: "My first spot",
+  address: "5360 Queen Ann Lane",
+  price: "300",
+  kind: "office",
+  host_id: a.id
+});
+
+Spot.create({
+  title: "Another spot",
+  address: "205 Washington Avenue",
+  price: "224",
+  kind: "office",
+  host_id: a.id
+});
+Spot.create({
+  title: "My first spot",
+  address: "5360 Queen Ann Lane",
+  price: "300",
+  kind: "office",
+  host_id: a.id
+});
+
+Spot.create({
+  title: "Another spot",
+  address: "205 Washington Avenue",
+  price: "224",
   kind: "office",
   host_id: a.id
 });

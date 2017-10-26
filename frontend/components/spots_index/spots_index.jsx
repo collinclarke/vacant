@@ -10,9 +10,15 @@ class SpotsIndex extends Component {
   render() {
     return (
       <section className="spots-index">
-        <ul>
-          { this.props.spots.map(spot => <SpotIndexItem key={spot.id} spot={spot} />) }
-        </ul>
+        <section className="spots-list">
+          <ul>
+            { this.props.spots.map(spot => <SpotIndexItem
+              className="spot-index-item" key={spot.id} spot={spot} />) }
+          </ul>
+        </section>
+        <section className="spots-map">
+          <h1>map</h1>
+        </section>
       </section>
     );
   }
