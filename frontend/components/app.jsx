@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
 import SpotsIndexContainer from './spots_index/spots_index_container';
+import SpotShowContainer from './spot_show/spot_show_container';
 import { AuthRoute } from '../util/route_util';
 
 const App = () => {
@@ -12,7 +13,9 @@ const App = () => {
         <a className="main-logo" href="/#/"><img src={ window.logoUrl } alt="Vacant Logo"/></a>
         <GreetingContainer />
       </header>
-      <Route path='/' component={ SpotsIndexContainer } />
+
+      <Route exact path='/' component={ SpotsIndexContainer } />
+      <Route path='/:spotId' component={ SpotShowContainer } />
     </main>
   );
 };
