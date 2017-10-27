@@ -1,5 +1,27 @@
-.spot-show-details {
+.spot-show {
   margin-top: 4rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 75vh 1fr;
+}
+
+.spot-show-image {
+  grid-row: 1;
+  grid-column: 1 / 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.spot-show-image > img {
+  width: 100%;
+  z-index: 2;
+}
+
+.spot-show-detail {
+  grid-row: 2;
+  grid-column: 1 / 4;
+  z-index: 3;
+  background: white;
 }
