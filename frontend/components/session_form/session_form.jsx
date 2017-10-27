@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
 
 class SessionForm extends Component {
   constructor(props) {
