@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Scrollchor from 'react-scrollchor';
 
 
 class SpotShow extends Component {
@@ -22,25 +23,41 @@ class SpotShow extends Component {
     }
 
     if (this.props.spot) {
-      const { title, address, price, kind, image_url, id } = this.props.spot;
+      const { title, address, price, kind, image_url, id, host_id } = this.props.spot;
       return (
         <section className="spot-show">
+
           <section className="spot-show-image">
             <img src= { image_url } alt="spot image"/>
           </section>
-          <section className="spot-show-details">
-            <span className="spot-type">{ kind }</span>
-            <span className="spot-title">{ title }</span>
-            <span className="spot-price">From { price } per night</span>
-            <span className="spot-rating">
-              <i className="icon ion-android-star"></i>
-              <i className="icon ion-android-star"></i>
-              <i className="icon ion-android-star"></i>
-              <i className="icon ion-android-star"></i>
-              <i className="icon ion-android-star"></i>
-              <p id="num-of-reviews">47</p>
-            </span>
-          </section>
+
+          <nav className="spot-show-nav">
+            <ul>
+              <li><Scrollchor to="">Overview</Scrollchor></li>
+              <li>
+                <span className="list-bullet">&bull;</span>
+                <Scrollchor to="">Reviews</Scrollchor>
+              </li>
+              <li>
+                <span className="list-bullet">&bull;</span>
+                <Scrollchor to="">The Host</Scrollchor>
+              </li>
+              <li>
+                <span className="list-bullet">&bull;</span>
+                <Scrollchor to="">Location</Scrollchor>
+              </li>
+            </ul>
+          </nav>
+
+          <div id="overview" className="spot-show-details">
+            <span className="spot-show-title">{ title }</span>
+            <ul className="spot-show-subtitle">
+              <li className="spot-show-type">{ kind }</li>
+              <li className="spot-show-address"><span className="list-bullet">&bull;</span>{ address }</li>
+              <li className="spot-host-name">Hosted by host #{host_id}</li>
+            </ul>
+          </div>
+
         </section>
       );
     } else {
