@@ -1,11 +1,12 @@
 main {
   font-family: helvetica, sans-serif;
   // display: grid;
-  // grid-template-columns: 1fr;
-  // grid-template-rows: 7rem 1fr;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   background: #eee;
   padding-left: 1.5rem;
-  display: flex;
+
 }
 
 button {
