@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchSpot } from '../../actions/spots_actions'
+import { fetchSpot } from '../../actions/spots_actions';
 import SpotShow from './spot_show';
 
 const mapStateToProps = (state, ownProps) => {
-  // const spot = state.entities.spots[state.ui.spotDisplay];
   return {
-    spot: "spot"
+    spot: state.entities.spots[state.ui.spotDisplay],
+    loading: state.ui.loading.spotLoading
   };
 };
 

@@ -16,9 +16,8 @@ header {
   padding: .8rem;
   padding-top: .6rem;
   margin-top: .3rem;
-  display: flex;
+  display: grid;
   cursor: pointer;
-  object-fit: contain;
   // -webkit-filter: grayscale(100%) brightness(500%) brightness(50%);
   // filter: grayscale(100%) brightness(500%) brightness(50%);
 }
