@@ -67,10 +67,13 @@ class SessionForm extends Component {
     this.props.demoLogin(demo);
   }
 
-  signupFields() {
+  signupFields(action) {
+    const altMessage = 'Log In';
+    const alternative = '/login';
     return (
-      <section className="signup-inputs">
-
+      <form className="signup-form" onSubmit={this.handleSubmit}>
+        <h1>{ action }</h1>
+        <hr />
         <div className="session-form-input">
           <input id="email" type="text" value={ this.state.email }
             onChange={ this.update('email') } placeholder="Email Address"/>
@@ -94,9 +97,10 @@ class SessionForm extends Component {
             onChange={ this.update('password') }  placeholder="Password"/>
           <i className="icon ion-ios-locked-outline i-pw"></i>
         </div>
-
-        <label className="loose">Birthday</label>
-        <p className="loose">To sign up, you must be 18 or older. Other people won't see your birthday</p>
+        <div className="loose">
+          <label>Birthday</label>
+          <p>To sign up, you must be 18 or older. Other people won't see your birthday</p>
+        </div>
         <div className="session-form-birthday">
           <label className="select">
             <select id="birth-month" defaultValue="Month" onChange={ this.update('birth_month') }>
@@ -128,14 +132,28 @@ class SessionForm extends Component {
             </select>
           </label>
         </div>
+        <button>{ action }</button>
+          <hr />
+          <ul className="errors">
+            {this.props.errors.map((error, i) => <li key={i}>{error.stack}</li>)}
+          </ul>
 
-      </section>
+          <section className="form-alternative">
+            <span>Already have an account?</span>
+            <Link onClick={() => this.props.clearErrors()} to={ alternative }>{ altMessage }</Link>
+          </section>
+      </form>
     );
   }
 
-  loginFields() {
+  loginFields(action) {
+    const alternative = '/signup';
+    const altMessage = 'Sign Up';
     return (
-      <section className="login-inputs">
+
+      <form className="login-form" onSubmit={this.handleSubmit}>
+        <h1>{ action }</h1>
+        <hr />
         <div className="session-form-input">
           <input id="email" type="text" value={ this.state.email }
             onChange={ this.update('email') } placeholder="Email Address"/>
@@ -147,52 +165,29 @@ class SessionForm extends Component {
             onChange={ this.update('password') }  placeholder="Password"/>
           <i className="icon ion-ios-locked-outline i-pw"></i>
         </div>
-      </section>
+
+        <button>{ action }</button>
+        <button className="demo-login" onClick={this.loginDemoUser}>Guest Login</button>
+          <hr />
+          <ul className="errors">
+            {this.props.errors.map((error, i) => <li key={i}>{error.stack}</li>)}
+          </ul>
+
+          <section className="form-alternative">
+            <span>Don't have an account?</span>
+            <Link onClick={() => this.props.clearErrors()} to={ alternative }>{ altMessage }</Link>
+          </section>
+
+      </form>
     );
   }
 
 
   render() {
     const { formType, errors } = this.props;
-    const alternative = formType === '/login' ? '/signup' : '/login';
-    const altMessage = formType === '/login' ? 'Sign Up' : 'Log In';
-    const message = formType === '/login' ? "Don't have an account?" :
-      "Already have an account?";
     const action = formType === '/login' ? "Log In" : "Sign Up";
 
-      return (
-        <div className="modal-overlay-dark">
-          <section className="session-form">
-
-            <i onClick={() => this.props.history.push('/') } className="icon ion-ios-close-empty modal-close"></i>
-            <h1>{ action }</h1>
-            <hr />
-            <form onSubmit={this.handleSubmit}>
-
-              { formType === '/login' ? this.loginFields() : this.signupFields() }
-
-              <button>{ action }</button>
-
-            </form>
-
-            <button className="demo-login" onClick={this.loginDemoUser}>Guest Login</button>
-
-            <hr />
-
-            <section className="errors">
-              <ul>
-                {this.props.errors.map((error, i) => <li key={i}>{error.stack}</li>)}
-              </ul>
-            </section>
-
-            <section className="form-alternative">
-              <span>{ message }</span>
-              <Link onClick={() => this.props.clearErrors()} to={ alternative }>{ altMessage }</Link>
-            </section>
-
-          </section>
-        </div>
-      );
+      return formType === '/login' ? this.loginFields(action) : this.signupFields(action);
   }
 }
 

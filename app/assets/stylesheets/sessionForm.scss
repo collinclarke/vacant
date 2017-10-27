@@ -1,7 +1,8 @@
 // icons
 
 //form
-.session-form {
+$input-border-color: #d5d5d5;
+.login-form, .signup-form {
   font-size: 1.2rem;
   letter-spacing: .04rem;
   font-weight: lighter;
@@ -9,63 +10,57 @@
   width: 35rem;
   max-height: 80rem;
   padding: 2rem 0;
-  position: relative;
-  justify-self: center;
-  align-content: center;
-  margin: auto;
-}
-
-.signup-inputs, .login-inputs {
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.session-form form{
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
-  height: auto;
+  position: fixed;
+  top: auto;
+  left: 0;
+  right: 0;
+  align-self: center;
+  margin: auto;
 }
 
-.session-form h1 {
-  margin-top: 1rem;
-  justify-self: center;
-}
 
-.session-form hr, h1{
-  justify-self: center;
-}
 
-.session-form p {
+.loose p {
   font-size: .8rem;
 }
 
 .loose {
-  align-self: flex-start;
-  margin: .3rem;
-  margin-left: .6rem;
-  padding: 0;
-}
-
-.session-form a {
-  margin-left: .8rem;
+  width: 32rem;
+  flex-flow: column nowrap;
+  align-content: flex-start;
+  padding: 1rem 0 .4rem 0;
+  color: #5b5b5b;
 }
 
 .session-form-input {
   width: 32rem;
   box-sizing: border-box;
-  border: 1px solid #ddd;
+  border: 1px solid $input-border-color;
   border-radius: .2rem;
-  margin: .5rem;
   align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 32rem;
+  padding: 1rem;
+  border-radius: .2rem;
+  margin-top: .5rem;
+  margin-bottom: 0;
+  height: 4rem;
+}
+
+.session-form-input i {
+  margin-right: 1rem;
+  font-size: 2rem;
 }
 
 .session-form-birthday {
   width: 32rem;
   box-sizing: border-box;
-  margin: .5rem;
+  margin: .5rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -77,7 +72,7 @@
   -moz-appearance: none;
   appearance: none;
   padding: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid $input-border-color;
   border-radius: .2rem;
 }
 
@@ -108,46 +103,19 @@
   width: 10rem;
 }
 
-[disabled] {
-  color: #aaa;
-}
-
-.session-form-input i {
-  margin-right: 1rem;
-  font-size: 2rem;
-}
-
 #i-email {
-  margin-right: .9rem;
+  margin-right: .8rem;
 }
 
-.session-form input:placeholder-shown {
-  color: #aaa;
-}
-
-.session-form input {
-  width: 28rem;
-  padding: 1rem;
-}
-
-.session-form button {
-  width: 32rem;
-  padding: 1rem;
-  justify-content: center;
-  background-color: #FF5A5F;
-  color: white;
-  border-radius: .2rem;
-  margin: .5rem;
-  margin-bottom: 0;
-  height: 4rem;
-}
-
-button.demo-login {
+.demo-login { //button
   background-color: #2985C9;
 }
-
 .form-alternative {
-  flex-flow: row nowrap;
+  display: flex;
   justify-content: center;
-  display: inline-flex;
+}
+.form-alternative > a {}
+
+.form-alternative > span {
+  padding-right: .4rem;
 }
