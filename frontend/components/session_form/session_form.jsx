@@ -13,15 +13,23 @@ class SessionForm extends Component {
       birth_day: "Day",
       birth_month: "Month",
       birth_year: "Year",
+      formTypeLogin: this.props.formTypeLogin,
+      hit: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginDemoUser = this.loginDemoUser.bind(this);
+    this.handleFormChange = this.handleFormChange.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
-   if (newProps.loggedIn) {
-     this.props.history.push('/');
-   }
+    debugger
+    this.setState({hit: true});
+  }
+
+  handleFormChange() {
+    this.setState({formTypeLogin: !this.state.formTypeLogin}, () => {
+      console.log(this.state.formTypeLogin);
+    });
   }
 
   handleSubmit(e) {
@@ -69,7 +77,6 @@ class SessionForm extends Component {
 
   signupFields(action) {
     const altMessage = 'Log In';
-    const alternative = '/login';
     return (
       <form className="signup-form" onSubmit={this.handleSubmit}>
         <h1>{ action }</h1>
@@ -140,14 +147,13 @@ class SessionForm extends Component {
 
           <section className="form-alternative">
             <span>Already have an account?</span>
-            <Link onClick={() => this.props.clearErrors()} to={ alternative }>{ altMessage }</Link>
+            <p onClick={this.handleFormChange}>Log In</p>
           </section>
       </form>
     );
   }
 
   loginFields(action) {
-    const alternative = '/signup';
     const altMessage = 'Sign Up';
     return (
 
@@ -175,7 +181,7 @@ class SessionForm extends Component {
 
           <section className="form-alternative">
             <span>Don't have an account?</span>
-            <Link onClick={() => this.props.clearErrors()} to={ alternative }>{ altMessage }</Link>
+            <p onClick={this.handleFormChange}>Sign Up</p>
           </section>
 
       </form>
@@ -184,10 +190,10 @@ class SessionForm extends Component {
 
 
   render() {
-    const { formType, errors } = this.props;
-    const action = formType === 'login' ? "Log In" : "Sign Up";
-
-      return formType === 'login' ? this.loginFields(action) : this.signupFields(action);
+    const { errors } = this.props;
+    const { formTypeLogin } = this.state;
+    const action = formTypeLogin ? "Log In" : "Sign Up";
+    return formTypeLogin ? this.loginFields(action) : this.signupFields(action);
   }
 }
 

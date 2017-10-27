@@ -16,8 +16,6 @@ $input-border-color: #d5d5d5;
   align-items: center;
 }
 
-
-
 .loose p {
   font-size: .8rem;
 }
@@ -49,6 +47,10 @@ $input-border-color: #d5d5d5;
 .session-form-input i {
   margin-right: 1rem;
   font-size: 2rem;
+}
+
+.session-form-input > input {
+  width: 30rem;
 }
 
 .session-form-birthday {
@@ -108,6 +110,7 @@ $input-border-color: #d5d5d5;
   display: flex;
   justify-content: center;
 }
+
 .form-alternative > a {}
 
 .form-alternative > span {

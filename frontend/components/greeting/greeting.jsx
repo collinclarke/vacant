@@ -9,16 +9,16 @@ class Greeting extends Component {
     super();
     this.state = {
       modalIsOpen: false,
-      formType: 'login'
+      formTypeLogin: true,
     };
     this.handleOpenModal = this.openModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
-  openModal (type) {
+  openModal (bool) {
     this.setState({
       modalIsOpen: true,
-      formType: type,
+      formTypeLogin: bool,
     });
   }
 
@@ -38,14 +38,16 @@ class Greeting extends Component {
       ) : (
         <section className="greeting">
 
-          <a href="/#/signup" onClick={() => this.openModal('signup')}>Sign Up</a>
-          <a href="/#/login" onClick={() => this.openModal('login')}>Login</a>
+          <p onClick={() => this.openModal(false)}>Sign Up</p>
+          <p onClick={() => this.openModal(true)}>Login</p>
           <ReactModal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.handleCloseModal}
+            className="session-modal"
+            overlayClassName="session-modal-bg"
           >
-          <i onClick={this.handleCloseModal} className="icon ion-close"></i>
-            <SessionFormContainer formType={this.state.formType}/>
+          <i onClick={this.handleCloseModal} className="icon ion-ios-close-empty modal-close"></i>
+            <SessionFormContainer formTypeLogin={this.state.formTypeLogin}/>
           </ReactModal>
 
         </section>
