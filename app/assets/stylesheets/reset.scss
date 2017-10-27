@@ -12,6 +12,11 @@ body, div, form, input, button, p, section, article, main, header, footer, span,
   font-family: helvetica, sans-serif;
 }
 
+a:visited, a:active, a:hover, a:link {
+  color: #666666;
+}
+
+
 html {
   overflow: hidden;
 }

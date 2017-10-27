@@ -35,6 +35,14 @@ $break: 1440px;
   width: 100%;
 }
 
+.spot-details {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
 .spot-type {
   margin-top: .5rem;
   text-transform: uppercase;
@@ -74,7 +82,6 @@ $break: 1440px;
   letter-spacing: .06rem;
   font-weight: bold;
 }
-
 
 .spots-map {
   grid-column: 3 / 4;

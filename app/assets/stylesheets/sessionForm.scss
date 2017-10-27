@@ -111,7 +111,9 @@ $input-border-color: #d5d5d5;
   justify-content: center;
 }
 
-.form-alternative > a {}
+.form-alternative > p {
+  cursor: pointer;
+}
 
 .form-alternative > span {
   padding-right: .4rem;
