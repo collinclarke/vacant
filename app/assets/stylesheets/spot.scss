@@ -1,7 +1,7 @@
 .spot-show {
   margin-top: 4rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 28vw 1fr 1fr;
   grid-template-rows: 75vh 5vh 1fr;
 }
 
@@ -20,7 +20,7 @@
   object-fit: cover;
 }
 
-.spot-show-nav {
+#spot-show-nav {
   grid-row: 2;
   grid-column: 2 / 3;
   display: flex;
@@ -65,6 +65,7 @@
   display: flex;
   flex-flow: row wrap;
   width: 15rem;
+  margin: 1rem 0;
 }
 
 .list-bullet {
@@ -74,4 +75,13 @@
 
 .spot-show-type {
 
+}
+
+.spot-placeholder {
+  margin-top: 1rem;
+  background-color: grey;
+  height: 200rem;
+  display: flex;
+  grid-row: 4;
+  grid-column: 2 / 3;
 }

@@ -1,23 +1,26 @@
 header {
   width: 100%;
-  height: 4rem;
   display: grid;
   position: fixed;
   grid-gap: .5rem;
-  grid-template-columns: 4rem 1fr;
-  grid-template-rows: 4rem 1fr;
-  background: #eee;
-  padding-left: 1rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 5fr 1fr;
+  background: white;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
 }
 
 .main-logo {
   grid-row: 1;
   grid-column: 1;
-  padding: .8rem;
-  padding-top: .6rem;
-  margin-top: .3rem;
-  display: grid;
+  display: flex;
+
   cursor: pointer;
   // -webkit-filter: grayscale(100%) brightness(500%) brightness(50%);
   // filter: grayscale(100%) brightness(500%) brightness(50%);
+}
+
+.main-logo > img {
+  object-fit: contain;
+  width: 2.5rem;
 }
