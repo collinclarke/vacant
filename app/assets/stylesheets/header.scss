@@ -1,11 +1,12 @@
 header {
-  grid-column: 1;
-  grid-row: 1;
+  width: 100%;
+  height: 7rem;
   display: grid;
+  position: fixed;
   grid-gap: .5rem;
   grid-template-columns: 4rem 1fr;
   grid-template-rows: 4rem 1fr;
-  height: 100%;
+  background: #eee;
 }
 
 .main-logo {
