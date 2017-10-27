@@ -185,9 +185,9 @@ class SessionForm extends Component {
 
   render() {
     const { formType, errors } = this.props;
-    const action = formType === '/login' ? "Log In" : "Sign Up";
+    const action = formType === 'login' ? "Log In" : "Sign Up";
 
-      return formType === '/login' ? this.loginFields(action) : this.signupFields(action);
+      return formType === 'login' ? this.loginFields(action) : this.signupFields(action);
   }
 }
 

@@ -13,8 +13,6 @@ const App = () => {
         <GreetingContainer />
       </header>
       <Route path='/' component={ SpotsIndexContainer } />
-        <AuthRoute path='/login' component={ SessionFormContainer } />
-        <AuthRoute path='/signup' component={ SessionFormContainer } />
     </main>
   );
 };

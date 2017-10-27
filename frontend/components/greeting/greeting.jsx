@@ -1,7 +1,31 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ReactModal from 'react-modal';
+import SessionFormContainer from '../session_form/session_form_container';
+
 
 class Greeting extends Component {
+  constructor() {
+    super();
+    this.state = {
+      modalIsOpen: false,
+      formType: 'login'
+    };
+    this.handleOpenModal = this.openModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  openModal (type) {
+    this.setState({
+      modalIsOpen: true,
+      formType: type,
+    });
+  }
+
+  handleCloseModal () {
+    this.setState({ modalIsOpen: false });
+  }
+
   render() {
     return (this.props.currentUser ?
       (
@@ -13,9 +37,19 @@ class Greeting extends Component {
         </section>
       ) : (
         <section className="greeting">
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/login">Log In</Link>
+
+          <a href="/#/signup" onClick={() => this.openModal('signup')}>Sign Up</a>
+          <a href="/#/login" onClick={() => this.openModal('login')}>Login</a>
+          <ReactModal
+            isOpen={this.state.modalIsOpen}
+            onRequestClose={this.handleCloseModal}
+          >
+          <i onClick={this.handleCloseModal} className="icon ion-close"></i>
+            <SessionFormContainer formType={this.state.formType}/>
+          </ReactModal>
+
         </section>
+
       )
     );
   }
