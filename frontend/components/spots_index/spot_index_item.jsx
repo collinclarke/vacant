@@ -11,8 +11,15 @@ class SpotIndexItem extends Component {
         <img src= { image_url } alt="spot image"/>
         <span className="spot-type">{ kind }</span>
         <span className="spot-title">{ title }</span>
-        <span className="spot-title">From { price } per night</span>
-        <span className="rating">rating thingy here</span>
+        <span className="spot-price">From { price } per night</span>
+        <span className="spot-rating">
+          <i className="icon ion-android-star"></i>
+          <i className="icon ion-android-star"></i>
+          <i className="icon ion-android-star"></i>
+          <i className="icon ion-android-star"></i>
+          <i className="icon ion-android-star"></i>
+          <p id="num-of-reviews">47</p>
+        </span>
       </li>
     );
   }

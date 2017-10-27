@@ -4,6 +4,7 @@
 
 $break: 1440px;
 
+
 .spots-list {
   grid-column: 1 / 3;
   display: block;
@@ -22,7 +23,6 @@ $break: 1440px;
   align-items: flex-start;
   max-width: 21vw;
   height: 100%;
-  background: white;
   margin-bottom: 2rem;
   @media screen and (max-width: $break) {
     max-width: 31vw;
@@ -34,6 +34,47 @@ $break: 1440px;
   height: 100%;
   width: 100%;
 }
+
+.spot-type {
+  margin-top: .5rem;
+  text-transform: uppercase;
+  font-size: .65rem;
+  font-weight: bold;
+  letter-spacing: .14rem;
+  color: rgb(57, 87, 106);
+}
+
+.spot-title {
+  color: rgb(22, 5, 9);
+  font-size: 1.2rem;
+  letter-spacing: .08rem;
+  font-weight: bold;
+  margin: .04rem;
+}
+
+.spot-price {
+  color: #2d2d2f;
+  font-weight: lighter;
+  letter-spacing: .04rem;
+  margin-bottom: .06rem;
+}
+
+.spot-rating {
+  display: flex;
+  justify-content: flex-start;
+  font-size: .8rem;
+  width: 4rem;
+  align-items: baseline;
+}
+
+.spot-rating p {
+  font-size: .7rem;
+  padding: 0;
+  padding-left: .25rem;
+  letter-spacing: .06rem;
+  font-weight: bold;
+}
+
 
 .spots-map {
   grid-column: 3 / 4;
