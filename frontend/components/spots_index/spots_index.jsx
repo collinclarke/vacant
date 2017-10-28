@@ -18,7 +18,7 @@ class SpotsIndex extends Component {
           </ul>
         </section>
         <section className="spots-map map">
-          <SpotMap />
+          <SpotMap spots={this.props.spots} />
         </section>
       </section>
     );
