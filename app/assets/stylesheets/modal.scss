@@ -1,20 +1,23 @@
 .session-modal-bg {
   background: rgba(0, 0, 0, 0.75);
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  margin: 0;
   padding: 3rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
 
 .session-modal {
+  position: fixed;
   position: relative;
   display: block;
 }
+
 
 .modal-close {
   font-size: 2.3rem;

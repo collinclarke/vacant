@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SpotIndexItem from './spot_index_item';
+import SpotMap from './spot_map';
 
 class SpotsIndex extends Component {
 
@@ -17,7 +18,7 @@ class SpotsIndex extends Component {
           </ul>
         </section>
         <section className="spots-map">
-          <h1>map</h1>
+          <SpotMap />
         </section>
       </section>
     );
