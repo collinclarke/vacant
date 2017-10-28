@@ -17,7 +17,7 @@ class SpotsIndex extends Component {
               className="spot-index-item" key={spot.id} spot={spot} />) }
           </ul>
         </section>
-        <section className="spots-map">
+        <section className="spots-map map">
           <SpotMap />
         </section>
       </section>

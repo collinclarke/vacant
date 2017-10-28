@@ -9,12 +9,13 @@ class SpotMap extends Component {
       zoom: 13
     };
 
-    this.map = new google.maps.Map(this.mapNode, mapOptions);
+    const map = this.refs.map;
+    this.map = new google.maps.Map(map, mapOptions);
   }
 
   render() {
     return (
-      <div ref={map => this.mapNode = map }></div>
+      <div id="map-container" ref="map"></div>
     );
   }
 

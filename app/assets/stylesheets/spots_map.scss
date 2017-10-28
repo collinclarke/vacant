@@ -1,0 +1,16 @@
+#map-container {
+  // height: 100%;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.spots-map {
+  // grid-column: 3 / 4;
+  width: 31.5vw;
+  position: fixed;
+  right: .9rem;
+  bottom: 0;
+  top: 5.55rem;
+  display: flex;
+}
