@@ -14,9 +14,13 @@ class SpotMap extends Component {
   }
 
   componentDidMount() {
+    this.bound = new google.maps.LatLngBounds();
+
     const mapOptions = {
       center: {lat: 37.7758, lng: -122.435 },
-      zoom: 13
+      zoom: 13,
+      scrollwheel: false,
+      navigationControl: true
     };
 
     const map = this.refs.map;

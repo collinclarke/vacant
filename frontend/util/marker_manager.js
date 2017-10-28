@@ -6,7 +6,6 @@ class MarkerManager extends Component {
 
   constructor(map) {
     super(map);
-    this.geocoder = new google.maps.Geocoder();
     this.map = map;
     this.markers = {};
   }
@@ -22,8 +21,10 @@ class MarkerManager extends Component {
   }
 
   createMarkerfromSpot(spot) {
+    const { title, latitude, longitude } = spot;
+    const position = new google.maps.LatLng(latitude, longitude);
     const marker = new google.maps.Marker({
-      position: spot.position,
+      position,
       map: this.map,
       title: spot.title
     });

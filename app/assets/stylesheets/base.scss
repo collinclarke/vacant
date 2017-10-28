@@ -34,3 +34,24 @@ hr {
 i[class*="i"] {
   color: #666666;
 }
+
+::-webkit-scrollbar{
+    width: 1rem;
+    height: 1rem;
+}
+
+::-webkit-scrollbar-track{
+    height: 100vh;
+    border-radius: 0;
+    background: rgb(255, 255, 255);
+}
+::-webkit-scrollbar-thumb{
+    width: .5rem;
+    height: .5rem;
+    background: -webkit-linear-gradient(#ffffff, #d5d5d5);
+}
+
+::-webkit-scrollbar-track-piece {
+    height: 30px;
+    width: 30px;
+}
