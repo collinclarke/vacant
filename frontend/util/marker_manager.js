@@ -8,6 +8,7 @@ class MarkerManager extends Component {
     super(map);
     this.map = map;
     this.markers = {};
+    this.bounds = new google.maps.LatLngBounds();
   }
 
   updateMarkers(spots){
@@ -28,6 +29,8 @@ class MarkerManager extends Component {
       map: this.map,
       title: spot.title
     });
+    this.bounds.extend(position);
+    this.map.fitBounds(this.bounds);
   }
 
   render() {
