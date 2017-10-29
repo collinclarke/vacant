@@ -4,25 +4,11 @@ import SpotsMap from './spots_map';
 import * as ScrollApi from '../../util/scroll';
 
 class SpotsIndex extends Component {
-  constructor(){
-    super();
-
-    this.state = {
-      scrollTop: 0
-    };
-  }
 
   componentDidMount() {
     this.props.fetchSpots();
-    // this.scrollEl = document.getElementById('spots-list');
-    // this.fixedEl = document.getElementById('spots-map');
     this.main = document.querySelector('main');
-    // this.fixedEl.addEventListener("wheel", ScrollApi.scroller, false);
-    // this.scrollEl.addEventListener("wheel", ScrollApi.scroller, false);
     this.main.addEventListener("wheel", ScrollApi.scroller, false);
-    // this.fixedEl.addEventListener("wheel", this.handleScroll, false);
-    // this.scrollEl.addEventListener("wheel", this.handleScroll, false);
-    // console.log(this.fixedEl);
   }
 
   render() {

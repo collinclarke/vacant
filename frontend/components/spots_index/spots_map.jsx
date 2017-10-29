@@ -7,7 +7,6 @@ class SpotsMap extends Component {
     this.state = {
       markers: {},
     };
-    this.onScroll = this.onScroll.bind(this);
   }
 
   componentWillReceiveProps({ spots }) {
@@ -15,7 +14,6 @@ class SpotsMap extends Component {
   }
 
   componentDidMount() {
-
     const mapOptions = {
       center: {lat: 37.7758, lng: -122.435 },
       zoom: 13,
@@ -30,16 +28,11 @@ class SpotsMap extends Component {
       position: {lat: 37.7758, lng: -122.435 },
       map: this.map
     });
-
-  }
-
-  onScroll(e) {
-    this.props.handleScroll( e.deltaY );
   }
 
   render() {
     return (
-      <section className="spots-map map" id="spots-map" ref="mapView">
+      <section className="spots-map map" id="spots-map">
         <div id="map-container" ref="map"></div>
       </section>
     );
