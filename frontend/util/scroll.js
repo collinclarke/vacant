@@ -12,7 +12,7 @@
 //
 // export default scrollFix;
 export const scroller = (e) => {
-  console.log("current target", e.currentTarget);
   const that = e.currentTarget;
-  console.log("this", that.scrollTop);
+  const delta = e.wheelDelta;
+  that.scrollTop = that.scrollTop - delta;
 };

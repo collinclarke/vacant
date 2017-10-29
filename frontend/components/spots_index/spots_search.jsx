@@ -10,14 +10,12 @@ class SpotsIndex extends Component {
     this.state = {
       scrollTop: 0
     };
-
-    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchSpots();
-    this.scrollEl = document.getElementById('spots-list');
-    this.fixedEl = document.getElementById('spots-map');
+    // this.scrollEl = document.getElementById('spots-list');
+    // this.fixedEl = document.getElementById('spots-map');
     this.main = document.querySelector('main');
     // this.fixedEl.addEventListener("wheel", ScrollApi.scroller, false);
     // this.scrollEl.addEventListener("wheel", ScrollApi.scroller, false);
@@ -27,16 +25,11 @@ class SpotsIndex extends Component {
     // console.log(this.fixedEl);
   }
 
-  handleScroll(e) {
-    console.log(e);
-    this.setState({ scrollTop: e });
-  }
-
   render() {
     return (
       <section className="spots-index">
-        <SpotsList spots={this.props.spots} scrollTop={ this.state.scrollTop }/>
-        <SpotsMap spots={this.props.spots} handleScroll={ this.handleScroll }/>
+        <SpotsList spots={this.props.spots}/>
+        <SpotsMap spots={this.props.spots}/>
       </section>
     );
   }
