@@ -19,15 +19,8 @@ class SessionForm extends Component {
     this.handleFormChange = this.handleFormChange.bind(this);
   }
 
-  componentWillReceiveProps(newProps) {
-    debugger
-    this.setState({hit: true});
-  }
-
   handleFormChange() {
-    this.setState({formTypeLogin: !this.state.formTypeLogin}, () => {
-      console.log(this.state.formTypeLogin);
-    });
+    this.setState({formTypeLogin: !this.state.formTypeLogin});
   }
 
   handleSubmit(e) {

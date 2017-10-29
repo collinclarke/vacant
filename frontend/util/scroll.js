@@ -12,6 +12,7 @@
 //
 // export default scrollFix;
 export const scroller = (e) => {
-  const delta = e.deltaY;
-  console.log(delta);
+  console.log("current target", e.currentTarget);
+  const that = e.currentTarget;
+  console.log("this", that.scrollTop);
 };

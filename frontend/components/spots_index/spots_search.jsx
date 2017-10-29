@@ -24,18 +24,19 @@ class SpotsIndex extends Component {
     this.main.addEventListener("wheel", ScrollApi.scroller, false);
     // this.fixedEl.addEventListener("wheel", this.handleScroll, false);
     // this.scrollEl.addEventListener("wheel", this.handleScroll, false);
-    console.log(this.fixedEl);
+    // console.log(this.fixedEl);
   }
 
   handleScroll(e) {
-    this.setState({ scrollTop: e.deltaY });
+    console.log(e);
+    this.setState({ scrollTop: e });
   }
 
   render() {
     return (
       <section className="spots-index">
         <SpotsList spots={this.props.spots} scrollTop={ this.state.scrollTop }/>
-        <SpotsMap spots={this.props.spots}/>
+        <SpotsMap spots={this.props.spots} handleScroll={ this.handleScroll }/>
       </section>
     );
   }
