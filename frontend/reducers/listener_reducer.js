@@ -1,4 +1,4 @@
-import { ADD_GLOBAL_SCROLL, REMOVE_GLOBAL_SCROLL } from '../actions/scroll_actions';
+import { ADD_GLOBAL_SCROLL, REMOVE_GLOBAL_SCROLL } from '../actions/listener_actions';
 
 const initialState = { globalScroll: false };
 
@@ -13,3 +13,5 @@ const listenerReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default listenerReducer;

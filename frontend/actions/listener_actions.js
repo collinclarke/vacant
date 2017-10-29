@@ -1,4 +1,4 @@
-import { scroller } from '../util/scroll';
+import { scroller } from '../util/scroll_util';
 
 export const ADD_GLOBAL_SCROLL = "ADD_GLOBAL_SCROLL";
 export const REMOVE_GLOBAL_SCROLL = "REMOVE_GLOBAL_SCROLL";

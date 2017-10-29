@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SpotsList from './spots_list';
 import SpotsMap from './spots_map';
-import { scroller } from '../../util/scroll';
 
 class SpotsIndex extends Component {
 
