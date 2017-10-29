@@ -12,7 +12,6 @@ class MarkerManager extends Component {
   }
 
   updateMarkers(spots){
-    console.log('time to update');
     spots.forEach(spot => {
       if (!Object.keys(this.markers).includes(spot.id)) {
         this.markers[spot.id] = this.createMarkerfromSpot(spot);

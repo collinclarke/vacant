@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MarkerManager from '../../util/marker_manager';
 
-class SpotMap extends Component {
+class SpotsMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,18 +9,16 @@ class SpotMap extends Component {
     };
   }
 
-  componentWillReceiveProps(newProps) {
-    this.MarkerManager.updateMarkers(newProps.spots);
+  componentWillReceiveProps({ spots }) {
+    this.MarkerManager.updateMarkers(spots);
   }
 
   componentDidMount() {
 
-
     const mapOptions = {
       center: {lat: 37.7758, lng: -122.435 },
       zoom: 13,
-      scrollwheel: false,
-      navigationControl: true
+      gestureHandling: 'cooperative'
     };
 
     const map = this.refs.map;
@@ -34,12 +32,15 @@ class SpotMap extends Component {
 
   }
 
+
   render() {
     return (
-      <div id="map-container" ref="map"></div>
+      <section className="spots-map map" id="spots-map">
+        <div id="map-container" ref="map"></div>
+      </section>
     );
   }
 
 }
 
-export default SpotMap;
+export default SpotsMap;

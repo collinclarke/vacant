@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSpots } from '../../actions/spots_actions';
-import SpotsIndex from './spots_index';
+import SpotsSearch from './spots_search';
 
 
 const mapStateToProps = state => {
@@ -17,4 +17,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SpotsIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(SpotsSearch);
