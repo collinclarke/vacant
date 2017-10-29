@@ -15,22 +15,23 @@
   display: flex;
 }
 
-#price-marker {
+.price-marker {
   position: relative;
   margin: auto;
 }
 
-#price-marker > div {
-  font-size: 2.1rem;
+.price-marker > div {
+  font-size: 1.9rem;
   font-weight: bolder;
   letter-spacing: .18rem;
   color: #f0f0f0;
   position: absolute;
-  top: -.2rem;
+  top: 0;
   left: .85rem;
   width: 100%;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 #map-container {
@@ -52,7 +53,7 @@
     // top: 20px;
 
     div[style*="opacity: 0.7"] {
-      display: none;
+
     }
 
     div[style*="background-color: rgb(255, 255, 255)"] {
@@ -82,7 +83,7 @@
   }
 
   img[src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png"] {
-      display: none;
+    display: none;
   }
 
 }

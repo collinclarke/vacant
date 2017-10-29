@@ -33,15 +33,17 @@ class MarkerManager extends Component {
       map: this.map,
     });
 
+    const content = `
+      <div class="price-marker" ref="priceMarker">
+        <div>$${ price }</div>
+      </div>
+    `;
+
     const infowindow = new google.maps.InfoWindow({
       maxWidth: 100,
-      content: `<div id="price-marker"><div>$${price}</div></div>`
+      content: content
     });
 
-    infowindow.addListener('mouseover', () => {
-      this.map.setZoom(8);
-      this.map.setCenter(marker.getPosition());
-    });
 
     infowindow.open(this.map, marker);
 
