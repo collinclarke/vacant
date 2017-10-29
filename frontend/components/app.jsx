@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
-import SpotsIndexContainer from './spots_index/spots_index_container';
+import SpotsSearchContainer from './spots_index/spots_search_container';
 import SpotShowContainer from './spot_show/spot_show_container';
 import { AuthRoute } from '../util/route_util';
 
@@ -14,7 +14,7 @@ const App = () => {
         <GreetingContainer />
       </header>
 
-      <Route exact path='/' component={ SpotsIndexContainer } />
+      <Route exact path='/' component={ SpotsSearchContainer } />
       <Route path='/:spotId' component={ SpotShowContainer } />
     </main>
   );

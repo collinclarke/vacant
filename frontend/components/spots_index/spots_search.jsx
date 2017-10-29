@@ -7,8 +7,7 @@ class SpotsIndex extends Component {
 
   componentDidMount() {
     this.props.fetchSpots();
-    this.main = document.querySelector('main');
-    this.main.addEventListener("wheel", scroller, false);
+    this.props.addGlobalScroll();
   }
 
   render() {

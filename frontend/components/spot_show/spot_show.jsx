@@ -6,6 +6,7 @@ class SpotShow extends Component {
 
   componentDidMount() {
     this.props.fetchSpot(this.props.match.params.spotId);
+    this.props.removeGlobalScroll();
   }
 
   componentWillReceiveProps(nextProps) {

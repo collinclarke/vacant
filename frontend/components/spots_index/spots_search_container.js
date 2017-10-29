@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSpots } from '../../actions/spots_actions';
+import { addGlobalScroll } from '../../actions/listener_actions';
 import SpotsSearch from './spots_search';
 
 
@@ -14,6 +15,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchSpots: () => dispatch(fetchSpots()),
+    addGlobalScroll: () => dispatch(addGlobalScroll())
   };
 };
 
