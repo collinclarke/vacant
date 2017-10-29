@@ -28,7 +28,8 @@ class SessionForm extends Component {
     const user = Object.assign({}, this.state, {
       birth_date: this.birthday()
     });
-    this.props.processForm(user);
+    return this.state.formTypeLogin ? this.props.login(user) :
+    this.props.signup(user);
   }
 
   update(field) {
@@ -151,6 +152,7 @@ class SessionForm extends Component {
       <form className="login-form" onSubmit={this.handleSubmit}>
         <h1>{ action }</h1>
         <hr />
+
         <div className="session-form-input">
           <input id="email" type="text" value={ this.state.email }
             onChange={ this.update('email') } placeholder="Email Address"/>
@@ -158,7 +160,7 @@ class SessionForm extends Component {
         </div>
 
         <div className="session-form-input">
-          <input type="password" value={ this.state.password }
+          <input  type="password" value={ this.state.password }
             onChange={ this.update('password') }  placeholder="Password"/>
           <i className="icon ion-ios-locked-outline i-pw"></i>
         </div>
