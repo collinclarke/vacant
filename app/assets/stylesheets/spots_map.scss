@@ -14,3 +14,75 @@
   top: 5.55rem;
   display: flex;
 }
+
+#price-marker {
+  position: relative;
+  margin: auto;
+}
+
+#price-marker > div {
+  font-size: 2.1rem;
+  font-weight: bolder;
+  letter-spacing: .18rem;
+  color: #f0f0f0;
+  position: absolute;
+  top: -.2rem;
+  left: .85rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#map-container {
+
+  div[style*="box-shadow"] {
+    // background: yellow !important;
+    box-shadow: none !important;
+  }
+
+  div[style*="background-color: rgba(0, 0, 0, 0.2)"] {
+    background-color: #000000 !important;
+  }
+
+  div[style*="cursor: default"] {
+
+    transform: scale(0.6) !important;
+    // transform: translateX(2rem) !important;
+    transform-origin: 3rem 5rem;
+    // top: 20px;
+
+    div[style*="opacity: 0.7"] {
+      display: none;
+    }
+
+    div[style*="background-color: rgb(255, 255, 255)"] {
+      background: #323232 !important;
+    }
+
+
+  }
+
+  div[style*="overflow: auto"] {
+    overflow: visible !important;
+    height: 2rem !important;
+    width: 2.8rem !important;
+  }
+
+  //pointer
+  div[style*="border-top-width"] {
+    transform: scaleY(0.5);
+  }
+
+  div[style*="solid transparent"] {
+    display: none;
+  }
+
+  div[class*="gm-style-iw"] {
+    overflow: visible !important;
+  }
+
+  img[src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png"] {
+      display: none;
+  }
+
+}

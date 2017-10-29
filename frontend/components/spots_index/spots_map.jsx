@@ -17,17 +17,17 @@ class SpotsMap extends Component {
     const mapOptions = {
       center: {lat: 37.7758, lng: -122.435 },
       zoom: 13,
-      gestureHandling: 'none'
+      gestureHandling: 'cooperative'
     };
 
     const map = this.refs.map;
     this.map = new google.maps.Map(map, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
 
-    const marker = new google.maps.Marker({
-      position: {lat: 37.7758, lng: -122.435 },
-      map: this.map
-    });
+  }
+
+  componentDidUpdate() {
+
   }
 
   render() {

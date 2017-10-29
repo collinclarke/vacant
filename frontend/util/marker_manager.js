@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 
-
 class MarkerManager extends Component {
 
   constructor(map) {
@@ -21,13 +20,31 @@ class MarkerManager extends Component {
   }
 
   createMarkerfromSpot(spot) {
-    const { title, latitude, longitude } = spot;
+    const { price, title, latitude, longitude } = spot;
     const position = new google.maps.LatLng(latitude, longitude);
+
+    const iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+    const icon = iconBase + 'info-i_maps.png';
+
     const marker = new google.maps.Marker({
       position,
+      title: spot.title,
+      icon: ' ',
       map: this.map,
-      title: spot.title
     });
+
+    const infowindow = new google.maps.InfoWindow({
+      maxWidth: 100,
+      content: `<div id="price-marker"><div>$${price}</div></div>`
+    });
+
+    infowindow.addListener('mouseover', () => {
+      this.map.setZoom(8);
+      this.map.setCenter(marker.getPosition());
+    });
+
+    infowindow.open(this.map, marker);
+
     this.bounds.extend(position);
     this.map.fitBounds(this.bounds);
   }
