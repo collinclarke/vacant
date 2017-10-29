@@ -50,12 +50,13 @@ class SpotShow extends Component {
           </nav>
 
           <section id="overview" className="spot-show-details">
-            <span className="spot-show-title">{ title }</span>
-            <ul className="spot-show-subtitle">
-              <li className="spot-show-type">{ kind }</li>
-              <li className="spot-show-address"><span className="list-bullet">&bull;</span>{ address }</li>
-              <li className="spot-host-name">Hosted by host #{host_id}</li>
-            </ul>
+            <div className="spot-show-title">{ title }</div>
+            <div className="spot-show-subtitle">
+              <div className="spot-show-type-address">
+                { kind }<span className="list-bullet">&bull;</span>{ address }
+              </div>
+              <div className="spot-host-name">Hosted by host #{host_id}</div>
+            </div>
           </section>
 
           <section className="spot-placeholder">

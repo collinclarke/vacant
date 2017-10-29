@@ -6,7 +6,6 @@ body, div, form, input, button, p, section, article, main, header, footer, span,
   padding: 0;
   text-decoration: none;
   font-size: inherit;
-  display: unset;
   font-weight: inherit;
   letter-spacing: inherit;
   font-family: helvetica, sans-serif;
@@ -14,6 +13,10 @@ body, div, form, input, button, p, section, article, main, header, footer, span,
 
 a:visited, a:active, a:hover, a:link {
   color: #666666;
+}
+
+ul {
+  list-style: none;
 }
 
 
