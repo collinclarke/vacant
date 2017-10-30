@@ -9,14 +9,25 @@ class SpotsMap extends Component {
     };
   }
 
-  componentWillReceiveProps({ spots, hover }) {
-    this.MarkerManager.updateMarkers(spots, hover);
+  componentWillReceiveProps(props) {
+    const { spots, hover } = props;
+    const arrSpots = Object.values(spots);
+    this.map.fitBounds(this.MarkerManager.updateMarkers(arrSpots));
+    if (hover) this.MarkerManager.handleHover(spots[hover]);
+    if (this.MarkerManager.markers) {
+      Object.values(this.MarkerManager.markers)
+      .forEach(marker => {
+        if (marker.infowindow) {
+          marker.infowindow.open(this.map);
+        }
+      });
+    }
   }
 
   componentDidMount() {
     const mapOptions = {
       center: {lat: 37.7758, lng: -122.435 },
-      zoom: 13,
+      zoom: 16,
       gestureHandling: 'cooperative'
     };
 

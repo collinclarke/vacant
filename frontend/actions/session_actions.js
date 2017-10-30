@@ -22,7 +22,7 @@ export const signup = (user) => dispatch => {
 };
 
 export const logout = () => dispatch => {
-  return API.logout().then( () => dispatch(logoutCurrentUser(null)) );
+  return API.logout().then( () => dispatch(logoutCurrentUser()) );
 };
 
 export const logoutCurrentUser = () => {

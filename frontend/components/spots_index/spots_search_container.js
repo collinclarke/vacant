@@ -7,7 +7,7 @@ import SpotsSearch from './spots_search';
 
 const mapStateToProps = state => {
   return {
-    spots: Object.values(state.entities.spots)
+    spots: state.entities.spots
   };
 };
 
