@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028205706) do
+ActiveRecord::Schema.define(version: 20171030161752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "spot_id", null: false
+    t.integer "overall", null: false
+    t.integer "user_impression", null: false
+    t.integer "cleanliness", null: false
+    t.string "cleanliness_note"
+    t.integer "accuracy", null: false
+    t.string "accuracy_note"
+    t.integer "communication", null: false
+    t.string "communication_note"
+    t.integer "check_in", null: false
+    t.string "check_in_note"
+    t.integer "value", null: false
+    t.string "value_note"
+    t.integer "location", null: false
+    t.string "location_note"
+    t.string "private_note"
+    t.string "public_review"
+    t.string "response"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spot_id"], name: "index_reviews_on_spot_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "spots", force: :cascade do |t|
     t.string "title", null: false

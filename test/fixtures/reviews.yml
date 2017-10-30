@@ -1,0 +1,71 @@
+# == Schema Information
+#
+# Table name: reviews
+#
+#  id                 :integer          not null, primary key
+#  user_id            :integer          not null
+#  spot_id            :integer          not null
+#  overall            :integer          not null
+#  user_impression    :integer          not null
+#  cleanliness        :integer          not null
+#  cleanliness_note   :string
+#  accuracy           :integer          not null
+#  accuracy_note      :string
+#  communication      :integer          not null
+#  communication_note :string
+#  check_in           :integer          not null
+#  check_in_note      :string
+#  value              :integer          not null
+#  value_note         :string
+#  location           :integer          not null
+#  location_note      :string
+#  private_note       :string
+#  public_review      :string
+#  response           :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  spot_id: 1
+  overall: 1
+  user_impression: 1
+  cleanliness: 1
+  cleanliness_note: MyString
+  accuracy: 1
+  accuracy_note: MyString
+  communication: 1
+  communication_note: MyString
+  check_in: 1
+  check_in_note: MyString
+  value: 1
+  value_note: MyString
+  location: 1
+  location_note: MyString
+  private_note: MyString
+  public_review: MyString
+  response: MyString
+
+two:
+  user_id: 1
+  spot_id: 1
+  overall: 1
+  user_impression: 1
+  cleanliness: 1
+  cleanliness_note: MyString
+  accuracy: 1
+  accuracy_note: MyString
+  communication: 1
+  communication_note: MyString
+  check_in: 1
+  check_in_note: MyString
+  value: 1
+  value_note: MyString
+  location: 1
+  location_note: MyString
+  private_note: MyString
+  public_review: MyString
+  response: MyString

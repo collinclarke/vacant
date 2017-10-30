@@ -32,6 +32,14 @@ class User < ApplicationRecord
   has_attached_file :image, default_url: "userIcon.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
+  has_many :reviews
+
+  has_many :reviewed_spots,
+  through: :reviews,
+  source: :spot
+
+  has_many :spots
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64
   end
