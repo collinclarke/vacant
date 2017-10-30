@@ -28,8 +28,8 @@
     letter-spacing: .18rem;
     color: #b9b9b9;
     position: absolute;
-    top: 0;
-    left: .85rem;
+    top: .08rem;
+    left: .88rem;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -42,11 +42,15 @@
 
   div[style*="box-shadow"] {
     // background: yellow !important;
-    box-shadow: none !important;
+    box-shadow: 1px solid black !important;
   }
 
   div[style*="background-color: rgba(0, 0, 0, 0.2)"] {
     background-color: #1a1a1a !important;
+  }
+
+  div[style*="position: absolute; overflow: hidden; top: -1px; left: 10px; width: 16px; height: 30px;"] {
+    left: 9.5px !important;
   }
 
   div[style*="cursor: default"] {
@@ -75,11 +79,11 @@
 
   //pointer
   div[style*="border-top-width"] {
-    transform: scaleY(0.5);
+    transform: scaleY(0.6);
   }
 
   div[style*="solid transparent"] {
-    transform: scaleY(0.5);
+    transform: scaleY(0.6);
     border-top: 20px solid #1a1a1a !important;
     transform-origin: 0rem -0.1rem !important;
     // display: none;
