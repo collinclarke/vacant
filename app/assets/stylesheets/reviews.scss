@@ -8,7 +8,8 @@
   width: 100%;
   display: flex;
   flex-flow: column nowrap;
-
+  padding: 2rem 0;
+  border-bottom: 1px solid #e4e1e1;
 }
 
 .review-header {
@@ -16,6 +17,7 @@
   flex-flow: row;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 .review-signature {

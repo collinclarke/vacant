@@ -58,4 +58,15 @@ class Spot < ApplicationRecord
     ratings
   end
 
+  def calculate_reviews_sql
+    ratings = {"overall" => reviews.average(:overall).to_f,
+    "accuracy" => reviews.average(:accuracy).to_f,
+    "communication" => reviews.average(:communication).to_f,
+    "cleanliness" => reviews.average(:cleanliness).to_f,
+    "location" => reviews.average(:location).to_f,
+    "check_in" => reviews.average(:check_in).to_f,
+    "value" => reviews.average(:value).to_f }
+    ratings.as_json
+  end
+
 end

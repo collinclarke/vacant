@@ -36,7 +36,7 @@ class SpotShow extends Component {
     }
 
     if (this.props.spot) {
-      const { title, address, price, kind, image_url, id, host, reviews } = this.props.spot;
+      const { title, address, price, kind, image_url, id, host, reviews, ratings } = this.props.spot;
       return (
         <section className="spot-show">
 
@@ -70,6 +70,10 @@ class SpotShow extends Component {
               </div>
               <div className="spot-host-name">Hosted by {host}</div>
             </div>
+          </section>
+
+          <section className="spot-ratings">
+              { ratings.overall }
           </section>
 
           <section className="spot-reviews">

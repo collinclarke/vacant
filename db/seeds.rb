@@ -18,6 +18,14 @@ b = User.create({
   birth_date: "1980-01-01"
 });
 
+d = User.create({
+  email: "collinclarke@gmail.com",
+  first_name: "Collin",
+  last_name: "Demo",
+  password: "starwars",
+  birth_date: "1980-01-01"
+});
+
 a = User.create({
   email: "mrhost@gmail.com",
   first_name: "Hoster",
@@ -48,7 +56,8 @@ Spot.create({
   kind: "office",
   host_id: a.id
 });
-Review.create({
+
+Review.create!({
   user_id: b.id,
   spot_id: c.id,
   overall: 5,
@@ -58,5 +67,20 @@ Review.create({
   communication: 5,
   check_in: 5,
   value: 5,
-  location: 5
+  location: 5,
+  public_review: "So fun to work in this studio, Hoster was a great host!"
+})
+
+Review.create!({
+  user_id: d.id,
+  spot_id: c.id,
+  overall: 2,
+  user_impression: 1,
+  cleanliness: 4,
+  accuracy: 1,
+  communication: 4,
+  check_in: 4,
+  value: 1,
+  location: 1,
+  public_review: "Wow this studio is terrible, what a terrible place!"
 })

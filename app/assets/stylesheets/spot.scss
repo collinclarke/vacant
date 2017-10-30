@@ -2,7 +2,7 @@
   margin-top: 4rem;
   display: grid;
   grid-template-columns: 1fr 60vw 2fr;
-  grid-template-rows: 75vh 5vh 1fr;
+  grid-template-rows: 75vh 3rem 1fr;
   grid-gap: .8rem;
 }
 
@@ -24,14 +24,15 @@
 #spot-show-nav {
   grid-row: 2;
   grid-column: 2 / 3;
-  padding: 1rem 1rem 0 0;
+  padding: 0 1rem .8rem 0;
   border-bottom: 1px solid #aaa;
+  display: flex;
+  align-items: center;
 }
 
 #spot-show-nav > ul{
   display: flex;
   flex-flow: row wrap;
-  align-items: flex-start;
   list-style: none;
 }
 
@@ -88,12 +89,17 @@
   padding: 0 .5rem;
 }
 
+.spot-ratings {
+  grid-row: 4;
+  grid-column: 2 / 3;
+}
+
 .spot-reviews {
-  border: 1px solid #eee;
+  // border: 1px solid rgb(200, 255, 184);
   margin-top: 1rem;
   height: 200rem;
   display: flex;
   flex-flow: column nowrap;
-  grid-row: 4;
+  grid-row: 5;
   grid-column: 2 / 3;
 }
