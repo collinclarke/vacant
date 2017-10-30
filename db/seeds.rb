@@ -8,24 +8,25 @@
 
 User.destroy_all
 Spot.destroy_all
+Review.destroy_all
 
-User.create({
+b = User.create({
   email: "demovacantuser@gmail.com",
-  first_name: "Demo",
-  last_name: "User",
+  first_name: "Resident",
+  last_name: "Demo",
   password: "starwars",
   birth_date: "1980-01-01"
 });
 
 a = User.create({
   email: "mrhost@gmail.com",
-  first_name: "Demo",
-  last_name: "Host",
+  first_name: "Hoster",
+  last_name: "Demo",
   password: "starwars",
   birth_date: "1980-01-01"
 });
 
-Spot.create({
+c = Spot.create({
   title: "A beautiful studio with views of the water",
   address: "36 Waverly Avenue, Brooklyn NY",
   price: "75",
@@ -47,3 +48,15 @@ Spot.create({
   kind: "office",
   host_id: a.id
 });
+Review.create({
+  user_id: b.id,
+  spot_id: c.id,
+  overall: 5,
+  user_impression: 5,
+  cleanliness: 5,
+  accuracy: 5,
+  communication: 5,
+  check_in: 5,
+  value: 5,
+  location: 5
+})

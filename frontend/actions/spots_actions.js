@@ -21,10 +21,10 @@ export const receiveSpots = (spots) => {
   };
 };
 
-export const receiveSpot = (spot) => {
+export const receiveSpot = (spotObject) => {
   return {
     type: RECEIVE_SPOT,
-    spot
+    spotObject
   };
 };
 
