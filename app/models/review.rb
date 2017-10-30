@@ -34,8 +34,8 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :spot
 
-  belongs_to :host,
+  has_one :host,
   through: :spot,
   source: :host
-  
+
 end

@@ -56,7 +56,7 @@ class SpotShow extends Component {
               <div className="spot-show-type-address">
                 { kind }<span className="list-bullet">&bull;</span>{ address }
               </div>
-              <div className="spot-host-name">Hosted by {host.first_name}</div>
+              <div className="spot-host-name">Hosted by {host}</div>
             </div>
           </section>
 
