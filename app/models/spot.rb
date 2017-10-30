@@ -26,8 +26,36 @@ class Spot < ApplicationRecord
   validates_attachment_content_type :main_image, content_type: /\Aimage\/.*\Z/
 
   has_many :reviews
-  
+
   belongs_to :host,
   foreign_key: :host_id,
   class_name: :User
+
+  def calculate_reviews
+    ratings = {"overall" => 0,
+    "accuracy" => 0,
+    "communication" => 0,
+    "cleanliness" => 0,
+    "location" => 0,
+    "check_in" => 0,
+    "value" => 0 }
+    review_count = 0
+    self.reviews.each do |review|
+      review_count += 1
+      ratings["overall"] += (review.overall)
+      ratings["accuracy"] += (review.accuracy)
+      ratings["communication"] += (review.communication)
+      ratings["cleanliness"] += (review.cleanliness)
+      ratings["location"] += (review.location)
+      ratings["check_in"] += (review.check_in)
+      ratings["value"] += (review.value)
+    end
+    require 'json'
+    ratings.values.each do |value|
+      value / review_count
+    end
+    ratings = ratings.as_json
+    ratings
+  end
+
 end

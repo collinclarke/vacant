@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import Scrollchor from 'react-scrollchor';
-import ReviewItem from './review_item'
+import ReviewItem from './review_item';
 
 
 class SpotShow extends Component {
+
+  constructor() {
+    super();
+
+  }
 
   componentDidMount() {
     this.props.fetchSpot(this.props.match.params.spotId);
@@ -16,8 +21,14 @@ class SpotShow extends Component {
     }
   }
 
-  render() {
+  reviewHelper() {
+    const { reviews } = this.props.spot;
+    return reviews.map(reviewId => {
+      return <ReviewItem key={reviewId} review={ this.props.reviews[reviewId] }/>;
+    });
+  }
 
+  render() {
     const loading = this.props.loading;
 
     if (loading) {
@@ -63,7 +74,7 @@ class SpotShow extends Component {
 
           <section className="spot-reviews">
             <ul>
-            {reviews.map(reviewId => <ReviewItem key={reviewId} review={ this.props.reviews[reviewId] }/> ) }
+            {this.reviewHelper()}
             </ul>
           </section>
 
