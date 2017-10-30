@@ -9,8 +9,8 @@ class SpotsMap extends Component {
     };
   }
 
-  componentWillReceiveProps({ spots }) {
-    this.MarkerManager.updateMarkers(spots);
+  componentWillReceiveProps({ spots, hover }) {
+    this.MarkerManager.updateMarkers(spots, hover);
   }
 
   componentDidMount() {

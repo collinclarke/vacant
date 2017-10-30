@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDom from 'react-dom';
 import { Link } from 'react-router-dom';
 
 
@@ -7,8 +8,7 @@ class SpotIndexItem extends Component {
   render() {
     const { title, address, price, kind, image_url, id } = this.props.spot;
     return (
-      <li>
-
+      <li onMouseOver={this.props.handleMouseover} spotid={ id }>
         <Link to={`/${id}`} className="spot-details">
           <img src= { image_url } alt="spot image"/>
           <span className="spot-type">{ kind }</span>
