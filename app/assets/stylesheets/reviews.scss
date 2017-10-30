@@ -1,3 +1,36 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.review-item {
+  color: #2e2e2e;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+
+}
+
+.review-header {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.review-signature {
+
+}
+
+.review-author {
+  font-weight: bolder;
+}
+
+.review-date {
+  font-size: .8rem;
+  font-weight: lighter;
+}
+
+.review-body {
+
+}

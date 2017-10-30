@@ -1,7 +1,7 @@
 .spot-show {
   margin-top: 4rem;
   display: grid;
-  grid-template-columns: 28vw 1fr 1fr;
+  grid-template-columns: 1fr 60vw 2fr;
   grid-template-rows: 75vh 5vh 1fr;
   grid-gap: .8rem;
 }
@@ -88,11 +88,12 @@
   padding: 0 .5rem;
 }
 
-.spot-placeholder {
+.spot-reviews {
+  border: 1px solid #eee;
   margin-top: 1rem;
-  background-color: grey;
   height: 200rem;
   display: flex;
+  flex-flow: column nowrap;
   grid-row: 4;
   grid-column: 2 / 3;
 }

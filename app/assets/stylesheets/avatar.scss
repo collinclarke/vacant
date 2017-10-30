@@ -1,0 +1,18 @@
+
+.user-avatar {
+}
+
+.user-avatar-wrapper {
+  border-radius: 50%;
+  background: white;
+  overflow: hidden;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #d6d6d6;
+  margin-right: .5rem;
+}
+
+.user-avatar {
+  height: 100%;
+  object-fit: cover;
+}

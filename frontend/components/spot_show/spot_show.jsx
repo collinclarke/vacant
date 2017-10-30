@@ -61,7 +61,7 @@ class SpotShow extends Component {
             </div>
           </section>
 
-          <section className="spot-placeholder">
+          <section className="spot-reviews">
             <ul>
             {reviews.map(reviewId => <ReviewItem key={reviewId} review={ this.props.reviews[reviewId] }/> ) }
             </ul>
