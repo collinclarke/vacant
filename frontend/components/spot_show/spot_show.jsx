@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Scrollchor from 'react-scrollchor';
+import ReviewItem from './review_item'
 
 
 class SpotShow extends Component {
@@ -24,7 +25,7 @@ class SpotShow extends Component {
     }
 
     if (this.props.spot) {
-      const { title, address, price, kind, image_url, id, host } = this.props.spot;
+      const { title, address, price, kind, image_url, id, host, reviews } = this.props.spot;
       return (
         <section className="spot-show">
 
@@ -61,7 +62,9 @@ class SpotShow extends Component {
           </section>
 
           <section className="spot-placeholder">
-            fake info
+            <ul>
+            {reviews.map(reviewId => <ReviewItem key={reviewId} review={ this.props.reviews[reviewId] }/> ) }
+            </ul>
           </section>
 
         </section>

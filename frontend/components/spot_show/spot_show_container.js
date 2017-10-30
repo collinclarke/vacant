@@ -7,6 +7,7 @@ import SpotShow from './spot_show';
 const mapStateToProps = (state, ownProps) => {
   return {
     spot: state.entities.spots[state.ui.spotDisplay],
+    reviews: state.entities.reviews,
     loading: state.ui.loading.spotLoading
   };
 };
