@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  spot_id: 1
+  start_date: 2017-10-31
+  end_date: 2017-10-31
+  status: MyString
+
+two:
+  user_id: 1
+  spot_id: 1
+  start_date: 2017-10-31
+  end_date: 2017-10-31
+  status: MyString
