@@ -1,3 +1,18 @@
+.ReactModalPortal > * {
+    // When the modal is closed, overlay div has no css class
+    // This selector should be overridden by the `&--after-open` class below
+    opacity: 0;
+}
+.ReactModal__Overlay {
+    transition: opacity 200ms ease-in-out;
+    background: rgba(0, 0, 0, 0.15);
+    &--after-open {
+        opacity: 1;
+    }
+    &--before-close {
+        opacity: 0;
+    }
+}
 .session-modal-bg {
   background: rgba(0, 0, 0, 0.75);
   position: fixed;
@@ -22,33 +37,33 @@
 .settings-modal-bg {
   position: absolute;
   top: 0rem;
-  z-index: 1000;
   right: 0;
   width: 21rem;
 }
 
 .settings-modal {
   width: 21rem;
-  top: 5.5rem;
+  top: 0;
   right: 3rem;
   position: relative;
   box-sizing: border-box;
 
   .user-settings {
     position: absolute;
-    border: 1px solid #e9e9e9;
-    padding: 0 1rem;
-    background: white;
+    padding-top: 5.55rem;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
     width: 100%;
     color: #3e3e3e;
     li {
-      padding: 1rem .8rem;
+      padding: 1rem 1.8rem;
       border-bottom: 1px solid #e9e9e9;
+      border-top: 1px solid #e9e9e9;
+
       width: 21rem;
       box-sizing: border-box;
+      background: white;
     }
 
     li:last-child {

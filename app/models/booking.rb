@@ -4,11 +4,16 @@ class Booking < ApplicationRecord
   validates :start_date, :end_date, :status, :residents, presence: true
   validates :status, inclusion: STATUS_STATES
 
-  validate :start_must_come_before_end, if: Proc.new { |booking| booking.start_date && booking.end_date}
-  validate :does_not_overlap_approved_request, if: Proc.new { |booking| booking.start_date && booking.end_date}
+  validate :start_must_come_before_end
+  validate :does_not_overlap_approved_request
+  # if: Proc.new { |booking| booking.start_date && booking.end_date}
 
   belongs_to :user
   belongs_to :spot
+
+  has_one :host,
+  through: :spot,
+  source: :host
 
   def approve!
     raise 'not pending' unless self.status == 'PENDING'

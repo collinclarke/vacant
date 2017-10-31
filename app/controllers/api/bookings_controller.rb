@@ -5,7 +5,7 @@ class Api::BookingsController < ApplicationController
     if @booking.save
       render "api/bookings/show"
     else
-      render json: @booking.errors, status: 422
+      render json: @booking.errors.full_messages, status: 422
     end
   end
 

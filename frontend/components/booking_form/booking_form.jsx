@@ -5,15 +5,13 @@ class BookingForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      start_date: "",
-      end_date: "",
+      start_date: (new Date()),
+      end_date: (new Date()),
       residents: 1,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
   }
-
-
 
   handleSubmit(e) {
     e.preventDefault();
@@ -29,47 +27,65 @@ class BookingForm extends Component {
     );
   }
 
+  requested() {
+    const user = this.props.currentUser;
+    if (user) {
+      return user.bookings.includes(this.props.spotId);
+    }
+    return false;
+  }
+
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
   dateFields() {
-    return (
-      <form className="booking-form">
-
-        <div className="heading">
-          <span className="price">
-            ${this.props.price}
-          </span><span> per night</span>
-          <RatingBlurb rating={ 4 } reviewTotal={ 45 } />
-        </div>
-
-        <hr />
-        <div className="booking-dates">
-          <div className="start-date">
-            <label>Check In</label>
-            <input required type="date" value={ this.state.start_date }
-              onChange={ this.update('start_date') }/>
+    return this.requested ? (
+        <form className="booking-form">
+          <div className="heading">
+            <span className="price">
+              ${this.props.price}
+            </span><span> per night</span>
+            <RatingBlurb rating={ 4 } reviewTotal={ 45 } />
           </div>
-          <div className="end-date">
-            <label>Check Out</label>
-            <input required type="date" value={ this.state.end_date }
-              onChange={ this.update('end_date') }/>
+
+          <hr />
+
+          <div className="booking-dates">
+            <div className="start-date">
+              <label>Check In</label>
+              <input required type="date" defaultValue={this.state.start_date}
+                onChange={ this.update('start_date') }/>
+            </div>
+            <div className="end-date">
+              <label>Check Out</label>
+              <input required type="date" defaultValue={this.state.end_date}
+                onChange={ this.update('end_date') }/>
+            </div>
           </div>
-        </div>
+          <div className="booking-errors">
+            <ul>
+              { this.props.errors.map(error => {<li>{error}</li>;} ) }
+            </ul>
+          </div>
+          <div className="num-residents">
+            <label>Guests</label>
+            <input required type="number" value={ this.state.residents }
+              onChange={ this.update('residents') }  placeholder="1"/>
+          </div>
+          <button onClick={this.handleSubmit}>
+            { this.props.currentUser ? "Request to Book" : "Sign up to Book"}
+          </button>
+          <span>You won't be charged yet</span>
 
-        <div className="num-residents">
-          <label>Guests</label>
-          <input required type="number" value={ this.state.residents }
-            onChange={ this.update('residents') }  placeholder="1"/>
-        </div>
+          <hr />
 
-        <button onClick={this.handleSubmit}>{ this.props.currentUser ? "Request to Book" : "Sign up to Book"}</button>
-        <span>You won't be charged yet</span>
-        <hr />
-
-      </form>
-    );
+        </form>
+      ) : (
+          <div className="requested-notice">
+            Spot Requested!
+          </div>
+        );
   }
 
 

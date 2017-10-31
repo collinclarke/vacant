@@ -37,6 +37,7 @@ class Greeting extends Component {
     });
   }
 
+
   render() {
     return (this.props.currentUser ?
       (
@@ -48,14 +49,16 @@ class Greeting extends Component {
           </div>
           <ReactModal
             isOpen={this.state.preferencesModalIsOpen}
-            onRequestClose={this.handleCloseModal}
+            onRequestClose={this.gentleCloseModal}
+            onAfterOpen={this.afterOpenModal}
+            closeTimeoutMS={50}
             className="settings-modal"
             overlayClassName="settings-modal-bg"
           >
-            <ul className="user-settings" onMouseLeave={this.handleCloseModal}>
+            <ul className="user-settings" onMouseEnter={this.openPreferencesModal} onMouseLeave={this.handleCloseModal} >
               <li id="user-name">{this.props.currentUser.first_name}</li>
               <li id="user-bookings">Your Bookings</li>
-              <li id="logout" onClick={this.props.logout}>Logout</li>
+              <li id="logout" onClick={this.props.logout}><span onClick={this.handleCloseModal}>Logout</span></li>
             </ul>
           </ReactModal>
         </section>
@@ -69,6 +72,7 @@ class Greeting extends Component {
             onRequestClose={this.handleCloseModal}
             className="session-modal"
             overlayClassName="session-modal-bg"
+            closeTimeoutMS={50}
           >
           <i onClick={this.handleCloseModal} className="icon ion-ios-close-empty modal-close"></i>
             <SessionFormContainer closeModal={this.handleCloseModal} formTypeLogin={this.state.formTypeLogin}/>

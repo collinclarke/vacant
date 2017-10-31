@@ -5,7 +5,8 @@ import { createBooking } from '../../actions/booking_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    errors: state.errors.bookings
   });
 };
 

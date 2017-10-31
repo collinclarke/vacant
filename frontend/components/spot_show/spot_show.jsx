@@ -64,6 +64,7 @@ class SpotShow extends Component {
             isOpen={this.state.sessionModalIsOpen}
             onRequestClose={this.handleCloseModal}
             className="session-modal"
+            closeTimeoutMS={50}
             overlayClassName="session-modal-bg"
           >
           <i onClick={this.handleCloseModal} className="icon ion-ios-close-empty modal-close"></i>
