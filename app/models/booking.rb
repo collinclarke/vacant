@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
 
   validates :start_date, :end_date, :status, :residents, presence: true
   validates :status, inclusion: STATUS_STATES
-  validate: :start_must_come_before_end
+  validate :start_must_come_before_end
   validate :does_not_overlap_approved_request
 
   belongs_to :user

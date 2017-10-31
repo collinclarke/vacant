@@ -5,8 +5,8 @@ class BookingForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: "",
-      endDate: "",
+      start_date: "",
+      end_date: "",
       residents: 1
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,13 +42,13 @@ class BookingForm extends Component {
         <div className="booking-dates">
           <div className="start-date">
             <label>Check In</label>
-            <input required type="date" value={ this.state.startDate }
-              onChange={ this.update('startDate') }/>
+            <input required type="date" value={ this.state.start_date }
+              onChange={ this.update('start_date') }/>
           </div>
           <div className="end-date">
             <label>Check Out</label>
-            <input required type="date" value={ this.state.endDate }
-              onChange={ this.update('endDate') }/>
+            <input required type="date" value={ this.state.end_date }
+              onChange={ this.update('end_date') }/>
           </div>
         </div>
 

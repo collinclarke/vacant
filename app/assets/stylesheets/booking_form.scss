@@ -14,13 +14,13 @@
   letter-spacing: .04rem;
   font-weight: lighter;
   background: white;
-  border: 1px solid green;
   padding: 1.5rem;
   border: 1px solid $input-border-color;
 
   button {
     width: 100%;
     margin-bottom: .6rem;
+    box-sizing: border-box;
   }
 
   label {

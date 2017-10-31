@@ -64,7 +64,7 @@ class SpotShow extends Component {
           </nav>
 
           <section id="booking-form">
-            <BookingFormContainer price={ price }/>
+            <BookingFormContainer spotId={ id }price={ price }/>
           </section>
 
           <section id="overview" className="spot-show-details">

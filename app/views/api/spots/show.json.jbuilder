@@ -1,5 +1,6 @@
 json.set! "spot" do
   json.partial! 'spot', spot: @spot
+  json.ratings @spot.calculate_reviews_sql
 end
 
 json.set! "reviews" do
