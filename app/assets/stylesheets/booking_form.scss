@@ -10,7 +10,6 @@
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  height: 30rem;
   font-size: 1.2rem;
   letter-spacing: .04rem;
   font-weight: lighter;
@@ -27,7 +26,7 @@
   label {
     font-size: .8rem;
     padding-left: .2rem;
-    margin-bottom: .2rem;
+    margin-bottom: .4rem;
     margin-top: .5rem;
   }
 
@@ -41,6 +40,18 @@
     font-size: .8rem;
   }
 }
+
+.heading {
+  align-self: flex-start;
+
+  .price {
+    font-size: 1.3rem;
+    font-weight: bolder;
+    color: #3e3e3e;
+  }
+}
+
+
 
 .booking-dates {
   width: 21rem;
