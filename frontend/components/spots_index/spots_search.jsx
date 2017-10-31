@@ -22,6 +22,7 @@ class SpotsIndex extends Component {
   componentDidMount() {
     this.props.fetchSpots();
     this.props.addGlobalScroll();
+    document.querySelector('header').classList.add('fixed');
     // console.log(this.child.heading.getDOMNode());
   }
 

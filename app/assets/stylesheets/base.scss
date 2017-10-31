@@ -1,9 +1,6 @@
 main {
   font-family: helvetica, sans-serif;
   // display: grid;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
   background: white;
 }
 
@@ -15,7 +12,7 @@ button {
   width: 100%;
   padding: 1rem;
   border-radius: .2rem;
-  margin-top: .7rem; 
+  margin-top: .7rem;
   display: flex;
   justify-content: center;
   align-items: center;
