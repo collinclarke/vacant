@@ -2,12 +2,31 @@ import React, { Component } from 'react';
 import Scrollchor from 'react-scrollchor';
 import ReviewItem from './review_item';
 import BookingFormContainer from '../booking_form/booking_form_container';
+import ReactModal from 'react-modal';
+import SessionFormContainer from '../session_form/session_form_container';
+
 
 class SpotShow extends Component {
 
   constructor() {
     super();
+    this.state = {
+      sessionModalIsOpen: false
+    };
+    this.openSessionModal = this.openSessionModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
 
+  openSessionModal() {
+    this.setState({
+      sessionModalIsOpen: true,
+    });
+  }
+
+  handleCloseModal () {
+    this.setState({
+      sessionModalIsOpen: false,
+    });
   }
 
   componentDidMount() {
@@ -41,6 +60,16 @@ class SpotShow extends Component {
       return (
         <section className="spot-show">
 
+          <ReactModal
+            isOpen={this.state.sessionModalIsOpen}
+            onRequestClose={this.handleCloseModal}
+            className="session-modal"
+            overlayClassName="session-modal-bg"
+          >
+          <i onClick={this.handleCloseModal} className="icon ion-ios-close-empty modal-close"></i>
+            <SessionFormContainer closeModal={this.handleCloseModal} />
+          </ReactModal>
+
           <section className="spot-show-image">
             <img src= { image_url } alt="spot image"/>
           </section>
@@ -64,7 +93,7 @@ class SpotShow extends Component {
           </nav>
 
           <section id="booking-form">
-            <BookingFormContainer spotId={ id }price={ price }/>
+            <BookingFormContainer openSessionModal={ this.openSessionModal } spotId={ id } price={ price }/>
           </section>
 
           <section id="overview" className="spot-show-details">

@@ -3,8 +3,9 @@ class Booking < ApplicationRecord
 
   validates :start_date, :end_date, :status, :residents, presence: true
   validates :status, inclusion: STATUS_STATES
-  validate :start_must_come_before_end
-  validate :does_not_overlap_approved_request
+
+  validate :start_must_come_before_end, if: Proc.new { |booking| booking.start_date && booking.end_date}
+  validate :does_not_overlap_approved_request, if: Proc.new { |booking| booking.start_date && booking.end_date}
 
   belongs_to :user
   belongs_to :spot
@@ -15,8 +16,6 @@ class Booking < ApplicationRecord
       self.status = 'APPROVED'
       self.save!
 
-      # when we approve this request, we reject all other overlapping
-      # requests for this cat.
       overlapping_pending_requests.update_all(status: 'DENIED')
     end
   end
@@ -69,8 +68,6 @@ class Booking < ApplicationRecord
   end
 
   def start_must_come_before_end
-    errors[:start_date] << 'must specify a start date' unless start_date
-    errors[:end_date] << 'must specify an end date' unless end_date
     errors[:start_date] << 'must come before end date' if start_date > end_date
   end
 

@@ -7,15 +7,20 @@ class BookingForm extends Component {
     this.state = {
       start_date: "",
       end_date: "",
-      residents: 1
+      residents: 1,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
   }
 
 
+
   handleSubmit(e) {
     e.preventDefault();
+    if (!this.props.currentUser) {
+      this.props.openSessionModal();
+      return;
+    }
     this.props.createBooking(Object.assign({}, this.state, {
         user_id: this.props.currentUser.id,
         spot_id: this.props.spotId,
@@ -30,7 +35,8 @@ class BookingForm extends Component {
 
   dateFields() {
     return (
-      <form className="booking-form" onSubmit={this.handleSubmit}>
+      <form className="booking-form">
+
         <div className="heading">
           <span className="price">
             ${this.props.price}
@@ -58,7 +64,7 @@ class BookingForm extends Component {
             onChange={ this.update('residents') }  placeholder="1"/>
         </div>
 
-        <button>Request to Book</button>
+        <button onClick={this.handleSubmit}>{ this.props.currentUser ? "Request to Book" : "Sign up to Book"}</button>
         <span>You won't be charged yet</span>
         <hr />
 

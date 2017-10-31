@@ -6,10 +6,11 @@ class RatingBlurb extends Component {
   ratingStars() {
     const stars = [];
     for (var i = 0; i < this.props.rating; i++) {
-      stars.push(<i className="icon ion-android-star"></i>);
+      stars.push(<i key={ i }className="icon ion-android-star"></i>);
     }
     while (!stars[4]) {
-      stars.push(<i className="icon ion-android-star-outline"></i>);
+      stars.push(<i key={ i } className="icon ion-android-star-outline"></i>);
+      i++;
     }
     return stars;
   }

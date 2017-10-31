@@ -4,19 +4,14 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 
-
-
-
-let dispatchErrors;
-
 export const login = (user) => dispatch => {
-  dispatchErrors = errors => dispatch(receiveErrors(errors));
+  const dispatchErrors = errors => dispatch(receiveErrors(errors));
   const dispatchLogin = user => dispatch(receiveCurrentUser(user));
   return API.login(user).then(dispatchLogin, dispatchErrors);
 };
 
 export const signup = (user) => dispatch => {
-  dispatchErrors = errors => dispatch(receiveErrors(errors));
+  const dispatchErrors = errors => dispatch(receiveErrors(errors));
   const dispatchSignup = user => dispatch(receiveCurrentUser(user));
   return API.signup(user).then(dispatchSignup, dispatchErrors);
 };

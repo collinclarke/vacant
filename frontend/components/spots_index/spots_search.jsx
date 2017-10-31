@@ -14,7 +14,6 @@ class SpotsIndex extends Component {
 
   handleMouseover(e) {
     this.setState({hover: e.currentTarget.getAttribute("spotid")});
-    console.log(this.state);
     // debugger
     // console.log(this.hover);
   }
