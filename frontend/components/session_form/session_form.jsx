@@ -28,6 +28,7 @@ class SessionForm extends Component {
     const user = Object.assign({}, this.state, {
       birth_date: this.birthday()
     });
+    this.props.closeModal();
     return this.state.formTypeLogin ? this.props.login(user) :
     this.props.signup(user);
   }

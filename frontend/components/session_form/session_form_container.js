@@ -5,6 +5,7 @@ import SessionForm from './session_form';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
+    closeModal: ownProps.closeModal,
     loggedIn: !!state.session.currentUser,
     errors: state.errors.session,
     formTypeLogin: ownProps.formTypeLogin

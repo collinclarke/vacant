@@ -19,6 +19,44 @@
   display: block;
 }
 
+.settings-modal-bg {
+  position: absolute;
+  top: 0rem;
+  z-index: 1000;
+  right: 0;
+  width: 21rem;
+}
+
+.settings-modal {
+  width: 21rem;
+  top: 5.5rem;
+  right: 3rem;
+  position: relative;
+  box-sizing: border-box;
+
+  .user-settings {
+    position: absolute;
+    border: 1px solid #e9e9e9;
+    padding: 0 1rem;
+    background: white;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    width: 100%;
+    color: #3e3e3e;
+    li {
+      padding: 1rem .8rem;
+      border-bottom: 1px solid #e9e9e9;
+      width: 21rem;
+      box-sizing: border-box;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+  }
+
+}
 
 .modal-close {
   font-size: 2.3rem;
