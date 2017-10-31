@@ -4,8 +4,7 @@ import BookingForm from './booking_form';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
-    currentUser: state.session.currentUser,
-    spotId: ownProps.match.params.spotId
+    currentUser: state.session.currentUser
   });
 };
 

@@ -9,11 +9,12 @@ $input-border-color: #d5d5d5;
   background: white;
   width: 35rem;
   max-height: 80rem;
-  padding: 2rem 0;
+  padding: 2rem;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .loose p {
@@ -21,7 +22,7 @@ $input-border-color: #d5d5d5;
 }
 
 .loose {
-  width: 32rem;
+  width: 100%;
   flex-flow: column nowrap;
   align-content: flex-start;
   padding: 1rem 0 .4rem 0;
@@ -29,14 +30,13 @@ $input-border-color: #d5d5d5;
 }
 
 .session-form-input {
-  width: 32rem;
+  width: 100%;
   box-sizing: border-box;
   border: 1px solid $input-border-color;
   border-radius: .2rem;
   align-items: center;
   display: flex;
   justify-content: space-between;
-  width: 32rem;
   padding: 1rem;
   border-radius: .2rem;
   margin-top: .5rem;
@@ -54,7 +54,7 @@ $input-border-color: #d5d5d5;
 }
 
 .session-form-birthday {
-  width: 32rem;
+  width: 100%;
   box-sizing: border-box;
   margin: .5rem 0;
   display: flex;

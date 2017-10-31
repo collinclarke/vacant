@@ -35,7 +35,7 @@ class User < ApplicationRecord
   has_many :reviews
 
   has_many :bookings,
-  foreign_key: :user_id
+  foreign_key: :user_id,
   class_name: :Booking
 
   has_many :booked_spots,

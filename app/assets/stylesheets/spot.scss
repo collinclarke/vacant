@@ -1,13 +1,13 @@
 .spot-show {
   display: grid;
-  grid-template-columns: 1fr 60vw 2fr;
+  grid-template-columns: 1fr 40vw 24rem 1fr;
   grid-template-rows: 75vh 3rem 1fr;
-  grid-gap: 0;
+  grid-column-gap: 4rem;
 }
 
 .spot-show-image {
   grid-row: 1;
-  grid-column: 1 / 4;
+  grid-column: 1 / 5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,4 +106,10 @@
   flex-flow: column nowrap;
   grid-row: 5;
   grid-column: 2 / 3;
+}
+
+#booking-form {
+  grid-column: 3 / 4;
+  position: sticky;
+  top: 0rem;
 }
