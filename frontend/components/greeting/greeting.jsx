@@ -34,6 +34,7 @@ class Greeting extends Component {
           <img className="user-avatar" src={this.props.currentUser.image_url}
             alt="user avatar thumbnail"/>
           <p id="logout" onClick={this.props.logout}>Logout</p>
+          <Link to="uploadImage">Upload</Link>
         </section>
       ) : (
         <section className="greeting">
