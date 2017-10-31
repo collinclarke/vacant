@@ -7,6 +7,10 @@ main {
   background: white;
 }
 
+.fixed {
+  position: fixed;
+}
+
 button {
   width: 32rem;
   padding: 1rem;
@@ -41,7 +45,7 @@ i[class*="i"] {
 }
 
 ::-webkit-scrollbar-track{
-    height: 100vh;
+
     border-radius: 0;
     background: rgb(255, 255, 255);
 }

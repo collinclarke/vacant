@@ -1,13 +1,13 @@
 header {
-  width: 100%;
+  width: 100vw;
   display: grid;
-  position: fixed;
   grid-gap: .5rem;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3rem 1fr;
   background: white;
   padding: 1rem;
   padding-left: 1.5rem;
+  box-sizing: border-box;
   border-bottom: 1px solid #eee;
   z-index: 20;
 }

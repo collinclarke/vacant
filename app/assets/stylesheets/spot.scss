@@ -1,9 +1,8 @@
 .spot-show {
-  margin-top: 4rem;
   display: grid;
   grid-template-columns: 1fr 60vw 2fr;
   grid-template-rows: 75vh 3rem 1fr;
-  grid-gap: .8rem;
+  grid-gap: 0;
 }
 
 .spot-show-image {
@@ -24,10 +23,14 @@
 #spot-show-nav {
   grid-row: 2;
   grid-column: 2 / 3;
-  padding: 0 1rem .8rem 0;
+  padding: 1rem 1rem 1rem 0;
   border-bottom: 1px solid #aaa;
   display: flex;
   align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: white;
 }
 
 #spot-show-nav > ul{
@@ -65,6 +68,7 @@
   grid-row: 1;
   color: #2f2f2f;
   letter-spacing: .05rem;
+  padding-top: .5rem;
 }
 
 .spot-show-subtitle {

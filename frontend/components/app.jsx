@@ -9,11 +9,10 @@ import { AuthRoute } from '../util/route_util';
 const App = () => {
   return (
     <main className="full-screen">
-      <header>
+      <header className="fixed">
         <a className="main-logo" href="/#/"><img src={ window.logoUrl } alt="Vacant Logo"/></a>
         <GreetingContainer />
       </header>
-
       <Route exact path='/' component={ SpotsSearchContainer } />
       <Route path='/:spotId' component={ SpotShowContainer } />
     </main>

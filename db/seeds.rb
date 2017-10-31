@@ -44,14 +44,14 @@ c = Spot.create({
 
 Spot.create({
   title: "My house",
-  address: "205 Washington Avenue",
+  address: "205 Washington Avenue, Brooklyn NY",
   price: "224",
   kind: "office",
   host_id: a.id
 });
 Spot.create({
   title: "My old house",
-  address: "5360 Queen Ann Lane",
+  address: "5360 Queen Ann Lane, Santa Barbara CA",
   price: "300",
   kind: "office",
   host_id: a.id
