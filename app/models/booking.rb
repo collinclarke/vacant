@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   STATUS_STATES = %w(APPROVED DENIED PENDING).freeze
 
-  validates :start_date, :end_date, :status, presence: true
+  validates :start_date, :end_date, :status, :residents, presence: true
   validates :status, inclusion: STATUS_STATES
   validate: :start_must_come_before_end
   validate :does_not_overlap_approved_request

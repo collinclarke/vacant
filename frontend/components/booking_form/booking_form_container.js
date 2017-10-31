@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BookingForm from './booking_form';
-import { bookSpot } from '../../actions/spots_actions';
+import { createBooking } from '../../actions/booking_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    bookSpot: form => dispatch(bookSpot(form))
+    createBooking: form => dispatch(createBooking(form))
   };
 };
 

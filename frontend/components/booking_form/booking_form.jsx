@@ -7,18 +7,21 @@ class BookingForm extends Component {
     this.state = {
       startDate: "",
       endDate: "",
-      residents: 0
+      residents: 1
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleFormChange = this.handleFormChange.bind(this);
+    this.update = this.update.bind(this);
   }
 
-  handleFormChange() {
-    this.setState({formTypeLogin: !this.state.formTypeLogin});
-  }
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.createBooking(Object.assign({}, this.state, {
+        user_id: this.props.currentUser.id,
+        spot_id: this.props.spotId,
+        status: 'PENDING'
+      })
+    );
   }
 
   update(field) {

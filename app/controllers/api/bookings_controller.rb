@@ -27,8 +27,8 @@ class Api::BookingsController < ApplicationController
     current_spot_booking.spot
   end
 
-  def cat_rental_request_params
-    params.require(:booking).permit(:spot_id, :end_date, :start_date, :status)
+  def booking_params
+    params.require(:booking).permit(:spot_id, :user_id, :end_date, :start_date, :residents, :status)
   end
 
 
