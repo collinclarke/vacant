@@ -15,4 +15,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+export default connect(mapStateToProps, mapDispatchToProps)(BookingForm);

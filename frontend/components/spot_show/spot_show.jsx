@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Scrollchor from 'react-scrollchor';
 import ReviewItem from './review_item';
-
+import BookingFormContainer from '../booking_form/booking_form_container';
 
 class SpotShow extends Component {
 
@@ -62,6 +62,10 @@ class SpotShow extends Component {
               </li>
             </ul>
           </nav>
+
+          <section id="booking-form">
+            <BookingFormContainer />
+          </section>
 
           <section id="overview" className="spot-show-details">
             <div className="spot-show-title">{ title }</div>
