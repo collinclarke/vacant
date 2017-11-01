@@ -8,7 +8,7 @@ const ReviewsReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_SPOT:
-      const reviews = action.spotObject.reviews;
+      const reviews = action.payload.reviews;
       return Object.assign({}, state, reviews);
     default:
       return state;

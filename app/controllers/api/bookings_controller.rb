@@ -9,6 +9,10 @@ class Api::BookingsController < ApplicationController
     end
   end
 
+  def index
+    @bookings = current_user.bookings
+  end
+
   def approve
     current_spot_booking.approve!
   end

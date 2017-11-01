@@ -10,10 +10,10 @@ export const createBooking = booking => dispatch => {
   .then(dispatchBooking, dispatchErrors);
 };
 
-export const receiveBooking = booking => {
+export const receiveBooking = payload => {
   return {
     type: RECEIVE_BOOKING,
-    booking
+    payload
   };
 };
 

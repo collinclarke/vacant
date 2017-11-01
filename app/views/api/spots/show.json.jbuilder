@@ -10,3 +10,7 @@ json.set! "reviews" do
     end
   end
 end
+
+json.set! "host" do
+  json.partial! 'api/users/user', user: @spot.host
+end

@@ -35,6 +35,10 @@ class Spot < ApplicationRecord
   through: :bookings,
   source: :user
 
+  has_many :reviewers,
+  through: :reviews,
+  source: :user
+
   belongs_to :host,
   foreign_key: :host_id,
   class_name: :User
