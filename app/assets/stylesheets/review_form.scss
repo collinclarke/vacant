@@ -1,0 +1,11 @@
+.review-form {
+  display: grid;
+  grid-template-columns: 1fr 50vw 1fr;
+}
+
+.review-header {
+  grid-column: 2;
+  h1 {
+    font-size: 5rem;
+  }
+}

@@ -9,6 +9,10 @@ class ReviewForm extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.fetchSpot(this.props.match.params.spotId);
+  }
+
   render() {
       switch(this.state.step) {
         case 1:
@@ -24,3 +28,5 @@ class ReviewForm extends Component {
       }
   }
 }
+
+export default ReviewForm;
