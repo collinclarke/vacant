@@ -96,6 +96,11 @@
 .spot-ratings {
   grid-row: 4;
   grid-column: 2 / 3;
+  .ratings-header {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 1rem;
+  }
 }
 
 .spot-reviews {
