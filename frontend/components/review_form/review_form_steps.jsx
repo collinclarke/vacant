@@ -10,7 +10,6 @@ export class Overall extends Component {
   }
 
   render() {
-    debugger
     return(
       <section className="review-form overall full-screen">
         <div className="review-header">

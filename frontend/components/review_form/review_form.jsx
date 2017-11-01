@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Overall, UserImpression, Ratings, PublicReview, Success } from './review_form_steps';
+import lodash from 'lodash';
 
 class ReviewForm extends Component {
   constructor(props) {
@@ -14,9 +15,11 @@ class ReviewForm extends Component {
   }
 
   render() {
+    if (!_.isEmpty(this.props.users)) {
+      const hostName = this.props.users[this.props.spot.host_id].first_name;
       switch(this.state.step) {
         case 1:
-         return <Overall host={this.props.host}/>;
+         return <Overall host={hostName}/>;
         case 2:
           return <UserImpression />;
         case 3:
@@ -26,7 +29,11 @@ class ReviewForm extends Component {
         case 5:
           return <Success />;
       }
+    } else {
+      return null;
+    }
   }
+
 }
 
 export default ReviewForm;
