@@ -11,7 +11,9 @@ class SpotIndexItem extends Component {
     return (
       <li onMouseOver={this.props.handleMouseover} spotid={ id }>
         <Link to={`/spots/${id}`} className="spot-details">
-          <img src= { image_url } alt="spot image"/>
+          <div className="spot-item-image-wrapper">
+            <img src= { image_url } alt="spot image"/>
+          </div>
           <span className="spot-type">{ kind }</span>
           <span className="spot-title">{ title }</span>
           <span className="spot-price">From { price } per night</span>

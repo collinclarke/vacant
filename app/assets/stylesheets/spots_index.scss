@@ -43,6 +43,11 @@ $break: 1440px;
   width: 100%;
 }
 
+.spot-item-image-wrapper {
+  overflow: hidden;
+  max-height: 18vw;
+}
+
 .spot-details {
   display: flex;
   flex-flow: column nowrap;

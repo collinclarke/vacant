@@ -6,9 +6,70 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+imgs = [
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0001.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0002.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0003.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0004.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0005.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0006.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0007.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0008.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0009.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0010.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0011.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0012.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0013.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0014.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0015.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0016.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0017.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0018.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0019.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0020.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0021.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0022.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0023.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0024.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0025.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0026.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0027.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0028.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0029.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0030.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0031.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0032.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0033.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0034.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0035.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0036.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0037.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0038.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0039.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0040.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0041.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0042.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0043.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0044.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0045.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0046.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0047.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0048.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0049.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0050.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0051.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0052.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0053.jpeg",
+  "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0054.jpeg",
+
+]
+
 User.destroy_all
 Spot.destroy_all
 Review.destroy_all
+
+
+
 
 b = User.create({
   email: "demovacantuser@gmail.com",
@@ -18,69 +79,35 @@ b = User.create({
   birth_date: "1980-01-01"
 });
 
-d = User.create({
-  email: "collinclarke@gmail.com",
-  first_name: "Collin",
-  last_name: "Demo",
-  password: "starwars",
-  birth_date: "1980-01-01"
-});
+54.times do |i|
 
-a = User.create({
-  email: "mrhost@gmail.com",
-  first_name: "Hoster",
-  last_name: "Demo",
-  password: "starwars",
-  birth_date: "1980-01-01"
-});
+  Spot.create({
+    title: "My house",
+    address: Faker::Address.full_address,
+    price: [*(75..250)].sample,
+    kind: ["Office", "Studio", "Storefront"].sample,
+    host_id: b.id,
+    main_image: imgs[i]
+  });
 
-c = Spot.create({
-  title: "A beautiful studio with views of the water",
-  address: "36 Waverly Avenue, Brooklyn NY",
-  price: "75",
-  kind: "Studio",
-  host_id: a.id
-});
+end
 
-Spot.create({
-  title: "My house",
-  address: "205 Washington Avenue, Brooklyn NY",
-  price: "224",
-  kind: "office",
-  host_id: a.id
-});
-Spot.create({
-  title: "My old house",
-  address: "5360 Queen Ann Lane, Santa Barbara CA",
-  price: "300",
-  kind: "office",
-  host_id: a.id
-});
-
-Review.create!({
-  user_id: b.id,
-  spot_id: c.id,
-  overall: 5,
-  user_impression: 5,
-  cleanliness: 5,
-  accuracy: 5,
-  communication: 5,
-  check_in: 5,
-  value: 5,
-  location: 5,
-  public_review: "So fun to work in this studio, Hoster was a great host!"
-})
-
-Review.create!({
-  user_id: d.id,
-  spot_id: c.id,
-  overall: 2,
-  user_impression: 1,
-  cleanliness: 4,
-  accuracy: 1,
-  communication: 4,
-  check_in: 4,
-  value: 1,
-  location: 1,
-  public_review: "Wow this studio is terrible, what a terrible place!"
-})
+rating = [1, 2, 3, 4, 5]
+25.times do |r|
+  spot_offset = rand(Spot.count)
+  rand_record = Model.offset(spot_offset).first.id
+  num = rating.sample
+  Review.create!({
+    user_id: b.id,
+    spot_id: rand_record,
+    overall: num,
+    user_impression: num,
+    cleanliness: num,
+    accuracy: num,
+    communication: num,
+    check_in: num,
+    value: num,
+    location: num,
+    public_review: Faker::Hipster.sentence
+  })
+end
