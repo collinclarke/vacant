@@ -7,8 +7,7 @@ const BookingsReducer = (state = initialState, action) => {
   switch(action.type){
     case RECEIVE_BOOKING:
       const booking = action.booking;
-      debugger
-      return Object.assign({}, state, booking);
+      return Object.assign({}, state, { [booking.id]: booking });
     default:
       return state;
   }
