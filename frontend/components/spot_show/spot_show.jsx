@@ -4,6 +4,7 @@ import ReviewItem from './review_item';
 import BookingFormContainer from '../booking_form/booking_form_container';
 import ReactModal from 'react-modal';
 import SessionFormContainer from '../session_form/session_form_container';
+import RatingBlurb from '../widgets/rating_blurb';
 
 
 class SpotShow extends Component {
@@ -56,7 +57,7 @@ class SpotShow extends Component {
     }
 
     if (this.props.spot) {
-      const { title, address, price, kind, image_url, id, host, reviews, ratings } = this.props.spot;
+      const { title, address, price, kind, image_url, id, host, reviews, ratings, numReviews } = this.props.spot;
       return (
         <section className="spot-show">
 
@@ -94,7 +95,7 @@ class SpotShow extends Component {
           </nav>
 
           <section id="booking-form">
-            <BookingFormContainer openSessionModal={ this.openSessionModal } spotId={ id } price={ price }/>
+            <BookingFormContainer openSessionModal={ this.openSessionModal } spotId={ id } price={ price } numReviews={ numReviews } overall={ ratings.overall }/>
           </section>
 
           <section id="overview" className="spot-show-details">
@@ -108,7 +109,9 @@ class SpotShow extends Component {
           </section>
 
           <section className="spot-ratings">
-              { ratings.overall }
+              <div className="ratings-header">
+                { numReviews } Reviews <RatingBlurb rating={ratings.overall}/>
+              </div>
           </section>
 
           <section className="spot-reviews">

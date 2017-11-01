@@ -17,11 +17,8 @@ class RatingBlurb extends Component {
 
   render() {
     return (
-      <div className="rating-blurb">
-        <span className="spot-rating">
-          { this.ratingStars() }
-          <p id="num-of-reviews">{this.props.reviewTotal}</p>
-        </span>
+      <div className="spot-rating">
+          { this.ratingStars() }<span>{this.props.numReviews}</span>
       </div>
     );
   }

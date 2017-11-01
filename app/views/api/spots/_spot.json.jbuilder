@@ -1,6 +1,7 @@
 json.extract! spot, :id, :title, :address, :price, :kind, :latitude, :longitude
 json.host spot.host.first_name
 json.ratings spot.calculate_overall_sql
+json.numReviews spot.reviews.count
 json.reviews spot.reviews.map{|review| review.id}
 json.bookings spot.bookings.map{|booking| booking.id}
 

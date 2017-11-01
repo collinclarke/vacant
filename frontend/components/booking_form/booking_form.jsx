@@ -46,7 +46,7 @@ class BookingForm extends Component {
             <span className="price">
               ${this.props.price}
             </span><span> per night</span>
-            <RatingBlurb rating={ 4 } reviewTotal={ 45 } />
+          <RatingBlurb rating={ this.props.overall } numReviews={ this.props.numReviews } />
           </div>
 
           <hr />

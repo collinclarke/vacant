@@ -43,7 +43,7 @@ class Greeting extends Component {
       (
         <section className="greeting">
           <div
-            className="user-avatar-wrapper">
+            className="user-avatar-wrapper nav-avatar">
           <img onMouseEnter={this.openPreferencesModal} className="user-avatar" src={this.props.currentUser.image_url}
             alt="user avatar thumbnail"/>
           </div>
@@ -51,7 +51,7 @@ class Greeting extends Component {
             isOpen={this.state.preferencesModalIsOpen}
             onRequestClose={this.gentleCloseModal}
             onAfterOpen={this.afterOpenModal}
-            closeTimeoutMS={50}
+            closeTimeoutMS={200}
             className="settings-modal"
             overlayClassName="settings-modal-bg"
           >

@@ -7,7 +7,7 @@ import RatingBlurb from '../widgets/rating_blurb';
 class SpotIndexItem extends Component {
 
   render() {
-    const { title, address, price, kind, image_url, id } = this.props.spot;
+    const { title, address, price, kind, image_url, id, ratings, numReviews } = this.props.spot;
     return (
       <li onMouseOver={this.props.handleMouseover} spotid={ id }>
         <Link to={`/${id}`} className="spot-details">
@@ -15,7 +15,7 @@ class SpotIndexItem extends Component {
           <span className="spot-type">{ kind }</span>
           <span className="spot-title">{ title }</span>
           <span className="spot-price">From { price } per night</span>
-          <RatingBlurb rating={ 4 } reviewTotal={ 45 } />
+          <RatingBlurb rating={ ratings } numReviews={ numReviews } />
         </Link>
       </li>
     );
