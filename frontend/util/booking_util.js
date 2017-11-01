@@ -5,3 +5,10 @@ export const createBooking = booking => {
     data: { booking }
   });
 };
+
+export const fetchBookings = (userId) => {
+  return $.ajax({
+    type: "GET",
+    url: `api/users/${userId}/bookings`
+  });
+};

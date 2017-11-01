@@ -1,5 +1,6 @@
 export const RECEIVE_BOOKING = "RECEIVE_BOOKING";
-export const RECEIVE_BOOKING_ERRORS = "RECEIVE_BOOKING_ERRORS"
+export const RECEIVE_BOOKINGS = "RECEIVE_BOOKINGS";
+export const RECEIVE_BOOKING_ERRORS = "RECEIVE_BOOKING_ERRORS";
 import * as ApiUtil from '../util/booking_util';
 
 
@@ -13,6 +14,19 @@ export const createBooking = booking => dispatch => {
 export const receiveBooking = payload => {
   return {
     type: RECEIVE_BOOKING,
+    payload
+  };
+};
+
+export const fetchBookings = () => dispatch => {
+  const dispatchBooking = bookings => dispatch(receiveBookings(bookings));
+  return ApiUtil.fetchBookings()
+  .then(dispatchBooking);
+};
+
+export const receiveBookings = payload => {
+  return {
+    type: RECEIVE_BOOKINGS,
     payload
   };
 };
