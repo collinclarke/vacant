@@ -12,6 +12,12 @@ main {
   display: none;
 }
 
+.splash-page {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
 button {
   width: 100%;
   padding: 1rem;
