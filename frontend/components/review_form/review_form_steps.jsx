@@ -4,17 +4,20 @@ import ReviewRadio from './review_radio';
 export class Overall extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      overall: 0
-    };
+  }
+
+  question () {
+    return (
+      `How was your stay at ${this.props.host}'s place?`
+    );
   }
 
   render() {
     return(
       <section className="review-form overall full-screen">
         <div className="review-header">
-          <h1>How was your stay at {this.props.host}</h1>
-          <ReviewRadio />
+          <h1>{ this.question() }</h1>
+          <ReviewRadio type="overall" handleSubmit={this.props.handleSubmit}/>
         </div>
 
       </section>

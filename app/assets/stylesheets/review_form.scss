@@ -1,11 +1,20 @@
 .review-form {
   display: grid;
-  grid-template-columns: 1fr 50vw 1fr;
+  grid-template-columns: 1fr 65vw 1fr;
 }
 
 .review-header {
   grid-column: 2;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+
   h1 {
     font-size: 5rem;
   }
+
+  .star-radio{
+  }
+
 }

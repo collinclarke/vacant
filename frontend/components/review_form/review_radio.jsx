@@ -16,8 +16,12 @@ class ReviewRadio extends Component {
   }
 
   render() {
+    const { rating } = this.props;
+    const set = { rating: this.state.selectedOption };
+
     return (
-      <form className="star-radio">
+      <form id={this.props.type} className="star-radio"
+        onSubmit={() => this.props.handleSubmit(set)}>
           <input id="one" onChange={this.handleOptionChange}
             checked={this.state.selectedOption === '1'} type="radio" value="1"/>
           <input id="two" onChange={this.handleOptionChange}
@@ -29,6 +33,7 @@ class ReviewRadio extends Component {
           <input id="five" onChange={this.handleOptionChange}
             checked={this.state.selectedOption === '5'} type="radio" value="5"/>
           <RatingBlurb rating={this.state.selectedOption} />
+          <button type="submit">Next</button>
       </form>
     );
   }

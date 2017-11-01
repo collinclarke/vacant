@@ -7,11 +7,18 @@ class ReviewForm extends Component {
     super(props);
     this.state = {
       step: 1,
+      overall: 0,
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchSpot(this.props.match.params.spotId);
+  }
+
+  handleSubmit(value) {
+      debugger
+      this.setState(value);
   }
 
   render() {
@@ -19,7 +26,7 @@ class ReviewForm extends Component {
       const hostName = this.props.users[this.props.spot.host_id].first_name;
       switch(this.state.step) {
         case 1:
-         return <Overall host={hostName}/>;
+         return <Overall type="overall" handleSubmit={this.handleSubmit} host={hostName}/>;
         case 2:
           return <UserImpression />;
         case 3:
