@@ -57,7 +57,7 @@ class Greeting extends Component {
           >
             <ul className="user-settings" onMouseEnter={this.openPreferencesModal} onMouseLeave={this.handleCloseModal} >
               <li id="user-name">{this.props.currentUser.first_name}</li>
-              <li id="user-bookings">Your Bookings</li>
+              <li id="user-bookings"><Link to='/bookings'>Your Bookings</Link></li>
               <li id="logout" onClick={this.props.logout}><span onClick={this.handleCloseModal}>Logout</span></li>
             </ul>
           </ReactModal>
