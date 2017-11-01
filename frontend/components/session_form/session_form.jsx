@@ -28,8 +28,13 @@ class SessionForm extends Component {
     const user = Object.assign({}, this.state, {
       birth_date: this.birthday()
     });
-    return this.state.formTypeLogin ? this.props.login(user) :
-    this.props.signup(user);
+
+    if (this.state.formTypeLogin) {
+      this.props.login(user).then(this.props.closeModal());
+    } else {
+      this.props.signup(user).then(this.props.closeModal());
+    }
+
   }
 
   update(field) {
@@ -64,7 +69,7 @@ class SessionForm extends Component {
 
   loginDemoUser() {
     const demo = {email:"demovacantuser@gmail.com", password:"starwars"};
-    this.props.demoLogin(demo);
+    this.props.login(demo);
   }
 
   signupFields(action) {
@@ -149,7 +154,7 @@ class SessionForm extends Component {
     const altMessage = 'Sign Up';
     return (
 
-      <form className="login-form" onSubmit={this.handleSubmit}>
+      <form className="login-form">
         <h1>{ action }</h1>
         <hr />
 
@@ -165,7 +170,7 @@ class SessionForm extends Component {
           <i className="icon ion-ios-locked-outline i-pw"></i>
         </div>
 
-        <button>{ action }</button>
+        <button onClick={this.handleSubmit}>{ action }</button>
         <button className="demo-login" onClick={this.loginDemoUser}>Guest Login</button>
           <hr />
           <ul className="errors">

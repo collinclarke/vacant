@@ -1,9 +1,6 @@
 main {
   font-family: helvetica, sans-serif;
   // display: grid;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
   background: white;
 }
 
@@ -12,16 +9,20 @@ main {
 }
 
 button {
-  width: 32rem;
+  width: 100%;
   padding: 1rem;
+  max-height: 3.2rem;
   border-radius: .2rem;
-  margin-top: .5rem;
-  margin-bottom: 0;
-  height: 4rem;
-
+  margin-top: .7rem;
+  display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #FF5A5F;
   color: white;
+}
+
+button:active {
+  max-height: 3.2rem;
 }
 
 input:placeholder-shown {
@@ -29,7 +30,7 @@ input:placeholder-shown {
 }
 
 hr {
-  width: 32rem;
+  width: 100%;
   border: 0;
   border-bottom: 1px solid #ddd;
   margin: 1.5rem 0;

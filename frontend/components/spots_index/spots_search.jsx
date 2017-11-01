@@ -14,7 +14,6 @@ class SpotsIndex extends Component {
 
   handleMouseover(e) {
     this.setState({hover: e.currentTarget.getAttribute("spotid")});
-    console.log(this.state);
     // debugger
     // console.log(this.hover);
   }
@@ -22,6 +21,7 @@ class SpotsIndex extends Component {
   componentDidMount() {
     this.props.fetchSpots();
     this.props.addGlobalScroll();
+    document.querySelector('header').classList.add('fixed');
     // console.log(this.child.heading.getDOMNode());
   }
 

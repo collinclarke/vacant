@@ -8,46 +8,74 @@ class Greeting extends Component {
   constructor() {
     super();
     this.state = {
-      modalIsOpen: false,
+      sessionModalIsOpen: false,
+      preferencesModalIsOpen: false,
       formTypeLogin: true,
     };
-    this.handleOpenModal = this.openModal.bind(this);
+    this.openSessionModal = this.openSessionModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.openPreferencesModal = this.openPreferencesModal.bind(this);
   }
 
-  openModal (bool) {
+  openSessionModal (bool) {
     this.setState({
-      modalIsOpen: true,
+      sessionModalIsOpen: true,
       formTypeLogin: bool,
     });
   }
 
-  handleCloseModal () {
-    this.setState({ modalIsOpen: false });
+  openPreferencesModal () {
+    this.setState({
+      preferencesModalIsOpen: true,
+    });
   }
+
+  handleCloseModal () {
+    this.setState({
+      sessionModalIsOpen: false,
+      preferencesModalIsOpen: false,
+    });
+  }
+
 
   render() {
     return (this.props.currentUser ?
       (
         <section className="greeting">
-          <p>Welcome { this.props.currentUser.first_name}!</p>
-          <img className="user-avatar" src={this.props.currentUser.image_url}
+          <div
+            className="user-avatar-wrapper nav-avatar">
+          <img onMouseEnter={this.openPreferencesModal} className="user-avatar" src={this.props.currentUser.image_url}
             alt="user avatar thumbnail"/>
-          <p id="logout" onClick={this.props.logout}>Logout</p>
+          </div>
+          <ReactModal
+            isOpen={this.state.preferencesModalIsOpen}
+            onRequestClose={this.gentleCloseModal}
+            onAfterOpen={this.afterOpenModal}
+            closeTimeoutMS={200}
+            className="settings-modal"
+            overlayClassName="settings-modal-bg"
+          >
+            <ul className="user-settings" onMouseEnter={this.openPreferencesModal} onMouseLeave={this.handleCloseModal} >
+              <li id="user-name">{this.props.currentUser.first_name}</li>
+              <li id="user-bookings"><Link to='/bookings'>Your Bookings</Link></li>
+              <li id="logout" onClick={this.props.logout}><span onClick={this.handleCloseModal}>Logout</span></li>
+            </ul>
+          </ReactModal>
         </section>
       ) : (
         <section className="greeting">
 
-          <p onClick={() => this.openModal(false)}>Sign Up</p>
-          <p onClick={() => this.openModal(true)}>Login</p>
+          <p onClick={() => this.openSessionModal(false)}>Sign Up</p>
+          <p onClick={() => this.openSessionModal(true)}>Login</p>
           <ReactModal
-            isOpen={this.state.modalIsOpen}
+            isOpen={this.state.sessionModalIsOpen}
             onRequestClose={this.handleCloseModal}
             className="session-modal"
             overlayClassName="session-modal-bg"
+            closeTimeoutMS={50}
           >
           <i onClick={this.handleCloseModal} className="icon ion-ios-close-empty modal-close"></i>
-            <SessionFormContainer formTypeLogin={this.state.formTypeLogin}/>
+            <SessionFormContainer closeModal={this.handleCloseModal} formTypeLogin={this.state.formTypeLogin}/>
           </ReactModal>
 
         </section>

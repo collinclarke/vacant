@@ -27,6 +27,18 @@ class Spot < ApplicationRecord
 
   has_many :reviews
 
+  has_many :bookings,
+  foreign_key: :spot_id,
+  class_name: :Booking
+
+  has_many :residents,
+  through: :bookings,
+  source: :user
+
+  has_many :reviewers,
+  through: :reviews,
+  source: :user
+
   belongs_to :host,
   foreign_key: :host_id,
   class_name: :User

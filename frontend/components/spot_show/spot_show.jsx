@@ -1,13 +1,33 @@
 import React, { Component } from 'react';
 import Scrollchor from 'react-scrollchor';
 import ReviewItem from './review_item';
+import BookingFormContainer from '../booking_form/booking_form_container';
+import ReactModal from 'react-modal';
+import SessionFormContainer from '../session_form/session_form_container';
+import RatingBlurb from '../widgets/rating_blurb';
 
 
 class SpotShow extends Component {
 
   constructor() {
     super();
+    this.state = {
+      sessionModalIsOpen: false
+    };
+    this.openSessionModal = this.openSessionModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
 
+  openSessionModal() {
+    this.setState({
+      sessionModalIsOpen: true,
+    });
+  }
+
+  handleCloseModal () {
+    this.setState({
+      sessionModalIsOpen: false,
+    });
   }
 
   componentDidMount() {
@@ -37,9 +57,20 @@ class SpotShow extends Component {
     }
 
     if (this.props.spot) {
-      const { title, address, price, kind, image_url, id, host, reviews, ratings } = this.props.spot;
+      const { title, address, price, kind, image_url, id, host, reviews, ratings, numReviews } = this.props.spot;
       return (
         <section className="spot-show">
+
+          <ReactModal
+            isOpen={this.state.sessionModalIsOpen}
+            onRequestClose={this.handleCloseModal}
+            className="session-modal"
+            closeTimeoutMS={50}
+            overlayClassName="session-modal-bg"
+          >
+          <i onClick={this.handleCloseModal} className="icon ion-ios-close-empty modal-close"></i>
+            <SessionFormContainer closeModal={this.handleCloseModal} />
+          </ReactModal>
 
           <section className="spot-show-image">
             <img src= { image_url } alt="spot image"/>
@@ -63,6 +94,10 @@ class SpotShow extends Component {
             </ul>
           </nav>
 
+          <section id="booking-form">
+            <BookingFormContainer openSessionModal={ this.openSessionModal } spotId={ id } price={ price } numReviews={ numReviews } overall={ ratings.overall }/>
+          </section>
+
           <section id="overview" className="spot-show-details">
             <div className="spot-show-title">{ title }</div>
             <div className="spot-show-subtitle">
@@ -74,7 +109,9 @@ class SpotShow extends Component {
           </section>
 
           <section className="spot-ratings">
-              { ratings.overall }
+              <div className="ratings-header">
+                { numReviews } Reviews <RatingBlurb rating={ratings.overall}/>
+              </div>
           </section>
 
           <section className="spot-reviews">

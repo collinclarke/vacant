@@ -14,17 +14,17 @@ export const fetchSpot = (spotId) => dispatch => {
   return ApiUtil.fetchSpot(spotId).then(spot => dispatch(receiveSpot(spot)));
 };
 
-export const receiveSpots = (spots) => {
+export const receiveSpots = (payload) => {
   return {
     type: RECEIVE_SPOTS,
-    spots
+    payload
   };
 };
 
-export const receiveSpot = (spotObject) => {
+export const receiveSpot = (payload) => {
   return {
     type: RECEIVE_SPOT,
-    spotObject
+    payload
   };
 };
 
