@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import ReviewRadio from './review_radio';
+import { Link } from 'react-router-dom';
 
 export class Overall extends Component {
+
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
 
   question () {
     return (
@@ -9,14 +15,18 @@ export class Overall extends Component {
     );
   }
 
+  handleChange(set) {
+    this.set = set;
+  }
+
   render() {
     return(
       <section className="review-form overall full-screen">
         <div className="review-header">
           <h1>{ this.question() }</h1>
-          <ReviewRadio type="overall" handleSubmit={this.props.handleSubmit}/>
+          <ReviewRadio type="overall" handleChange={this.handleChange}/>
         </div>
-
+        <button onClick={() => this.props.handleSubmit(this.set)}>Next</button>
       </section>
     );
   }
@@ -24,10 +34,20 @@ export class Overall extends Component {
 }
 
 export class UserImpression extends Component {
+  constructor(){
+    super();
+    this.handleChange = this.handleChange.bind(this);
+    this.set = {};
+  }
+
   question () {
     return (
       `How did your stay at ${this.props.host}'s place compare to your expectations?`
     );
+  }
+
+  handleChange(set) {
+    this.set = set;
   }
 
   render() {
@@ -36,9 +56,9 @@ export class UserImpression extends Component {
       <section className="review-form overall full-screen">
         <div className="review-header">
           <h1>{ this.question() }</h1>
-          <ReviewRadio type="userImpression" handleSubmit={this.props.handleSubmit}/>
+          <ReviewRadio type="userImpression" handleChange={this.handleChange}/>
         </div>
-
+        <button onClick={() => this.props.handleSubmit(this.set)}>Next</button>
       </section>
     );
   }
@@ -51,13 +71,14 @@ export class PublicReview extends Component {
       publicReview: '',
     };
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleTextChange(e) {
     this.setState({ publicReview: e.currentTarget.value });
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
     e.preventDefault();
     this.props.handleSubmit({publicReview: this.state.publicReview});
   }
@@ -73,8 +94,9 @@ export class PublicReview extends Component {
       <section className="review-form overall full-screen">
         <div className="review-header">
           <h1>{ this.question() }</h1>
-          <form handleSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit}>
             <textarea onChange={this.handleTextChange} placeholder="Write review here..."></textarea>
+            <button>Submit</button>
           </form>
         </div>
 
@@ -86,7 +108,10 @@ export class PublicReview extends Component {
 export class Success extends Component {
   render() {
     return(
-      <h1>Success</h1>
+      <section className="review-form overall full-screen">
+        <h1>Review succesfully submitted!</h1>
+        <Link to="/spots">Back to spots</Link>
+      </section>
     );
   }
 }

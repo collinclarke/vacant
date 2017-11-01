@@ -26,7 +26,6 @@ class ReviewForm extends Component {
   }
 
   handleSubmit(value) {
-    debugger
       const next = this.state.step + 1;
       const set = Object.assign(value, {step: next});
       this.setState(set);
