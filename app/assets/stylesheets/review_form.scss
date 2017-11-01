@@ -18,3 +18,11 @@
   }
 
 }
+
+.review-category {
+  grid-column: 2;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}

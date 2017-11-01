@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RatingBlurb from '../widgets/rating_blurb';
-
+import lodash from 'lodash';
 
 class ReviewRadio extends Component {
   constructor(props) {
@@ -9,19 +9,32 @@ class ReviewRadio extends Component {
       selectedOption: null,
     };
     this.handleOptionChange = this.handleOptionChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleOptionChange(e) {
     this.setState({selectedOption: e.target.value});
   }
 
+  componentDidUpdate() {
+    if (_.hasIn(this.props, 'handleChange')) {
+      const type = this.props.type;
+      this.props.handleChange({[type]: this.state.selectedOption});
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const { type } = this.props;
+    const set = { [type]: this.state.selectedOption };
+    this.props.handleSubmit(set);
+  }
+
   render() {
-    const { rating } = this.props;
-    const set = { rating: this.state.selectedOption };
 
     return (
       <form id={this.props.type} className="star-radio"
-        onSubmit={() => this.props.handleSubmit(set)}>
+        onSubmit={this.handleSubmit}>
           <input id="one" onChange={this.handleOptionChange}
             checked={this.state.selectedOption === '1'} type="radio" value="1"/>
           <input id="two" onChange={this.handleOptionChange}
@@ -33,7 +46,7 @@ class ReviewRadio extends Component {
           <input id="five" onChange={this.handleOptionChange}
             checked={this.state.selectedOption === '5'} type="radio" value="5"/>
           <RatingBlurb rating={this.state.selectedOption} />
-          <button type="submit">Next</button>
+          <button type="submit"></button>
       </form>
     );
   }

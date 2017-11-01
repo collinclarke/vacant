@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Overall, UserImpression, Ratings, PublicReview, Success } from './review_form_steps';
+import { Overall, UserImpression, PublicReview, Success } from './review_form_steps';
+import Ratings from './review_ratings';
 import lodash from 'lodash';
 
 class ReviewForm extends Component {
@@ -8,17 +9,27 @@ class ReviewForm extends Component {
     this.state = {
       step: 1,
       overall: 0,
+      userImpression: 0,
+      ratings: {},
+      publicReview: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchSpot(this.props.match.params.spotId);
+    document.querySelector('header').classList.add('hidden');
+  }
+
+  componentWillUnmount() {
+    document.querySelector('header').classList.remove('hidden');
   }
 
   handleSubmit(value) {
-      debugger
-      this.setState(value);
+    debugger
+      const next = this.state.step + 1;
+      const set = Object.assign(value, {step: next});
+      this.setState(set);
   }
 
   render() {
@@ -28,13 +39,13 @@ class ReviewForm extends Component {
         case 1:
          return <Overall type="overall" handleSubmit={this.handleSubmit} host={hostName}/>;
         case 2:
-          return <UserImpression />;
+          return <UserImpression type="userImpression" handleSubmit={this.handleSubmit} host={hostName}/>;
         case 3:
-          return <Ratings />;
+          return <Ratings type="ratings" handleSubmit={this.handleSubmit} host={hostName}/>;
         case 4:
-          return <PublicReview />;
+          return <PublicReview type="publicReview" handleSubmit={this.handleSubmit} host={hostName}/>;
         case 5:
-          return <Success />;
+          return <Success handleSubmit={this.handleFormSubmission} form={this.state}/>;
       }
     } else {
       return null;
