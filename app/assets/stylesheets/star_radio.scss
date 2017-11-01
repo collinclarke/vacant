@@ -1,0 +1,59 @@
+.star-radio {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  width: 10rem;
+
+  .spot-rating {
+    font-size: 6rem;
+    letter-spacing: 1rem;
+    grid-row: 1;
+    grid-column: 1 / 6;
+    z-index: 1;
+  }
+
+  input {
+    z-index: 5;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    opacity: 0;
+  }
+
+  #one {
+    grid-column: 1;
+    grid-row: 1;
+    margin-left: 1.8rem;
+    margin-top: 3rem;
+    width: 4rem;
+  }
+  #two {
+    grid-column: 2;
+    grid-row: 1;
+    margin-left: 1.75rem;
+    margin-top: 3rem;
+    width: 4rem;
+  }
+  #three {
+    grid-column: 3;
+    grid-row: 1;
+    margin-left: 1.7rem;
+    margin-top: 3rem;
+    width: 4rem;
+  }
+  #four {
+    grid-column: 4;
+    grid-row: 1;
+    margin-left: 1.75rem;
+    margin-top: 3rem;
+    width: 4rem;
+  }
+  #five {
+    grid-column: 5;
+    grid-row: 1;
+    margin-left: 1.75rem;
+    margin-top: 3rem;
+    width: 4rem;
+  }
+
+}

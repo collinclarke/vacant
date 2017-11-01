@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import ReviewRadio from './review_radio';
 
 export class Overall extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export class Overall extends Component {
       <section className="review-form overall full-screen">
         <div className="review-header">
           <h1>How was your stay at {this.props.host}</h1>
-
+          <ReviewRadio />
         </div>
 
       </section>

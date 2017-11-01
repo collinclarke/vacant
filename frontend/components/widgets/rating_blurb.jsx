@@ -9,7 +9,7 @@ class RatingBlurb extends Component {
       stars.push(<i key={ i }className="icon ion-android-star"></i>);
     }
     while (!stars[4]) {
-      stars.push(<i key={ i } className="icon ion-android-star-outline"></i>);
+      stars.push(<i id={i} key={ i } className="icon ion-android-star-outline"></i>);
       i++;
     }
     return stars;
