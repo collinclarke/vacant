@@ -22,7 +22,7 @@ export class Overall extends Component {
   render() {
     return(
       <section className="review-form overall full-screen">
-        <div className="review-header">
+        <div className="rating-header">
           <h1>{ this.question() }</h1>
           <ReviewRadio type="overall" handleChange={this.handleChange}/>
         </div>
@@ -54,7 +54,7 @@ export class UserImpression extends Component {
 
     return(
       <section className="review-form overall full-screen">
-        <div className="review-header">
+        <div className="rating-header">
           <h1>{ this.question() }</h1>
           <ReviewRadio type="userImpression" handleChange={this.handleChange}/>
         </div>
@@ -92,7 +92,7 @@ export class PublicReview extends Component {
   render() {
     return(
       <section className="review-form overall full-screen">
-        <div className="review-header">
+        <div className="rating-header">
           <h1>{ this.question() }</h1>
           <form onSubmit={this.handleSubmit}>
             <textarea onChange={this.handleTextChange} placeholder="Write review here..."></textarea>
