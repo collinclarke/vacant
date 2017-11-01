@@ -7,6 +7,7 @@ export class Overall extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.set = {};
   }
 
   question () {
@@ -109,8 +110,11 @@ export class Success extends Component {
   render() {
     return(
       <section className="review-form overall full-screen">
-        <h1>Review succesfully submitted!</h1>
-        <Link to="/spots">Back to spots</Link>
+        <div className="rating-header">
+          <h1>Confirm review submission</h1>
+          <button onClick={this.props.handleFormSubmission}>Submit Review</button>
+          <Link to="/spots">Back to spots</Link>
+        </div>
       </section>
     );
   }

@@ -8,7 +8,7 @@ class Ratings extends Component {
       cleanliness: 0,
       accuracy: 0,
       communication: 0,
-      checkIn: 0,
+      check_in: 0,
       value: 0,
       location: 0
     };

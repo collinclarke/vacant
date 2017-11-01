@@ -10,7 +10,7 @@ class SpotIndexItem extends Component {
     const { title, address, price, kind, image_url, id, ratings, numReviews } = this.props.spot;
     return (
       <li onMouseOver={this.props.handleMouseover} spotid={ id }>
-        <Link to={`spots/${id}`} className="spot-details">
+        <Link to={`/spots/${id}`} className="spot-details">
           <img src= { image_url } alt="spot image"/>
           <span className="spot-type">{ kind }</span>
           <span className="spot-title">{ title }</span>

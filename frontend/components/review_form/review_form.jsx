@@ -14,6 +14,7 @@ class ReviewForm extends Component {
       publicReview: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFormSubmission = this.handleFormSubmission.bind(this);
   }
 
   componentDidMount() {
@@ -26,9 +27,24 @@ class ReviewForm extends Component {
   }
 
   handleSubmit(value) {
-      const next = this.state.step + 1;
-      const set = Object.assign(value, {step: next});
-      this.setState(set);
+    const next = this.state.step + 1;
+    const set = Object.assign(value, {step: next});
+    this.setState(set);
+  }
+
+  handleFormSubmission() {
+    const { overall, userImpression, publicReview } = this.state;
+    const { spotId } = this.props.spot;
+    const review = Object.assign({}, this.state.ratings,
+      {
+        overall,
+        user_impression: userImpression,
+        public_review: publicReview,
+        user_id: this.props.currentUser.id,
+        spot_id: this.props.match.params.spotId
+      }
+    );
+    this.props.submitReview(review);
   }
 
   render() {
@@ -42,9 +58,10 @@ class ReviewForm extends Component {
         case 3:
           return <Ratings type="ratings" handleSubmit={this.handleSubmit} host={hostName}/>;
         case 4:
-          return <PublicReview type="publicReview" handleSubmit={this.handleSubmit} host={hostName}/>;
+          return <PublicReview type="publicReview"
+            handleSubmit={this.handleSubmit} host={hostName}/>;
         case 5:
-          return <Success handleSubmit={this.handleFormSubmission} form={this.state}/>;
+          return <Success handleFormSubmission={this.handleFormSubmission} host={hostName}/>;
       }
     } else {
       return null;

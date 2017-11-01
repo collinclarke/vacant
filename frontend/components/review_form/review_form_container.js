@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReviewForm from './review_form';
 import { submitReview } from "../../actions/review_actions";
-import { fetchSpot } from '../../actions/spots_actions'
+import { fetchSpot } from '../../actions/spots_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
