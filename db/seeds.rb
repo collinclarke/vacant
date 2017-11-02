@@ -121,7 +121,10 @@ count = 0
     birth_date: "1980-01-01"
   })
 
-
+  40.770189  -73.991250
+  73.943150
+  40.768390  -73.825550
+  40.686470
   p = Random.new
 
   address = Faker::Address.street_name
@@ -129,10 +132,10 @@ count = 0
     title: titles[i],
     address: address + ", " + "New York",
     latitude: p.rand(40.59218006937453..40.8279620),
-    longitude: p.rand((-74.01144716406247)..(-73.82903890332032)),
+    longitude: p.rand((-74.01144716406247)..(-73.825550)),
     price: [*(75..250)].sample,
     kind: ["Office", "Studio", "Storefront"].sample,
-    host: user,
+    host_id: user.id
     main_image: imgs[i]
   });
 
