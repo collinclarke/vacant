@@ -43,7 +43,7 @@ class SpotsMap extends Component {
     this.MarkerManager = new MarkerManager(this.map);
 
     //listener for maps idle event
-    this.map.addListener("idle", () => {
+    google.maps.event.addListener(this.map, "idle", () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();
       const bounds = {
         northEast: { lat:north, lng: east },

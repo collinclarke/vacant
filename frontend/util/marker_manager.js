@@ -1,19 +1,21 @@
-class MarkerManager {
+import React, { Component } from 'react';
+class MarkerManager extends Component {
 
-  constructor(map) {
-    this.map = map;
+  constructor(props) {
+    super(props);
+    this.map = props.map;
     this.markers = {};
     this.bounds = new google.maps.LatLngBounds();
     this.hover = null;
   }
 
   updateMarkers(spotsObj) {
-    const that = this;
-    const spots = Object.values(spotsObj);
-    debugger
-    const filteredSpots = spots.filter(spot => !this.markers[spot.id]);
-    filteredSpots.forEach(newSpot => this.createMarkerFromSpot(newSpot))
 
+    const spots = Object.values(spotsObj);
+    const filteredSpots = spots.filter(spot => !this.markers[spot.id]);
+    filteredSpots.forEach(newSpot => {
+      this.createMarkerFromSpot(newSpot);
+    });
 
     Object.keys(this.markers)
       .filter(spotId => !spotsObj[spotId])
