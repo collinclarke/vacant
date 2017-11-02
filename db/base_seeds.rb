@@ -129,7 +129,7 @@ count = 0
     title: titles[i],
     address: address + ", " + "New York",
     latitude: p.rand(40.59218006937453..40.8279620),
-    longitude: p.rand((-74.01144716406247)..(-73.82903890332032)),
+    longitude: p.rand((-73.91144716406247)..(-73.82903890332032)),
     price: [*(75..250)].sample,
     kind: ["Office", "Studio", "Storefront"].sample,
     host: user,
