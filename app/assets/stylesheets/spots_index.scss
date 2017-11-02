@@ -40,6 +40,9 @@ $break: 1440px;
 .spot-item-image-wrapper {
   overflow: hidden;
   max-width: 21vw;
+  @media screen and (max-width: $break) {
+    max-width: 31vw;
+  }
   max-height: 30vh;
   img {
     object-fit: fill;
