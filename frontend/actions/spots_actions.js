@@ -4,14 +4,22 @@ export const RECEIVE_SPOT = "RECEIVE_SPOT";
 export const START_LOADING_ALL_SPOTS = "START_LOADING_ALL_SPOTS";
 export const START_LOADING_SPOT = "START_LOADING_SPOT";
 
-export const fetchSpots = () => dispatch => {
+export const fetchSpots = (filters) => dispatch => {
   dispatch(loadSpots());
-  return ApiUtil.fetchSpots().then(spots => dispatch(receiveSpots(spots)));
+  return ApiUtil.fetchSpots(filters).then(spots => dispatch(receiveSpots(spots)));
 };
 
 export const fetchSpot = (spotId) => dispatch => {
   dispatch(loadSpot());
   return ApiUtil.fetchSpot(spotId).then(spot => dispatch(receiveSpot(spot)));
+};
+
+export const updatefilter = (filter, value) => {
+  return {
+    type: UPDATE_FILTER,
+    filter,
+    value
+  };
 };
 
 export const receiveSpots = (payload) => {

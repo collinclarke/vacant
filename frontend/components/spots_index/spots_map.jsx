@@ -11,9 +11,11 @@ class SpotsMap extends Component {
 
   componentWillReceiveProps(props) {
     const { spots, hover } = props;
-    const arrSpots = Object.values(spots);
-    this.map.fitBounds(this.MarkerManager.updateMarkers(arrSpots));
+    this.arrSpots = Object.values(spots);
+
     if (hover) this.MarkerManager.handleHover(spots[hover]);
+
+
     if (this.MarkerManager.markers) {
       Object.values(this.MarkerManager.markers)
       .forEach(marker => {
@@ -24,21 +26,32 @@ class SpotsMap extends Component {
     }
   }
 
+  componentDidUpdate() {
+    this.MarkerManager.updateMarkers(this.props.spots);
+  }
+
   componentDidMount() {
     const mapOptions = {
-      center: {lat: 37.7758, lng: -122.435 },
-      zoom: 16,
+      center: {lat: 40.713815, lng: -73.972042 },
+      zoom: 12,
       gestureHandling: 'cooperative'
     };
 
     const map = this.refs.map;
     this.map = new google.maps.Map(map, mapOptions);
+
     this.MarkerManager = new MarkerManager(this.map);
 
-  }
+    //listener for maps idle event
+    this.map.addListener("idle", () => {
+      const { north, south, east, west } = this.map.getBounds().toJSON();
+      const bounds = {
+        northEast: { lat:north, lng: east },
+        southWest: { lat: south, lng: west } };
+      this.props.updateBounds(bounds);
+    });
 
-  componentDidUpdate() {
-
+    this.MarkerManager.updateMarkers(this.props.spots);
   }
 
   render() {

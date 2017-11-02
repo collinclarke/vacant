@@ -1,26 +1,23 @@
-import React, { Component } from 'react';
-
-
-class MarkerManager extends Component {
+class MarkerManager {
 
   constructor(map) {
-    super(map);
     this.map = map;
     this.markers = {};
     this.bounds = new google.maps.LatLngBounds();
-    this.createMarkerfromSpot = this.createMarkerfromSpot.bind(this);
-    this.updateMarkers = this.updateMarkers.bind(this);
     this.hover = null;
   }
 
-  updateMarkers(spots){
+  updateMarkers(spotsObj) {
     const that = this;
-    spots.forEach(spot => {
-      if (!Object.keys(that.markers).includes(String(spot.id))) {
-        that.markers[parseInt(spot.id)] = that.createMarkerfromSpot(spot);
-      }
-    });
-    return this.bounds;
+    const spots = Object.values(spotsObj);
+    debugger
+    const filteredSpots = spots.filter(spot => !this.markers[spot.id]);
+    filteredSpots.forEach(newSpot => this.createMarkerFromSpot(newSpot))
+
+
+    Object.keys(this.markers)
+      .filter(spotId => !spotsObj[spotId])
+      .forEach(spotId => this.removeMarker(this.markers[spotId]));
   }
 
   handleHover(spot) {
@@ -38,22 +35,29 @@ class MarkerManager extends Component {
         <div id="list-hover">$${ spot.price }</div>
       </div>
     `);
+
     const z = this.markers[spot.id].infowindow.getZIndex();
     this.markers[spot.id].infowindow.setZIndex(z+5);
     this.hover = spot;
     this.markers[spot.id].infowindow.close();
   }
 
+  removeMarker(marker) {
+    this.markers[marker.spotId].setMap(null);
+    delete this.markers[marker.spotId];
+  }
+
   createMarkerfromSpot(spot, hover) {
     const { id, price, title, latitude, longitude } = spot;
     const position = new google.maps.LatLng(latitude, longitude);
-    if (!hover) this.bounds.extend(position);
+    // if (!hover) this.bounds.extend(position);
     const iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
     const icon = iconBase + 'info-i_maps.png';
 
     const marker = new google.maps.Marker({
       position,
       title: spot.title,
+      spotId: spot.id,
       icon: ' ',
       price: price,
       map: this.map,
@@ -79,7 +83,6 @@ class MarkerManager extends Component {
       marker,
       infowindow
     };
-
   }
 
   render() {

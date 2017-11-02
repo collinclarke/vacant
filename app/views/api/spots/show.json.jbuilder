@@ -1,5 +1,6 @@
 json.set! "spot" do
   json.partial! 'spot', spot: @spot
+  json.cover_image asset_path(@spot.main_image.url(:cover))
   json.ratings @spot.calculate_reviews_sql
 end
 

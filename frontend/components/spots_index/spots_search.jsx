@@ -14,15 +14,12 @@ class SpotsIndex extends Component {
 
   handleMouseover(e) {
     this.setState({hover: e.currentTarget.getAttribute("spotid")});
-    // debugger
-    // console.log(this.hover);
+
   }
 
   componentDidMount() {
-    this.props.fetchSpots();
     this.props.addGlobalScroll();
     document.querySelector('header').classList.add('fixed');
-    // console.log(this.child.heading.getDOMNode());
   }
 
   render() {
@@ -30,7 +27,7 @@ class SpotsIndex extends Component {
     return (
       <section className="spots-index">
         <SpotsList spots={arrSpots} handleMouseover={this.handleMouseover}/>
-        <SpotsMap hover={this.state.hover} spots={this.props.spots}/>
+        <SpotsMap updateBounds={this.props.updateBounds} hover={this.state.hover} spots={this.props.spots}/>
       </section>
     );
   }
