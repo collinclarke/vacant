@@ -48,8 +48,8 @@ class SpotsMap extends Component {
 
   componentDidMount() {
     const mapOptions = {
-      center: {lat: 40.760815, lng: -73.972042 },
-      zoom: 14,
+      center: {lat: 40.7432, lng: -73.9547 },
+      zoom: 13,
       gestureHandling: 'cooperative'
     };
 

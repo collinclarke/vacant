@@ -24,7 +24,7 @@ class Spot < ApplicationRecord
   has_attached_file :main_image, default_url: "sampleOffice.jpg",
     styles: {
       item: "600x600#",
-      cover: "1080x1080"},
+      cover: "1920x1920"},
     convert_options: {
       item: "-quality 75 -strip"
     }
