@@ -10,15 +10,20 @@ class MarkerManager extends Component {
   }
 
   updateMarkers(spotsObj) {
-
     const spots = Object.values(spotsObj);
-    const filteredSpots = spots.filter(spot => !this.markers[spot.id]);
-    filteredSpots.forEach(newSpot => {
-      this.createMarkerFromSpot(newSpot);
+    const that = this;
+    spots.forEach(spot => {
+      if (!Object.keys(that.markers).includes(String(spot.id))) {
+        that.markers[parseInt(spot.id)] = that.createMarkerfromSpot(spot);
+      }
     });
 
-    Object.keys(this.markers)
-      .filter(spotId => !spotsObj[spotId])
+    // const filteredSpots = spots.filter(spot => !this.markers[spot.id]);
+    // filteredSpots.forEach(newSpot => {
+    //   this.createMarkerFromSpot(newSpot);
+    // });
+    debugger
+    Object.keys(this.markers).filter(spotId => !spotsObj[spotId])
       .forEach(spotId => this.removeMarker(this.markers[spotId]));
   }
 
@@ -45,6 +50,7 @@ class MarkerManager extends Component {
   }
 
   removeMarker(marker) {
+    debugger
     this.markers[marker.spotId].setMap(null);
     delete this.markers[marker.spotId];
   }
