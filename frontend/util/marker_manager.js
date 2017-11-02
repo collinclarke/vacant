@@ -27,9 +27,8 @@ class MarkerManager extends Component {
   }
 
   handleHover(spot) {
-
     if (this.hover) {
-      debugger
+
       this.markers[this.hover.id].infowindow.setContent(`
         <div class="price-marker" ref="${this.hover.id}">
           <div>$${ this.hover.price }</div>

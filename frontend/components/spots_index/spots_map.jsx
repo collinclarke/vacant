@@ -17,7 +17,8 @@ class SpotsMap extends Component {
     this.arrSpots = Object.values(spots);
 
     if (hover && spots[hover]) {
-      if (this.MarkerManager.markers[spots[hover]]) {
+      if (this.MarkerManager.markers[hover]) {
+
         this.MarkerManager.handleHover(spots[hover]);
       }
     }
