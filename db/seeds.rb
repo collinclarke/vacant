@@ -60,42 +60,58 @@ imgs = ["https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant_
   "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0053.jpg",
   "https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant__0054.jpeg"]
 
-# "Lovely open space", "Great location to get some work done", "Dreamy and wide open",
-#   "Scheduled for tear down", "Community work space", "Serene terraced space",
-#   "Unbelievable views and wide open floor space", "Extra large space", "Entire property with many desks",
-#   "Hunker down and get some work done", "Old derelict space", "Open workspace", "Community oriented",
-#   "180 degree views, private rooms", "Single room in our office", "Super quiet & best location in town",
-#   "Epic views", "Open desk in our community workspace", "Views of the water",
-#   "Super quiet location", "Super productive workspace", "Open desk amongst friends",
-#   "Awesome coworking space desk", "Gigantic wideopen", "Unbelievable", "Secluded workzone",
-#   "Exhibition space", "Great performance space", "Wild vacant area", "Incredible view, private desk",
-#   "Private rooms", "Empty and available", "Weirdly fun workspace", "THIS IS IT", "WORK LIKE NEVER BEFORE",
-#   "MINDBLOWING WORKSPACE, fun friends", "LOSE YOURSELF in this wide open workspace",
-#   "Find your productivity", "Join us! Awesome workspace", "Private desk in amazing location",
-#   "Full floor of this modern era office building", "Incredible Views, private room", "SUPER WARM workspace, good friends",
-  titles = ["Come work with us! Balcony with views!", "Super team of designers", "Artist collective",
+  titles = ["Lovely open space", "Great location to get some work done", "Dreamy and wide open",
+  "Scheduled for tear down", "Community work space", "Serene terraced space",
+  "Unbelievable views and wide open floor space", "Extra large space", "Entire property with many desks",
+  "Hunker down and get some work done", "Old derelict space", "Open workspace", "Community oriented",
+  "180 degree views, private rooms", "Single room in our office", "Super quiet & best location in town",
+  "Epic views", "Open desk in our community workspace", "Views of the water",
+  "Super quiet location", "Super productive workspace", "Open desk amongst friends",
+  "Awesome coworking space desk", "Gigantic wideopen", "Unbelievable", "Secluded workzone",
+  "Exhibition space", "Great performance space", "Wild vacant area", "Incredible view, private desk",
+  "Private rooms", "Empty and available", "Weirdly fun workspace", "THIS IS IT", "WORK LIKE NEVER BEFORE",
+  "MINDBLOWING WORKSPACE, fun friends", "LOSE YOURSELF in this wide open workspace",
+  "Find your productivity", "Join us! Awesome workspace", "Private desk in amazing location",
+  "Full floor of this modern era office building", "Incredible Views, private room", "SUPER WARM workspace, good friends",
+  "Come work with us! Balcony with views!", "Super team of designers", "Artist collective",
   "Weirdly comfy empty space", "Perfect for music performance", "Musicians Welcome!", "Art shows only",
   "Community Gallery, come have a show!", "Office space turned exhibition zone", "PERFORMANCE ART SPACE",
   "PERFECT EXHIBITION SPACE", "FUN CREW, shared extra large desk", "FULL FLOOR AVAIALABLE",
-  "Kick back zone", "Come explore your potential", "Unreal views", "Private workspace"
+  "Kick back zone", "Come explore your potential", "Unreal views", "Private workspace", "Super quiet & best location in town",
+  "Epic views", "Open desk in our community workspace", "Views of the water",
+  "Super quiet location", "Super productive workspace", "Open desk amongst friends",
+  "Awesome coworking space desk", "Gigantic wideopen", "Unbelievable", "Secluded workzone",
+  "Exhibition space", "Great performance space", "Wild vacant area", "Incredible view, private desk",
+  "Private rooms", "Empty and available", "Weirdly fun workspace", "THIS IS IT", "WORK LIKE NEVER BEFORE",
+  "MINDBLOWING WORKSPACE, fun friends", "LOSE YOURSELF in this wide open workspace",
+  "Find your productivity", "Join us! Awesome workspace", "Private desk in amazing location",
+  "Full floor of this modern era office building", "Incredible Views, private room", "SUPER WARM workspace, good friends",
+  "Come work with us! Balcony with views!", "Super team of designers", "Artist collective", "Great location to get some work done", "Dreamy and wide open",
+  "Scheduled for tear down", "Community work space", "Serene terraced space",
+  "Unbelievable views and wide open floor space", "Extra large space", "Entire property with many desks",
+  "Hunker down and get some work done", "Old derelict space", "Open workspace", "Community oriented",
+  "180 degree views, private rooms", "Single room in our office", "Super quiet & best location in town",
+  "Epic views", "Open desk in our community workspace", "Views of the water",
+  "Super quiet location", "Super productive workspace", "Open desk amongst friends",
+  "Awesome coworking space desk", "Gigantic wideopen",
 ]
 
-# User.destroy_all
-# Spot.destroy_all
-# Review.destroy_all
-#
-#
-# b = User.create({
-#   email: "demovacantuser@gmail.com",
-#   first_name: "Resident",
-#   last_name: "Demo",
-#   password: "starwars",
-#   birth_date: "1980-01-01"
-# });
+User.destroy_all
+Spot.destroy_all
+Review.destroy_all
+
+
+b = User.create({
+  email: "demovacantuser@gmail.com",
+  first_name: "Resident",
+  last_name: "Demo",
+  password: "starwars",
+  birth_date: "1980-01-01"
+});
 
 
 count = 0
-10.times do |i|
+54.times do |i|
   name = Faker::Name.first_name
   user = User.create({
     email: Faker::Internet.free_email(name),
@@ -110,14 +126,14 @@ count = 0
 
   address = Faker::Address.street_name
   spot = Spot.create({
-    title: titles.sample,
+    title: titles[i],
     address: address + ", " + "New York",
     latitude: p.rand(40.59218006937453..40.8279620),
     longitude: p.rand((-73.91144716406247)..(-73.82903890332032)),
     price: [*(75..250)].sample,
     kind: ["Office", "Studio", "Storefront"].sample,
     host: user,
-    main_image: imgs[i + 43]
+    main_image: imgs[i]
   });
 
 
