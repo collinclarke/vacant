@@ -12,7 +12,7 @@ class SpotsMap extends Component {
   componentWillReceiveProps(props) {
     const { spots, hover } = props;
     this.arrSpots = Object.values(spots);
-
+    debugger
     if (hover) this.MarkerManager.handleHover(spots[hover]);
 
 

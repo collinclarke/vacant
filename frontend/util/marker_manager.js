@@ -12,22 +12,24 @@ class MarkerManager extends Component {
   updateMarkers(spotsObj) {
     const spots = Object.values(spotsObj);
     const that = this;
-    spots.forEach(spot => {
+    const filteredSpots = spots.filter(spot => !this.markers[spot.id]);
+    filteredSpots.forEach(spot => {
       if (!Object.keys(that.markers).includes(String(spot.id))) {
         that.markers[parseInt(spot.id)] = that.createMarkerfromSpot(spot);
       }
     });
 
-    // const filteredSpots = spots.filter(spot => !this.markers[spot.id]);
+
     // filteredSpots.forEach(newSpot => {
     //   this.createMarkerFromSpot(newSpot);
     // });
-    debugger
-    Object.keys(this.markers).filter(spotId => !spotsObj[spotId])
-      .forEach(spotId => this.removeMarker(this.markers[spotId]));
+
+    // Object.keys(this.markers).filter(spotId => !spotsObj[spotId])
+    //   .forEach(spotId => this.removeMarker(this.markers[spotId]));
   }
 
   handleHover(spot) {
+    debugger
     if (this.hover) {
       this.markers[this.hover.id].infowindow.setContent(`
         <div class="price-marker" ref="${this.hover.id}">
@@ -49,18 +51,19 @@ class MarkerManager extends Component {
     this.markers[spot.id].infowindow.close();
   }
 
-  removeMarker(marker) {
-    debugger
-    this.markers[marker.spotId].setMap(null);
-    delete this.markers[marker.spotId];
-  }
+  // removeMarker(marker) {
+  //   debugger
+  //
+  //   // this.markers[marker.spotId].setMap(null);
+  //   delete this.markers[marker.spotId];
+  // }
 
   createMarkerfromSpot(spot, hover) {
     const { id, price, title, latitude, longitude } = spot;
     const position = new google.maps.LatLng(latitude, longitude);
     // if (!hover) this.bounds.extend(position);
-    const iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-    const icon = iconBase + 'info-i_maps.png';
+    // const iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+    // const icon = iconBase + 'info-i_maps.png';
 
     const marker = new google.maps.Marker({
       position,
