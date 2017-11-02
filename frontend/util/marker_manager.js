@@ -14,9 +14,7 @@ class MarkerManager extends Component {
     const that = this;
     const filteredSpots = spots.filter(spot => !this.markers[spot.id]);
     filteredSpots.forEach(spot => {
-      if (!Object.keys(that.markers).includes(String(spot.id))) {
-        that.markers[parseInt(spot.id)] = that.createMarkerfromSpot(spot);
-      }
+      that.markers[parseInt(spot.id)] = that.createMarkerfromSpot(spot);
     });
 
 
@@ -24,18 +22,20 @@ class MarkerManager extends Component {
     //   this.createMarkerFromSpot(newSpot);
     // });
 
-    // Object.keys(this.markers).filter(spotId => !spotsObj[spotId])
-    //   .forEach(spotId => this.removeMarker(this.markers[spotId]));
+    Object.keys(this.markers).filter(spotId => !spotsObj[spotId])
+      .forEach(spotId => this.removeMarker(this.markers[spotId]));
   }
 
   handleHover(spot) {
-    debugger
+
     if (this.hover) {
+      debugger
       this.markers[this.hover.id].infowindow.setContent(`
         <div class="price-marker" ref="${this.hover.id}">
           <div>$${ this.hover.price }</div>
         </div>
       `);
+
       const oldZ = this.markers[this.hover.id].infowindow.getZIndex();
       this.markers[this.hover.id].infowindow.setZIndex(oldZ-5);
     }
@@ -51,12 +51,11 @@ class MarkerManager extends Component {
     this.markers[spot.id].infowindow.close();
   }
 
-  // removeMarker(marker) {
-  //   debugger
-  //
-  //   // this.markers[marker.spotId].setMap(null);
-  //   delete this.markers[marker.spotId];
-  // }
+  removeMarker(marker) {
+    this.markers[marker.spotId].marker.setMap(null);
+    this.markers[marker.spotId].infowindow.close();
+    delete this.markers[marker.spotId];
+  }
 
   createMarkerfromSpot(spot, hover) {
     const { id, price, title, latitude, longitude } = spot;
@@ -89,8 +88,11 @@ class MarkerManager extends Component {
       zIndex: 5
     });
 
+    infowindow.open(this.map);
+
 
     return {
+      spotId: id,
       marker,
       infowindow
     };

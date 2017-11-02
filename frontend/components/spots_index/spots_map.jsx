@@ -10,11 +10,17 @@ class SpotsMap extends Component {
   }
 
   componentWillReceiveProps(props) {
+
+    this.MarkerManager.updateMarkers(this.props.spots);
+
     const { spots, hover } = props;
     this.arrSpots = Object.values(spots);
-    debugger
-    if (hover) this.MarkerManager.handleHover(spots[hover]);
 
+    if (hover && spots[hover]) {
+      if (this.MarkerManager.markers[spots[hover]]) {
+        this.MarkerManager.handleHover(spots[hover]);
+      }
+    }
 
     if (this.MarkerManager.markers) {
       Object.values(this.MarkerManager.markers)
@@ -28,6 +34,15 @@ class SpotsMap extends Component {
 
   componentDidUpdate() {
     this.MarkerManager.updateMarkers(this.props.spots);
+
+    if (this.MarkerManager.markers) {
+      Object.values(this.MarkerManager.markers)
+      .forEach(marker => {
+        if (marker.infowindow) {
+          marker.infowindow.open(this.map);
+        }
+      });
+    }
   }
 
   componentDidMount() {
