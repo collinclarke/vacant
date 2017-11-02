@@ -33,6 +33,7 @@ gem 'aws-sdk', '< 3.0'
 gem 'figaro'
 gem 'geocoder'
 gem 'faker'
+gem 'redis'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

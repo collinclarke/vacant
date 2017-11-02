@@ -20,10 +20,9 @@
 
 class Spot < ApplicationRecord
   validates :title, :address, :price, :kind, :host, presence: true
-  geocoded_by :address
-  after_validation :geocode
+
   has_attached_file :main_image, default_url: "sampleOffice.jpg"
-  validates_attachment_content_type :main_image, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :main_image, content_type: /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/
 
   has_many :reviews
 

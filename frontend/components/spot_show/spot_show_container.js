@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     spot: state.entities.spots[state.ui.spotDisplay],
     reviews: state.entities.reviews,
-    loading: state.ui.loading.spotLoading
+    loading: state.ui.loading.spotLoading,
   };
 };
 
