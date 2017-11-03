@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 const Auth = (props) => {
   const {loggedIn, component: Component, path} = props;
-  const rendering = !loggedIn ? (<Component {...props} />) : (<Redirect to='/' />);
+  const rendering = loggedIn ? (<Component {...props} />) : (<Redirect to='/' />);
   return (
     <Route path={ path } render={ props => rendering } />
   );

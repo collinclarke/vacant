@@ -25,14 +25,23 @@ class BookingForm extends Component {
         status: 'PENDING'
       })
     );
+    window.location.hash = '#/bookings';
   }
 
   requested() {
     const user = this.props.currentUser;
+    const bookings = this.props.bookings;
     if (user) {
       return user.bookings.includes(this.props.spotId);
     }
     return false;
+  }
+
+  componentDidMount() {
+    const user = this.props.currentUser;
+    if (user) {
+      this.props.fetchBookings(user.id);
+    }
   }
 
   update(field) {
@@ -40,7 +49,7 @@ class BookingForm extends Component {
   }
 
   dateFields() {
-    return this.requested ? (
+    return !this.requested() ? (
         <form className="booking-form">
           <div className="heading">
             <span className="price">

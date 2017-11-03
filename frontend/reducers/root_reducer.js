@@ -5,4 +5,4 @@ import EntitiesReducer from './entities_reducer';
 import UiReducer from './ui_reducer';
 
 export default combineReducers({ entities: EntitiesReducer,
-  ui: UiReducer, session: SessionReducer, errors: ErrorsReducer });
+  ui: UiReducer, session: SessionReducer, errors: ErrorsReducer});

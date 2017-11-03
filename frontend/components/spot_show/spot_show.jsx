@@ -95,7 +95,9 @@ class SpotShow extends Component {
           </nav>
 
           <section id="booking-form">
-            <BookingFormContainer openSessionModal={ this.openSessionModal } spotId={ id } price={ price } numReviews={ numReviews } overall={ ratings.overall }/>
+            <BookingFormContainer openSessionModal={ this.openSessionModal }
+              spotId={ id } price={ price } numReviews={ numReviews }
+              overall={ ratings.overall }/>
           </section>
 
           <section id="overview" className="spot-show-details">

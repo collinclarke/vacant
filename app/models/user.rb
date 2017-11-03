@@ -48,10 +48,6 @@ class User < ApplicationRecord
 
   has_many :spots
 
-  def self.generate_session_token
-    SecureRandom.urlsafe_base64
-  end
-
   def self.find_by_credentials(email, pw)
     user = User.find_by_email(email)
     user && user.valid_password?(pw) ? user : nil
@@ -67,15 +63,27 @@ class User < ApplicationRecord
   end
 
   def reset_session_token!
-    self.session_token = User.generate_session_token
-    self.save!
+    generate_unique_session_token
+    save!
     self.session_token
   end
 
   private
 
+  def new_session_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def generate_unique_session_token
+    self.session_token = new_session_token
+    while User.find_by(session_token: self.session_token)
+      self.session_token = new_session_token
+    end
+    self.session_token
+  end
+
   def ensure_session_token
-    self.session_token ||= User.generate_session_token
+    self.session_token ||= generate_unique_session_token
   end
 
 end
