@@ -18,7 +18,6 @@ class ReviewForm extends Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchSpot(this.props.match.params.spotId);
     document.querySelector('header').classList.add('hidden');
   }

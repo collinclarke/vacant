@@ -6,7 +6,6 @@ import { fetchSpot } from '../../actions/spots_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     currentUser: state.session.currentUser,
     spot: state.entities.spots[ownProps.match.params.spotId],

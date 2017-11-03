@@ -10,7 +10,6 @@ class BookingsIndex extends Component {
   bookingsHelper() {
     const arrBookings = Object.values(this.props.bookings);
     const index = [];
-    debugger
     arrBookings.forEach(booking => {
       const spot = this.props.spots[booking.spot_id];
       index.push(<BookingItem key={booking.id} booking={booking} spot={spot}/>);
