@@ -13,7 +13,6 @@ const App = () => {
   return (
     <main className="full-screen">
       <header className="fixed">
-        <a className="main-logo" href="/#/"><img src={ window.logoUrl } alt="Vacant Logo"/></a>
         <GreetingContainer />
       </header>
         <Route exact path='/spots/:spotId/newReview' component={ ReviewFormContainer } />

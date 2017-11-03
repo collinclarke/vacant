@@ -41,45 +41,50 @@ class Greeting extends Component {
   render() {
     return (this.props.currentUser ?
       (
-        <section className="greeting">
-          <div
-            className="user-avatar-wrapper nav-avatar">
-          <img onMouseEnter={this.openPreferencesModal} className="user-avatar" src={this.props.currentUser.image_url}
-            alt="user avatar thumbnail"/>
-          </div>
-          <ReactModal
-            isOpen={this.state.preferencesModalIsOpen}
-            onRequestClose={this.gentleCloseModal}
-            onAfterOpen={this.afterOpenModal}
-            closeTimeoutMS={200}
-            className="settings-modal"
-            overlayClassName="settings-modal-bg"
-          >
-            <ul className="user-settings" onMouseEnter={this.openPreferencesModal} onMouseLeave={this.handleCloseModal} >
-              <li id="user-name">{this.props.currentUser.first_name}</li>
-              <li id="user-bookings"><Link to='/bookings'>Your Bookings</Link></li>
-              <li id="logout" onClick={this.props.logout}><span onClick={this.handleCloseModal}>Logout</span></li>
-            </ul>
-          </ReactModal>
+        <section className="header-wrapper">
+          <Link className="main-logo" to="/"><img src={ window.logoUrl } alt="Vacant Logo"/></Link>
+          <section className="greeting">
+            <div
+              className="user-avatar-wrapper nav-avatar">
+            <img onMouseEnter={this.openPreferencesModal} className="user-avatar" src={this.props.currentUser.image_url}
+              alt="user avatar thumbnail"/>
+            </div>
+            <ReactModal
+              isOpen={this.state.preferencesModalIsOpen}
+              onRequestClose={this.gentleCloseModal}
+              onAfterOpen={this.afterOpenModal}
+              closeTimeoutMS={200}
+              className="settings-modal"
+              overlayClassName="settings-modal-bg"
+            >
+              <ul className="user-settings" onMouseEnter={this.openPreferencesModal} onMouseLeave={this.handleCloseModal} >
+                <li id="user-name">{this.props.currentUser.first_name}</li>
+                <li id="user-bookings"><Link to='/bookings'>Your Bookings</Link></li>
+                <li id="logout" onClick={this.props.logout}><span onClick={this.handleCloseModal}>Logout</span></li>
+              </ul>
+            </ReactModal>
+          </section>
         </section>
       ) : (
-        <section className="greeting">
+        <section className="header-wrapper">
+          <Link className="main-logo" to="/"><img src={ window.logoUrl } alt="Vacant Logo"/></Link>
+          <section className="greeting">
 
-          <p onClick={() => this.openSessionModal(false)}>Sign Up</p>
-          <p onClick={() => this.openSessionModal(true)}>Login</p>
-          <ReactModal
-            isOpen={this.state.sessionModalIsOpen}
-            onRequestClose={this.handleCloseModal}
-            className="session-modal"
-            overlayClassName="session-modal-bg"
-            closeTimeoutMS={50}
-          >
-          <i onClick={this.handleCloseModal} className="icon ion-ios-close-empty modal-close"></i>
-            <SessionFormContainer closeModal={this.handleCloseModal} formTypeLogin={this.state.formTypeLogin}/>
-          </ReactModal>
+            <p onClick={() => this.openSessionModal(false)}>Sign Up</p>
+            <p onClick={() => this.openSessionModal(true)}>Login</p>
+            <ReactModal
+              isOpen={this.state.sessionModalIsOpen}
+              onRequestClose={this.handleCloseModal}
+              className="session-modal"
+              overlayClassName="session-modal-bg"
+              closeTimeoutMS={50}
+            >
+            <i onClick={this.handleCloseModal} className="icon ion-ios-close-empty modal-close"></i>
+              <SessionFormContainer closeModal={this.handleCloseModal} formTypeLogin={this.state.formTypeLogin}/>
+            </ReactModal>
 
+          </section>
         </section>
-
       )
     );
   }

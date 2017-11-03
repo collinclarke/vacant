@@ -12,6 +12,10 @@ main {
   display: none;
 }
 
+.loading {
+  background: rgba(213, 213, 213, 0.74);
+}
+
 .splash-page {
   display: flex;
   flex-flow: column;

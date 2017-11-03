@@ -45,7 +45,9 @@ class SpotShow extends Component {
   reviewHelper() {
     const { reviews } = this.props.spot;
     return reviews.map(reviewId => {
-      return <ReviewItem key={reviewId} review={ this.props.reviews[reviewId] }/>;
+      if (this.props.reviews[reviewId]) {
+        return <ReviewItem key={reviewId} review={ this.props.reviews[reviewId] }/>;
+      }
     });
   }
 
@@ -53,11 +55,11 @@ class SpotShow extends Component {
     const loading = this.props.loading;
 
     if (loading) {
-      return <h1>loading</h1>;
+      return <div className="loading full-screen">LOADING</div>;
     }
 
     if (this.props.spot) {
-      const { title, address, price, kind, image_url, id, reviews, ratings, numReviews, host_name } = this.props.spot;
+      const { title, address, price, kind, cover_image, id, reviews, ratings, numReviews, host_name } = this.props.spot;
       return (
         <section className="spot-show">
 
@@ -73,7 +75,7 @@ class SpotShow extends Component {
           </ReactModal>
 
           <section className="spot-show-image">
-            <img src= { image_url } alt="spot image"/>
+            <img src= { cover_image } alt="spot image"/>
           </section>
 
           <nav id="spot-show-nav">
@@ -112,7 +114,7 @@ class SpotShow extends Component {
 
           <section className="spot-ratings">
               <div className="ratings-header">
-                { numReviews } Reviews <RatingBlurb rating={ratings.overall}/>
+                 Overall <RatingBlurb rating={ratings.overall} numReviews={ numReviews }/>
               </div>
           </section>
 

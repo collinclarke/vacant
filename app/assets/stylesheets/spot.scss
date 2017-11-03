@@ -99,14 +99,23 @@
   .ratings-header {
     display: flex;
     flex-flow: row nowrap;
+    font-weight: bolder;
+    letter-spacing: .07rem;
+    color: #696969;
+    align-items: center;
     padding: 1rem;
+    font-size: 1.3rem;
+    margin-left: -1rem;
+    .spot-rating {
+      font-size: 1.8rem;
+      margin-left: 1rem;
+    }
   }
 }
 
 .spot-reviews {
   // border: 1px solid rgb(200, 255, 184);
   margin-top: 1rem;
-  height: 200rem;
   display: flex;
   flex-flow: column nowrap;
   grid-row: 5;
