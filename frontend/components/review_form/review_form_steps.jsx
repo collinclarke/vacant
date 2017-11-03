@@ -113,7 +113,7 @@ export class Success extends Component {
         <div className="rating-header">
           <h1>Confirm review submission</h1>
           <button onClick={this.props.handleFormSubmission}>Submit Review</button>
-          <Link to="/spots">Back to spots</Link>
+          <Link to={`/spots/${this.props.spotId}`}>Back to spot</Link>
         </div>
       </section>
     );

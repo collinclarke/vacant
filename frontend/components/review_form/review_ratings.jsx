@@ -36,7 +36,7 @@ class Ratings extends Component {
         <div className="rating-header">
           <h1>{ this.question() }</h1>
         </div>
-        <div className="review-category">
+        <div className="review-category first">
           <h3>Cleanliness</h3>
           <ReviewRadio type="cleanliness" handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
         </div>

@@ -1,6 +1,14 @@
 .review-form {
   display: grid;
   grid-template-columns: 1fr 65vw 1fr;
+
+  button {
+    grid-column: 3;
+    width: 10rem;
+    align-self: flex-end;
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+  }
 }
 
 .rating-header {
@@ -11,12 +19,20 @@
   align-items: flex-start;
 
   h1 {
-    font-size: 5rem;
+    font-size: 4rem;
+    color: #3b3b3b;
+    font-weight: bolder;
   }
+
 
   .star-radio{
   }
 
+}
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #464646;
 }
 
 .review-category {
@@ -24,4 +40,9 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+}
+
+
+.first {
+  margin-top: 4rem;
 }

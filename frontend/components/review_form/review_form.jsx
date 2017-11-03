@@ -61,7 +61,7 @@ class ReviewForm extends Component {
           return <PublicReview type="publicReview"
             handleSubmit={this.handleSubmit} host={hostName}/>;
         case 5:
-          return <Success handleFormSubmission={this.handleFormSubmission} host={hostName}/>;
+          return <Success spotId={this.props.match.params.spotId} handleFormSubmission={this.handleFormSubmission} host={hostName}/>;
       }
     } else {
       return null;
