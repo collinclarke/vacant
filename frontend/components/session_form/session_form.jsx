@@ -69,7 +69,7 @@ class SessionForm extends Component {
 
   loginDemoUser() {
     const demo = {email:"demovacantuser@gmail.com", password:"starwars"};
-    this.props.login(demo);
+    this.props.login(demo).then(this.props.closeModal());
   }
 
   signupFields(action) {
