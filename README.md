@@ -18,7 +18,7 @@ a PSQL database to serve up assets. The frontend is on React/Redux and SASS.
 
 ### User authentication and Demo login
 
-![user login](./README/images/login2.gif)
+![user login](./README/images/login3.gif)
 
 - Users can log in as a guest to demo booking and reviews
 
