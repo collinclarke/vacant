@@ -96,22 +96,22 @@ imgs = ["https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant_
   "Awesome coworking space desk", "Gigantic wideopen",
 ]
 
-# User.destroy_all
-# Spot.destroy_all
-# Review.destroy_all
-#
-#
-# b = User.create({
-#   email: "demovacantuser@gmail.com",
-#   first_name: "Resident",
-#   last_name: "Demo",
-#   password: "starwars",
-#   birth_date: "1980-01-01"
-# });
+User.destroy_all
+Spot.destroy_all
+Review.destroy_all
+
+
+b = User.create({
+  email: "demovacantuser@gmail.com",
+  first_name: "Resident",
+  last_name: "Demo",
+  password: "starwars",
+  birth_date: "1980-01-01"
+});
 
 
 count = 0
-10.times do |i|
+54.times do |i|
   name = Faker::Name.first_name
   user = User.create({
     email: Faker::Internet.free_email(name),
@@ -125,19 +125,19 @@ count = 0
 
   address = Faker::Address.street_name
   spot = Spot.create({
-    title: titles[i + 40],
+    title: titles[i],
     address: address + ", " + "New York",
     latitude: p.rand(40.59218006937453..40.8279620),
     longitude: p.rand((-74.01144716406247)..(-73.825550)),
     price: [*(75..250)].sample,
     kind: ["Office", "Studio", "Storefront"].sample,
     host_id: user.id,
-    main_image: imgs[i + 40]
+    main_image: imgs[i]
   });
 
 
   rating = [1, 2, 3, 4, 5]
-  numReviews = [*(1..5)].sample
+  numReviews = [*(3..20)].sample
   numReviews.times do |r|
     num = rating.sample
     offset = rand(User.count)
@@ -154,24 +154,6 @@ count = 0
       value: num,
       location: num,
       public_review: Faker::Hipster.paragraph
-    })
-  end
-  numratings = [*(5..15)].sample
-  numratings.times do |r|
-    num = rating.sample
-    offset = rand(User.count)
-    rand_record = User.offset(offset).first.id
-    Review.create!({
-      user_id: rand_record,
-      spot_id: spot.id,
-      overall: num,
-      user_impression: num,
-      cleanliness: num,
-      accuracy: num,
-      communication: num,
-      check_in: num,
-      value: num,
-      location: num,
     })
   end
 end
