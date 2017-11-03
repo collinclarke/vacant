@@ -4,7 +4,7 @@ import BookingItem from './booking_item'
 class BookingsIndex extends Component {
 
   componentDidMount() {
-    this.props.fetchBookings(this.props.currentUser.id);
+    this.props.fetchBookings();
   }
 
   bookingsHelper() {
@@ -19,11 +19,13 @@ class BookingsIndex extends Component {
 
   render() {
 
-    return (
+    return this.props.spots ? (
       <section className="bookings-index">
         { this.bookingsHelper() }
       </section>
-    );
+    ) : (
+      null
+    )
   }
 }
 

@@ -1,0 +1,23 @@
+.splash-page {
+  background: #c9c9c9;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  a {
+    font-size: 8rem;
+    font-weight: bolder;
+    color: #202020;
+    margin-left: 2rem;
+  }
+
+  div {
+    margin-left: 2rem;
+    margin-top: 1.7rem;
+    font-size: 2.2rem;
+    width: 28rem;
+    line-height: 2.4rem;
+  }
+
+}

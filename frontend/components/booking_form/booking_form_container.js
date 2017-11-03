@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import BookingForm from './booking_form';
 import { createBooking } from '../../actions/booking_actions';
 import { fetchBookings } from '../../actions/booking_actions';
@@ -19,4 +20,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookingForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BookingForm));

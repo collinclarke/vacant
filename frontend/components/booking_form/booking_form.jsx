@@ -25,7 +25,7 @@ class BookingForm extends Component {
         spot_id: this.props.spotId,
         status: 'PENDING'
       })
-    );
+    ).then(() => this.props.history.push('/bookings'));
   }
 
   requested() {
@@ -40,7 +40,7 @@ class BookingForm extends Component {
   componentDidMount() {
     const user = this.props.currentUser;
     if (user) {
-      this.props.fetchBookings(user.id);
+      this.props.fetchBookings();
     }
   }
 

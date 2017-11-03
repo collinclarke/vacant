@@ -44,7 +44,7 @@ class ReviewForm extends Component {
         spot_id: this.props.match.params.spotId
       }
     );
-    this.props.submitReview(review);
+    this.props.submitReview(review).then(() => this.props.history.push(`/spots/${this.props.match.params.spotId}`));
   }
 
   render() {

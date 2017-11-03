@@ -1,0 +1,29 @@
+.bookings-index {
+  margin-top: 6rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.booking-item {
+  max-width: 30vw;
+  margin: 1rem;
+}
+
+.booking-item {
+  li {
+    list-style: none;
+  }
+}
+
+.start-date-booking {
+  font-size: .8rem;
+  font-weight: bold;
+  color: #33324a;
+}
+
+.status {
+  font-size: .8rem;
+  font-weight: bold;
+  color: #a18200;
+}
