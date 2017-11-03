@@ -33,12 +33,17 @@ a PSQL database to serve up assets. The frontend is on React/Redux and SASS.
 
 ### Spot view and book
 ![spot booking](./README/images/bookingForm.gif)
+
 - User can request to book spots
 - User can view requested spots and booking status
 
 ### Spot reviews
 ![spot show](./README/images/review4.gif)
+
 - Users can leave reviews on spots they have booked
+
+--------------
+
 
 ### Future directions
 I plan on continuing development on Vacant.
