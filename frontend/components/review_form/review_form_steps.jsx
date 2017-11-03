@@ -95,7 +95,7 @@ export class PublicReview extends Component {
       <section className="review-form overall full-screen">
         <div className="rating-header">
           <h1>{ this.question() }</h1>
-          <form onSubmit={this.handleSubmit}>
+          <form className="public-review" onSubmit={this.handleSubmit}>
             <textarea onChange={this.handleTextChange} placeholder="Write review here..."></textarea>
             <button>Submit</button>
           </form>
@@ -110,10 +110,12 @@ export class Success extends Component {
   render() {
     return(
       <section className="review-form overall full-screen">
-        <div className="rating-header">
+        <div className="rating-header success">
           <h1>Confirm review submission</h1>
-          <button onClick={this.props.handleFormSubmission}>Submit Review</button>
-          <Link to={`/spots/${this.props.spotId}`}>Back to spot</Link>
+          <div className="review-submit">
+            <button id="back-to-spot"><Link to={`/spots/${this.props.spotId}`}>Back to spot</Link></button>
+            <button onClick={this.props.handleFormSubmission}>Submit Review</button>
+          </div>
         </div>
       </section>
     );

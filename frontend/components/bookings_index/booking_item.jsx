@@ -7,8 +7,8 @@ class BookingItem extends Component {
     return (
       <div className="booking-item">
         <SpotIndexItem spot={this.props.spot}/>
-        <div className="status">{this.props.booking.status}</div>
-        <div className="start-date-booking">{this.props.booking.start_date}</div>
+        <div className="status"><span>Status:</span> {this.props.booking.status}</div>
+        <div className="start-date-booking">{this.props.booking.start_date} - {this.props.booking.end_date}</div>
       </div>
     );
   }

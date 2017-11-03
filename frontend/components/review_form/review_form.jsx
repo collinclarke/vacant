@@ -19,11 +19,11 @@ class ReviewForm extends Component {
 
   componentDidMount() {
     this.props.fetchSpot(this.props.match.params.spotId);
-    document.querySelector('header').classList.add('hidden');
+    // document.querySelector('header').classList.add('hidden');
   }
 
   componentWillUnmount() {
-    document.querySelector('header').classList.remove('hidden');
+    // document.querySelector('header').classList.remove('hidden');
   }
 
   handleSubmit(value) {

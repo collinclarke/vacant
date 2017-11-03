@@ -11,6 +11,39 @@
   }
 }
 
+.multi-ratings {
+  margin-top: 9rem;
+}
+
+.success {
+  display: flex;
+  flex-flow: row wrap;
+  button {
+    align-self: flex-start;
+  }
+}
+
+#back-to-spot {
+  background-color: #357890;
+  a {
+    color: white;
+  }
+}
+
+.review-submit {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.public-review {
+  textarea {
+    margin-top: 1rem;
+    width: 36rem;
+    height: 10rem;
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+}
+
 .rating-header {
   grid-column: 2;
   display: flex;
@@ -29,6 +62,8 @@
   }
 
 }
+
+
 h3 {
   font-size: 1.5rem;
   font-weight: bold;
