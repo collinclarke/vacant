@@ -40,7 +40,6 @@ a PSQL database to serve up assets. The frontend is on React/Redux and SASS.
 ![spot show](./README/images/review4.gif)
 - Users can leave reviews on spots they have booked
 
------------
 ### Future directions
 I plan on continuing development on Vacant.
 
