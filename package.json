@@ -15,9 +15,11 @@
     "react-scrollchor": "^4.0.0",
     "redux": "^3.7.2",
     "redux-devtools": "^3.4.0",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "webpack": "^3.8.1"
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
