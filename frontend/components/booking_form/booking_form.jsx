@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RatingBlurb from '../widgets/rating_blurb';
+import { Link } from 'react-router-dom';
 
 class BookingForm extends Component {
   constructor(props) {
@@ -25,7 +26,6 @@ class BookingForm extends Component {
         status: 'PENDING'
       })
     );
-    window.location.hash = '#/bookings';
   }
 
   requested() {
@@ -49,57 +49,60 @@ class BookingForm extends Component {
   }
 
   dateFields() {
-    return !this.requested() ? (
-        <form className="booking-form">
-          <div className="heading">
-            <span className="price">
-              ${this.props.price}
-            </span><span> per night</span>
+    return (
+      <form className="booking-form">
+        <div className="heading">
+          <span className="price">
+          ${this.props.price}
+          </span><span> per night</span>
           <RatingBlurb rating={ this.props.overall } numReviews={ this.props.numReviews } />
-          </div>
+        </div>
 
-          <hr />
+        <hr />
 
-          <div className="booking-dates">
-            <div className="start-date">
-              <label>Check In</label>
-              <input required type="date" defaultValue={this.state.start_date}
-                onChange={ this.update('start_date') }/>
-            </div>
-            <div className="end-date">
-              <label>Check Out</label>
-              <input required type="date" defaultValue={this.state.end_date}
-                onChange={ this.update('end_date') }/>
-            </div>
+        <div className="booking-dates">
+          <div className="start-date">
+            <label>Check In</label>
+            <input required type="date" defaultValue={this.state.start_date}
+              onChange={ this.update('start_date') }/>
           </div>
-          <div className="booking-errors">
-            <ul>
-              { this.props.errors.map(error => {<li>{error}</li>;} ) }
-            </ul>
+          <div className="end-date">
+            <label>Check Out</label>
+            <input required type="date" defaultValue={this.state.end_date}
+              onChange={ this.update('end_date') }/>
           </div>
-          <div className="num-residents">
-            <label>Guests</label>
-            <input required type="number" value={ this.state.residents }
-              onChange={ this.update('residents') }  placeholder="1"/>
-          </div>
-          <button onClick={this.handleSubmit}>
-            { this.props.currentUser ? "Request to Book" : "Sign up to Book"}
-          </button>
-          <span>You won't be charged yet</span>
+        </div>
 
-          <hr />
+        <div className="booking-errors">
+          <ul>
+            { this.props.errors.map(error => {<li>{error}</li>;} ) }
+          </ul>
+        </div>
+        <div className="num-residents">
+          <label>Guests</label>
+          <input required type="number" value={ this.state.residents }
+            onChange={ this.update('residents') }  placeholder="1"/>
+        </div>
 
-        </form>
-      ) : (
-          <div className="requested-notice">
-            Spot Requested!
-          </div>
-        );
+        <button onClick={this.handleSubmit}>
+          { this.props.currentUser ? "Request to Book" : "Sign up to Book"}
+        </button>
+        <span>You won't be charged yet</span>
+
+        <hr />
+
+      </form>
+    );
   }
 
 
   render() {
-    return this.dateFields();
+    return this.requested() ? (
+      <div className="requested-notice booking-form">
+        Spot Requested!
+        <Link to={`/spots/${this.props.spotId}/newReview`}><button>Leave a Review!</button></Link>
+      </div>
+    ) : this.dateFields();
   }
 }
 

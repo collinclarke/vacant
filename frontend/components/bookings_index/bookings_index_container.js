@@ -6,6 +6,7 @@ import BookingsIndex from './bookings_index';
 
 const mapStateToProps = state => {
   return {
+    currentUser: state.session.currentUser,
     bookings: state.entities.bookings,
     spots: state.entities.spots
   };
@@ -13,7 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchBookings: () => dispatch(fetchBookings())
+    fetchBookings: (userId) => dispatch(fetchBookings(userId))
   };
 };
 

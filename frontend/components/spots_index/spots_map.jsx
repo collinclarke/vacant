@@ -70,6 +70,10 @@ class SpotsMap extends Component {
     this.MarkerManager.updateMarkers(this.props.spots);
   }
 
+  componentWillUnmount() {
+    google.maps.event.clearListeners(this.map, 'idle')
+  }
+
   render() {
     return (
       <section className="spots-map map" id="spots-map">

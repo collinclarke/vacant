@@ -18,6 +18,7 @@ class ReviewForm extends Component {
   }
 
   componentDidMount() {
+    debugger
     this.props.fetchSpot(this.props.match.params.spotId);
     document.querySelector('header').classList.add('hidden');
   }
@@ -48,7 +49,7 @@ class ReviewForm extends Component {
   }
 
   render() {
-    if (!_.isEmpty(this.props.users)) {
+    if (!_.isEmpty(this.props.users) && this.props.spot) {
       const hostName = this.props.users[this.props.spot.host_id].first_name;
       switch(this.state.step) {
         case 1:

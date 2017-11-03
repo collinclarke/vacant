@@ -16,12 +16,11 @@ const App = () => {
         <a className="main-logo" href="/#/"><img src={ window.logoUrl } alt="Vacant Logo"/></a>
         <GreetingContainer />
       </header>
-
-      <AuthRoute exact path='/spots/:spotId/newReview' component={ ReviewFormContainer } />
-      <AuthRoute exact path='/bookings' component={ BookingsIndexContainer } />
-      <Route exact path='/spots/:spotId' component={ SpotShowContainer } />
-      <Route exact path='/spots' component={ SpotsSearchContainer } />
-      <Route exact path='/' component={ SplashPage } />
+        <Route exact path='/spots/:spotId/newReview' component={ ReviewFormContainer } />
+        <AuthRoute exact path='/bookings' component={ BookingsIndexContainer } />
+        <Route exact path='/spots/:spotId' component={ SpotShowContainer } />
+        <Route exact path='/spots' component={ SpotsSearchContainer } />
+        <Route exact path='/' component={ SplashPage } />
     </main>
   );
 };

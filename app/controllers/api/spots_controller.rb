@@ -14,6 +14,10 @@ class Api::SpotsController < ApplicationController
     params[:bounds]
   end
 
+  def spotIds
+    params[:spotIds]
+  end
+
   # def spot_params
   #   params.require(:spot).permit(
   #     :title,
