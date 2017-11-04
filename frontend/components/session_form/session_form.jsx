@@ -19,9 +19,16 @@ class SessionForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginDemoUser = this.loginDemoUser.bind(this);
     this.handleFormChange = this.handleFormChange.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.update = this.update.bind(this);
   }
 
   handleFormChange() {
+    Object.values(this.refs).forEach(ref => {
+      ref.classList.remove('error-highlight');
+      ref.classList.remove('bday-error-highlight');
+      ref.classList.add('clear-highlight')
+    });
     this.setState({formTypeLogin: !this.state.formTypeLogin});
     this.props.clearErrors();
   }
@@ -52,7 +59,11 @@ class SessionForm extends Component {
   }
 
   update(field) {
-    return e => this.setState({ [field]: e.currentTarget.value });
+    return e => {
+      this.setState({ [field]: e.currentTarget.value });
+      this.props.clearErrors();
+      Object.values(this.refs).forEach(ref => ref.classList.remove('error-highlight'));
+    };
   }
 
   birthday() {
