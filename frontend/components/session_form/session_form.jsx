@@ -23,10 +23,7 @@ class SessionForm extends Component {
 
   handleFormChange() {
     this.setState({formTypeLogin: !this.state.formTypeLogin});
-  }
-
-  updateErrors(response) {
-    this.setState({errors: response.errors.responseJSON });
+    this.props.clearErrors();
   }
 
   closeModal() {
@@ -34,11 +31,20 @@ class SessionForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
+    const errors = nextProps ? nextProps.errors : [];
+    errors.map((error, i) => this.updateErrors(error, i));
   }
 
   componentDidUpdate() {
-    debugger
+
+  }
+
+  componentDidMount() {
+    this.props.errors.map((error, i) => this.updateErrors(error, i));
+  }
+
+  updateErrors(error, i) {
+    this.setState({errors: {[i]: <p className="error" key={i}>{error}</p>}});
   }
 
   handleSubmit(e) {
@@ -46,13 +52,11 @@ class SessionForm extends Component {
     const user = Object.assign({}, this.state, {
       birth_date: this.birthday()
     });
-    debugger
 
     if (this.state.formTypeLogin) {
-      debugger
-      this.props.login(user).then(this.closeModal, this.updateErrors);
+      this.props.login(user).then(this.closeModal, null);
     } else {
-      this.props.signup(user).then(this.closeModal, this.updateErrors);
+      this.props.signup(user).then(this.closeModal, null);
     }
 
   }
@@ -99,6 +103,9 @@ class SessionForm extends Component {
       <form className="signup-form" onSubmit={this.handleSubmit}>
         <h1>{ action }</h1>
         <hr />
+          <ul className="errors">
+            {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
+          </ul>
         <div className="session-form-input">
           <input id="email" type="text" value={ this.state.email }
             onChange={ this.update('email') } placeholder="Email Address"/>
@@ -159,9 +166,6 @@ class SessionForm extends Component {
         </div>
         <button>{ action }</button>
           <hr />
-          <ul className="errors">
-            {this.props.errors.map((error, i) => <li key={i}>{error.stack}</li>)}
-          </ul>
 
           <section className="form-alternative">
             <span>Already have an account?</span>
@@ -171,6 +175,18 @@ class SessionForm extends Component {
     );
   }
 
+  loginErrors() {
+    if (this.state.errors[0]) {
+      return (
+        <div className="login-errors">
+          <i className="icon ion-alert-circled"></i>
+          { this.state.errors[0] }
+        </div>
+      );
+   }
+
+  }
+
   loginFields(action) {
     const altMessage = 'Sign Up';
     return (
@@ -178,6 +194,8 @@ class SessionForm extends Component {
       <form className="login-form">
         <h1>{ action }</h1>
         <hr />
+
+        { this.loginErrors() }
 
         <div className="session-form-input">
           <input id="email" type="text" value={ this.state.email }
@@ -194,9 +212,7 @@ class SessionForm extends Component {
         <button onClick={this.handleSubmit}>{ action }</button>
         <button className="demo-login" onClick={this.loginDemoUser}>Guest Login</button>
           <hr />
-          <ul className="errors">
-            {this.state.errors.map((error, i) => <li key={i}>{error.stack}</li>)}
-          </ul>
+
 
           <section className="form-alternative">
             <span>Don't have an account?</span>

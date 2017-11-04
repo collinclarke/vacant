@@ -1,4 +1,35 @@
-.errors {
-  color: red;
-  border: 1px solid red;
+$orange: #ffb800;
+
+.login-errors {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  border: 1px solid $orange;
+  border-radius: .25rem;
+  height: 3.2rem;
+  margin-bottom: 1rem;
+  transition: 200ms ease-in;
+
+  i {
+    background: $orange;
+    height: 2rem;
+    height: 100%;
+    width: 4rem;
+    font-size: 1.6rem;
+    border-radius: .05rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  p {
+    color: #ffa100;
+    font-size: 1rem;
+    margin: 1rem;
+  }
 }

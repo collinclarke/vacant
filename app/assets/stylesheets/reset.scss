@@ -9,6 +9,7 @@ body, div, form, input, button, p, section, article, main, header, footer, span,
   font-weight: inherit;
   letter-spacing: inherit;
   font-family: helvetica, arial, sans-serif;
+  box-sizing: border-box;
 }
 
 a:visited, a:active, a:hover, a:link {
