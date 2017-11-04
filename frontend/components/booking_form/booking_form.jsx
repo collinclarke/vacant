@@ -6,6 +6,7 @@ class BookingForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      requested: false,
       start_date: (new Date()),
       end_date: (new Date()),
       residents: 1,
@@ -25,7 +26,12 @@ class BookingForm extends Component {
         spot_id: this.props.spotId,
         status: 'PENDING'
       })
-    ).then(() => this.props.history.push('/bookings'));
+    ).then(() => this.setState({requested: true}));
+    // () => this.props.history.push('/bookings')
+  }
+
+  componentWillReceiveProps(nextProps) {
+
   }
 
   requested() {
@@ -40,7 +46,7 @@ class BookingForm extends Component {
   componentDidMount() {
     const user = this.props.currentUser;
     if (user) {
-      this.props.fetchBookings();
+      this.setState({requested: this.requested()});
     }
   }
 
@@ -97,10 +103,11 @@ class BookingForm extends Component {
 
 
   render() {
-    return this.requested() ? (
+    return this.state.requested ? (
       <div className="requested-notice booking-form">
         Spot Requested!
         <Link to={`/spots/${this.props.spotId}/newReview`}><button>Leave a Review!</button></Link>
+        <Link to={`/bookings`}><button>See All Bookings</button></Link>
       </div>
     ) : this.dateFields();
   }

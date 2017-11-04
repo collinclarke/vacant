@@ -15,7 +15,7 @@ const App = () => {
       <header className="fixed">
         <GreetingContainer />
       </header>
-        <Route exact path='/spots/:spotId/newReview' component={ ReviewFormContainer } />
+        <AuthRoute exact path='/spots/:spotId/newReview' component={ ReviewFormContainer } />
         <AuthRoute exact path='/bookings' component={ BookingsIndexContainer } />
         <Route exact path='/spots/:spotId' component={ SpotShowContainer } />
         <Route exact path='/spots' component={ SpotsSearchContainer } />

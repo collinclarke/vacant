@@ -13,14 +13,32 @@ class SessionForm extends Component {
       birth_year: "Year",
       formTypeLogin: this.props.formTypeLogin,
       hit: false,
+      errors: this.props.errors,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginDemoUser = this.loginDemoUser.bind(this);
     this.handleFormChange = this.handleFormChange.bind(this);
+    this.updateErrors = this.updateErrors.bind(this);
   }
 
   handleFormChange() {
     this.setState({formTypeLogin: !this.state.formTypeLogin});
+  }
+
+  updateErrors(response) {
+    this.setState({errors: response.errors.responseJSON });
+  }
+
+  closeModal() {
+    this.props.closeModal();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    debugger
+  }
+
+  componentDidUpdate() {
+    debugger
   }
 
   handleSubmit(e) {
@@ -28,11 +46,13 @@ class SessionForm extends Component {
     const user = Object.assign({}, this.state, {
       birth_date: this.birthday()
     });
+    debugger
 
     if (this.state.formTypeLogin) {
-      this.props.login(user).then(this.props.closeModal());
+      debugger
+      this.props.login(user).then(this.closeModal, this.updateErrors);
     } else {
-      this.props.signup(user).then(this.props.closeModal());
+      this.props.signup(user).then(this.closeModal, this.updateErrors);
     }
 
   }
@@ -67,7 +87,8 @@ class SessionForm extends Component {
     return days;
   }
 
-  loginDemoUser() {
+  loginDemoUser(e) {
+    e.preventDefault();
     const demo = {email:"demovacantuser@gmail.com", password:"starwars"};
     this.props.login(demo).then(this.props.closeModal());
   }
@@ -174,7 +195,7 @@ class SessionForm extends Component {
         <button className="demo-login" onClick={this.loginDemoUser}>Guest Login</button>
           <hr />
           <ul className="errors">
-            {this.props.errors.map((error, i) => <li key={i}>{error.stack}</li>)}
+            {this.state.errors.map((error, i) => <li key={i}>{error.stack}</li>)}
           </ul>
 
           <section className="form-alternative">
