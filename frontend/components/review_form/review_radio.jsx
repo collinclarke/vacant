@@ -46,7 +46,7 @@ class ReviewRadio extends Component {
           <input id="five" onChange={this.handleOptionChange}
             checked={this.state.selectedOption === '5'} type="radio" value="5"/>
           <RatingBlurb rating={this.state.selectedOption} />
-          <button type="submit"></button>
+          <button type="button" type="submit"></button>
       </form>
     );
   }

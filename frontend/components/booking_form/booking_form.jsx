@@ -90,7 +90,7 @@ class BookingForm extends Component {
             onChange={ this.update('residents') }  placeholder="1"/>
         </div>
 
-        <button onClick={this.handleSubmit}>
+        <button type="button" onClick={this.handleSubmit}>
           { this.props.currentUser ? "Request to Book" : "Sign up to Book"}
         </button>
         <span>You won't be charged yet</span>
@@ -106,8 +106,8 @@ class BookingForm extends Component {
     return this.state.requested ? (
       <div className="requested-notice booking-form">
         Spot Requested!
-        <Link to={`/spots/${this.props.spotId}/newReview`}><button>Leave a Review!</button></Link>
-        <Link to={`/bookings`}><button>See All Bookings</button></Link>
+        <Link to={`/spots/${this.props.spotId}/newReview`}><button type="button">Leave a Review!</button></Link>
+        <Link to={`/bookings`}><button type="button">See All Bookings</button></Link>
       </div>
     ) : this.dateFields();
   }

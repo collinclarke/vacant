@@ -27,7 +27,7 @@ export class Overall extends Component {
           <h1>{ this.question() }</h1>
           <ReviewRadio type="overall" handleChange={this.handleChange}/>
         </div>
-        <button onClick={() => this.props.handleSubmit(this.set)}>Next</button>
+        <button type="button" onClick={() => this.props.handleSubmit(this.set)}>Next</button>
       </section>
     );
   }
@@ -59,7 +59,7 @@ export class UserImpression extends Component {
           <h1>{ this.question() }</h1>
           <ReviewRadio type="userImpression" handleChange={this.handleChange}/>
         </div>
-        <button onClick={() => this.props.handleSubmit(this.set)}>Next</button>
+        <button type="button" onClick={() => this.props.handleSubmit(this.set)}>Next</button>
       </section>
     );
   }
@@ -97,7 +97,7 @@ export class PublicReview extends Component {
           <h1>{ this.question() }</h1>
           <form className="public-review" onSubmit={this.handleSubmit}>
             <textarea onChange={this.handleTextChange} placeholder="Write review here..."></textarea>
-            <button>Submit</button>
+            <button >Submit</button>
           </form>
         </div>
 
@@ -113,8 +113,8 @@ export class Success extends Component {
         <div className="rating-header success">
           <h1>Confirm review submission</h1>
           <div className="review-submit">
-            <button id="back-to-spot"><Link to={`/spots/${this.props.spotId}`}>Back to spot</Link></button>
-            <button onClick={this.props.handleFormSubmission}>Submit Review</button>
+            <button type="button" id="back-to-spot"><Link to={`/spots/${this.props.spotId}`}>Back to spot</Link></button>
+            <button type="button" onClick={this.props.handleFormSubmission}>Submit Review</button>
           </div>
         </div>
       </section>

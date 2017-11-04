@@ -1,5 +1,6 @@
 $orange: #ffb800;
 
+
 .login-errors {
   display: flex;
   flex-flow: row;
@@ -8,7 +9,6 @@ $orange: #ffb800;
   border-radius: .25rem;
   height: 3.2rem;
   margin-bottom: 1rem;
-  transition: 200ms ease-in;
 
   i {
     background: $orange;
@@ -32,4 +32,51 @@ $orange: #ffb800;
     font-size: 1rem;
     margin: 1rem;
   }
+}
+
+.error-highlight {
+  border: 1px solid #be1500;
+}
+
+.bday-error-highlight {
+  select {
+    border: 1px solid #be1500;
+  }
+}
+.bday-errors{
+  width: 30rem;
+  p {
+    color: #ff5252;
+    font-size: .7rem;
+    top: -.5rem;
+    left: .6rem;
+  }
+}
+.signup-errors{
+  width: 30rem;
+  p {
+    color: #ff5252;
+    font-size: .7rem;
+    top: -1.5rem;
+    left: .6rem;
+
+  }
+}
+
+.errors-enter {
+  opacity: 0.01;
+}
+
+.errors-enter.errors-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.errors-leave {
+  opacity: 1;
+}
+
+.errors-leave.errors-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

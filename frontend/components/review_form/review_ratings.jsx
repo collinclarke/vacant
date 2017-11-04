@@ -60,7 +60,7 @@ class Ratings extends Component {
           <h3>Location</h3>
           <ReviewRadio type="location" handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
         </div>
-        <button onClick={() => this.props.handleSubmit({ratings: this.rating})}>Next</button>
+        <button type="button" onClick={() => this.props.handleSubmit({ratings: this.rating})}>Next</button>
       </section>
     );
   }

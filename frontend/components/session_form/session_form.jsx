@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class SessionForm extends Component {
   constructor(props) {
@@ -18,11 +19,14 @@ class SessionForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginDemoUser = this.loginDemoUser.bind(this);
     this.handleFormChange = this.handleFormChange.bind(this);
-    this.updateErrors = this.updateErrors.bind(this);
   }
 
   handleFormChange() {
     this.setState({formTypeLogin: !this.state.formTypeLogin});
+    this.props.clearErrors();
+  }
+
+  componentWillUnmount() {
     this.props.clearErrors();
   }
 
@@ -32,19 +36,6 @@ class SessionForm extends Component {
 
   componentWillReceiveProps(nextProps) {
     const errors = nextProps ? nextProps.errors : [];
-    errors.map((error, i) => this.updateErrors(error, i));
-  }
-
-  componentDidUpdate() {
-
-  }
-
-  componentDidMount() {
-    this.props.errors.map((error, i) => this.updateErrors(error, i));
-  }
-
-  updateErrors(error, i) {
-    this.setState({errors: {[i]: <p className="error" key={i}>{error}</p>}});
   }
 
   handleSubmit(e) {
@@ -52,7 +43,6 @@ class SessionForm extends Component {
     const user = Object.assign({}, this.state, {
       birth_date: this.birthday()
     });
-
     if (this.state.formTypeLogin) {
       this.props.login(user).then(this.closeModal, null);
     } else {
@@ -91,10 +81,28 @@ class SessionForm extends Component {
     return days;
   }
 
-  loginDemoUser(e) {
-    e.preventDefault();
-    const demo = {email:"demovacantuser@gmail.com", password:"starwars"};
-    this.props.login(demo).then(this.props.closeModal());
+  generateSignupError(error, i, bday) {
+    return bday ? (
+      <div className="bday-errors" key={i}>
+        <p className="error">{error}</p>
+      </div>
+    ) : (
+      <div className="signup-errors" key={i}>
+        <p className="error">{error}</p>
+      </div>
+    );
+  }
+
+  signupError(idx, bday) {
+    const error = this.props.errors[idx];
+    if (error) {
+      if (!bday) {
+        this.refs[idx].classList.add('error-highlight');
+      } else {
+        this.refs[idx].classList.add('bday-error-highlight');
+      }
+      return this.generateSignupError(error, idx, bday);
+    }
   }
 
   signupFields(action) {
@@ -103,39 +111,60 @@ class SessionForm extends Component {
       <form className="signup-form" onSubmit={this.handleSubmit}>
         <h1>{ action }</h1>
         <hr />
-          <ul className="errors">
-            {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
-          </ul>
-        <div className="session-form-input">
+
+        <div ref="0" className="session-form-input">
           <input id="email" type="text" value={ this.state.email }
             onChange={ this.update('email') } placeholder="Email Address"/>
           <i id="i-email" className="icon ion-ios-email-outline"></i>
         </div>
 
-        <div className="session-form-input">
+        <ReactCSSTransitionGroup
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+          transitionName="errors">
+          { this.signupError(0) }
+        </ReactCSSTransitionGroup>
+
+        <div ref="1" className="session-form-input">
           <input id="first-name" type="text" value={ this.state.first_name }
             onChange={ this.update('first_name') } placeholder="First Name"/>
           <i className="icon ion-ios-person-outline i-email"></i>
         </div>
-
-        <div className="session-form-input">
+        <ReactCSSTransitionGroup
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+          transitionName="errors">
+          { this.signupError(1) }
+        </ReactCSSTransitionGroup>
+        <div ref="2" className="session-form-input">
           <input id="last-name" type="text" value={ this.state.last_name }
             onChange={ this.update('last_name') } placeholder="Last Name"/>
           <i className="icon ion-ios-person-outline i-email"></i>
         </div>
-
-        <div className="session-form-input">
+        <ReactCSSTransitionGroup
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+          transitionName="errors">
+          { this.signupError(2) }
+        </ReactCSSTransitionGroup>
+        <div ref="4" className="session-form-input">
           <input type="password" value={ this.state.password }
             onChange={ this.update('password') }  placeholder="Password"/>
           <i className="icon ion-ios-locked-outline i-pw"></i>
         </div>
+        <ReactCSSTransitionGroup
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+          transitionName="errors">
+          { this.signupError(4) }
+        </ReactCSSTransitionGroup>
         <div className="loose">
           <label>Birthday</label>
           <p>To sign up, you must be 18 or older. Other people won't see your birthday</p>
         </div>
-        <div className="session-form-birthday">
+        <div ref="3" className="session-form-birthday">
           <label className="select">
-            <select id="birth-month" defaultValue="Month" onChange={ this.update('birth_month') }>
+            <select  id="birth-month" defaultValue="Month" onChange={ this.update('birth_month') }>
               <option value="Month" disabled>Month</option>
               <option value="01">January</option>
               <option value="02">February</option>
@@ -164,6 +193,12 @@ class SessionForm extends Component {
             </select>
           </label>
         </div>
+        <ReactCSSTransitionGroup
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+          transitionName="errors">
+          { this.signupError(3, true) }
+        </ReactCSSTransitionGroup>
         <button>{ action }</button>
           <hr />
 
@@ -175,51 +210,66 @@ class SessionForm extends Component {
     );
   }
 
+
+  loginDemoUser(e) {
+    e.preventDefault();
+    const demo = {email:"demovacantuser@gmail.com", password:"starwars"};
+    this.props.login(demo).then(this.props.closeModal());
+  }
+
   loginErrors() {
-    if (this.state.errors[0]) {
+    if (this.props.errors[0]) {
       return (
-        <div className="login-errors">
+        <div key="errors" className="login-errors">
           <i className="icon ion-alert-circled"></i>
-          { this.state.errors[0] }
+          { this.generateError(this.props.errors[0]) }
         </div>
       );
-   }
+    }
+  }
 
+  generateError(error, i) {
+    return (
+      <p className="error" key={i}>{error}</p>
+    );
   }
 
   loginFields(action) {
     const altMessage = 'Sign Up';
     return (
-
-      <form className="login-form">
-        <h1>{ action }</h1>
-        <hr />
-
-        { this.loginErrors() }
-
-        <div className="session-form-input">
-          <input id="email" type="text" value={ this.state.email }
-            onChange={ this.update('email') } placeholder="Email Address"/>
-          <i className="icon ion-ios-email-outline i-email"></i>
-        </div>
-
-        <div className="session-form-input">
-          <input  type="password" value={ this.state.password }
-            onChange={ this.update('password') }  placeholder="Password"/>
-          <i className="icon ion-ios-locked-outline i-pw"></i>
-        </div>
-
-        <button onClick={this.handleSubmit}>{ action }</button>
-        <button className="demo-login" onClick={this.loginDemoUser}>Guest Login</button>
+        <form className="login-form">
+          <h1>{ action }</h1>
           <hr />
+            <ReactCSSTransitionGroup
+              transitionEnterTimeout={500}
+              transitionLeaveTimeout={300}
+              transitionName="errors">
+              { this.loginErrors() }
+            </ReactCSSTransitionGroup>
+
+          <div className="session-form-input">
+            <input id="email" type="text" value={ this.state.email }
+              onChange={ this.update('email') } placeholder="Email Address"/>
+            <i className="icon ion-ios-email-outline i-email"></i>
+          </div>
+
+          <div className="session-form-input">
+            <input type="password" value={ this.state.password }
+              onChange={ this.update('password') }  placeholder="Password"/>
+            <i className="icon ion-ios-locked-outline i-pw"></i>
+          </div>
+
+          <button type="button" onClick={this.handleSubmit}>{ action }</button>
+          <button type="button" className="demo-login" onClick={this.loginDemoUser}>Guest Login</button>
+            <hr />
 
 
-          <section className="form-alternative">
-            <span>Don't have an account?</span>
-            <p onClick={this.handleFormChange}>Sign Up</p>
-          </section>
+            <section className="form-alternative">
+              <span>Don't have an account?</span>
+              <p onClick={this.handleFormChange}>Sign Up</p>
+            </section>
 
-      </form>
+        </form>
     );
   }
 
