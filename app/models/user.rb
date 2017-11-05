@@ -29,8 +29,12 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  has_attached_file :image, default_url: "userIcon.png"
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  has_attached_file :image, default_url: "https://s3.us-east-2.amazonaws.com/vacant-pro/icons/DefaultUser.png",
+  styles: {
+    thumb: "100x100#",
+    profile: "800x800>"}
+
+  validates_attachment_content_type :image, content_type: /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/
 
   has_many :reviews
 
