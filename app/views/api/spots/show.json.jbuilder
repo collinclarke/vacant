@@ -16,8 +16,10 @@ json.set! "reviews" do
 end
 
 
-json.set! "currentUser" do
-  json.partial! 'api/users/currentUser', user: current_user
+if current_user
+  json.set! "currentUser" do
+    json.partial! 'api/users/currentUser', user: current_user
+  end
 end
 
 json.set! "host" do

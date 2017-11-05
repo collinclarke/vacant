@@ -40,7 +40,6 @@ class BookingForm extends Component {
     if (user) {
       this.setState({requested: this.requested(user)});
     }
-    debugger
   }
 
   componentDidMount() {
@@ -48,7 +47,6 @@ class BookingForm extends Component {
     if (user) {
       this.setState({requested: this.requested(user)});
     }
-    debugger
   }
 
   update(field) {
