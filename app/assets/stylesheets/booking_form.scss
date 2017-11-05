@@ -3,9 +3,40 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+#booking-form {
+  grid-column: 3 / 4;
+  position: sticky;
+  top: 1.5rem;
+}
+
+.spot-requested {
+  p {
+    margin-bottom: .5rem;
+    font-size: 1.4rem;
+  }
+
+  a {
+    color: #396da8;
+  }
+}
+
+.line-splitter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: white;
+  left: 42%;
+  top: 0.5rem;
+  width: 3rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  color: #9f9f9f;
+}
+
 .booking-form {
   margin-top: 4rem;
-  box-sizing: border-box;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;

@@ -6,9 +6,15 @@ import { createBooking } from '../../actions/booking_actions';
 import { fetchBookings } from '../../actions/booking_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  const {bookings} = state.entities;
+  const currentUser = state.session.currentUser;
+
+  const requested = currentUser ? (
+    currentUser.bookings.includes(ownProps.spotId)
+    ) : false;
   return ({
-    bookings: state.entities.bookings,
-    currentUser: state.session.currentUser,
+    requested,
+    currentUser,
     errors: state.errors.bookings
   });
 };
@@ -16,7 +22,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     createBooking: form => dispatch(createBooking(form)),
-    fetchBookings: () => dispatch(fetchBookings),
   };
 };
 

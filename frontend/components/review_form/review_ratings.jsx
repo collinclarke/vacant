@@ -32,7 +32,7 @@ class Ratings extends Component {
 
   render() {
     return(
-      <section className="review-form overall full-screen">
+      <section className="review-form overall">
         <div className="rating-header multi-ratings">
           <h1>{ this.question() }</h1>
         </div>

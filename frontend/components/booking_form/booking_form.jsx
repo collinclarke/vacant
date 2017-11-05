@@ -6,9 +6,9 @@ class BookingForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      requested: false,
-      start_date: (new Date()),
-      end_date: (new Date()),
+      requested: this.props.requested,
+      start_date: null,
+      end_date: null,
       residents: 1,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,26 +27,16 @@ class BookingForm extends Component {
         status: 'PENDING'
       })
     ).then(() => this.setState({requested: true}));
-    // () => this.props.history.push('/bookings')
   }
 
   componentWillReceiveProps(nextProps) {
 
   }
 
-  requested() {
-    const user = this.props.currentUser;
-    const bookings = this.props.bookings;
-    if (user) {
-      return user.bookings.includes(this.props.spotId);
-    }
-    return false;
-  }
-
   componentDidMount() {
     const user = this.props.currentUser;
     if (user) {
-      this.setState({requested: this.requested()});
+      this.setState({requested: this.props.requested});
     }
   }
 
@@ -104,10 +94,15 @@ class BookingForm extends Component {
 
   render() {
     return this.state.requested ? (
-      <div className="requested-notice booking-form">
-        Spot Requested!
+      <div className="booking-form spot-requested">
+        <p>Spot Requested</p>
         <Link to={`/spots/${this.props.spotId}/newReview`}><button type="button">Leave a Review!</button></Link>
-        <Link to={`/bookings`}><button type="button">See All Bookings</button></Link>
+        <div className="relative">
+          <hr />
+          <div className="line-splitter">or</div>
+        </div>
+        <Link to={`/bookings`}>See All Bookings</Link>
+
       </div>
     ) : this.dateFields();
   }
