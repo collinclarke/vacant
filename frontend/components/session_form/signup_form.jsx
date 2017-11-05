@@ -16,7 +16,58 @@ class SignupForm extends Component {
       birth_year: "Year"
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    
+    this.errors = {
+      email: "",
+      password: "",
+      first_name: "",
+      last_name: "",
+      birth_date: "",
+    };
+  }
+
+  componentDidMount() {
+
+  }
+
+  componentWillUpdate() {
+
+  }
+
+  handleErrors(errors) {
+    if (!errors[0]) {
+      this.errors = {
+        email: "",
+        password: "",
+        first_name: "",
+        last_name: "",
+        birth_date: "",
+      };
+    } else {
+      errors.forEach(error => {
+        switch(error){
+          case "Email can't be blank":
+          this.errors.email = error;
+          break;
+          case "First name can't be blank":
+          this.errors.first_name = error;
+          break;
+          case "Last name can't be blank":
+          this.errors.last_name = error;
+          break;
+          case "Birth date can't be blank":
+          this.errors.birth_date = error;
+          break;
+          case "Password is too short (minimum is 6 characters)":
+          this.errors.password = error;
+          break;
+        }
+      });
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const {errors} = nextProps;
+    this.handleErrors(errors);
   }
 
   handleSubmit(e) {
@@ -59,27 +110,27 @@ class SignupForm extends Component {
     return days;
   }
 
-  generateSignupError(error, i, bday) {
+  generateError(error, key, bday) {
     return bday ? (
-      <div className="bday-errors" key={i}>
+      <div className="bday-errors" key={key}>
         <p className="error">{error}</p>
       </div>
     ) : (
-      <div className="signup-errors" key={i}>
+      <div className="signup-errors" key={key}>
         <p className="error">{error}</p>
       </div>
     );
   }
 
-  signupError(idx, bday) {
-    const error = this.props.errors[idx];
+  signupError(key, bday) {
+    const error = this.errors[key];
     if (error) {
       if (!bday) {
-        this.refs[idx].classList.add('error-highlight');
+        this.refs[key].classList.add('error-highlight');
       } else {
-        this.refs[idx].classList.add('bday-error-highlight');
+        this.refs[key].classList.add('bday-error-highlight');
       }
-      return this.generateSignupError(error, idx, bday);
+      return this.generateError(error, key, bday);
     }
   }
 
@@ -90,7 +141,7 @@ class SignupForm extends Component {
         <h1>Signup</h1>
         <hr />
 
-        <div ref="0" className="session-form-input">
+        <div ref="email" className="session-form-input">
           <input id="email" type="text" value={ this.state.email }
             onChange={ this.update('email') } placeholder="Email Address"/>
           <i id="i-email" className="icon ion-ios-email-outline"></i>
@@ -100,10 +151,10 @@ class SignupForm extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
           transitionName="errors">
-          { this.signupError(0) }
+          { this.signupError("email") }
         </ReactCSSTransitionGroup>
 
-        <div ref="1" className="session-form-input">
+        <div ref="first_name" className="session-form-input">
           <input id="first-name" type="text" value={ this.state.first_name }
             onChange={ this.update('first_name') } placeholder="First Name"/>
           <i className="icon ion-ios-person-outline i-email"></i>
@@ -113,10 +164,10 @@ class SignupForm extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
           transitionName="errors">
-          { this.signupError(1) }
+          { this.signupError("first_name") }
         </ReactCSSTransitionGroup>
 
-        <div ref="2" className="session-form-input">
+        <div ref="last_name" className="session-form-input">
           <input id="last-name" type="text" value={ this.state.last_name }
             onChange={ this.update('last_name') } placeholder="Last Name"/>
           <i className="icon ion-ios-person-outline i-email"></i>
@@ -126,10 +177,10 @@ class SignupForm extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
           transitionName="errors">
-          { this.signupError(2) }
+          { this.signupError("last_name") }
         </ReactCSSTransitionGroup>
 
-        <div ref="4" className="session-form-input">
+        <div ref="password" className="session-form-input">
           <input type="password" value={ this.state.password }
             onChange={ this.update('password') }  placeholder="Password"/>
           <i className="icon ion-ios-locked-outline i-pw"></i>
@@ -139,14 +190,14 @@ class SignupForm extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
           transitionName="errors">
-          { this.signupError(4) }
+          { this.signupError("password") }
         </ReactCSSTransitionGroup>
 
         <div className="loose">
           <label>Birthday</label>
           <p>To sign up, you must be 18 or older. Other people won't see your birthday</p>
         </div>
-        <div ref="3" className="session-form-birthday">
+        <div ref="birth_date" className="session-form-birthday">
           <label className="select">
             <select  id="birth-month" defaultValue="Month" onChange={ this.update('birth_month') }>
               <option value="Month" disabled>Month</option>
@@ -182,7 +233,7 @@ class SignupForm extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
           transitionName="errors">
-          { this.signupError(3, true) }
+          { this.signupError("birth_date", true) }
         </ReactCSSTransitionGroup>
 
         <button>Sign Up</button>
