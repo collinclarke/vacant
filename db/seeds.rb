@@ -124,14 +124,14 @@ p = Random.new
 10.times do |i|
   address = Faker::Address.street_name
   spot = Spot.create({
-    title: titles[i + 10],
+    title: titles[i + 20],
     address: address + ", " + "New York",
     latitude: p.rand(40.59218006937453..40.8279620),
     longitude: p.rand((-74.01144716406247)..(-73.825550)),
     price: [*(35..125)].sample,
     kind: ["Office", "Studio", "Storefront"].sample,
     host_id: host.id,
-    main_image: imgs[i + 10]
+    main_image: imgs[i + 20]
   });
 end
 
