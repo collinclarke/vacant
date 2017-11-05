@@ -6,17 +6,13 @@ import { createBooking } from '../../actions/booking_actions';
 import { fetchBookings } from '../../actions/booking_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  const {bookings} = state.entities;
-  const currentUser = state.session.currentUser;
 
-  const requested = currentUser ? (
-    currentUser.bookings.includes(ownProps.spotId)
-    ) : false;
+  const currentUser = state.session.currentUser;
   return ({
-    requested,
     currentUser,
     errors: state.errors.bookings
   });
+
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

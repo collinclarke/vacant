@@ -6,13 +6,19 @@ class BookingForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      requested: this.props.requested,
+      requested: false,
       start_date: null,
       end_date: null,
       residents: 1,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+  }
+
+  requested(currentUser) {
+    return currentUser ? (
+      currentUser.bookings.includes(parseInt(this.props.match.params.spotId))
+    ) : ( false );
   }
 
   handleSubmit(e) {
@@ -30,13 +36,16 @@ class BookingForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-
+    const user = nextProps.currentUser;
+    if (user) {
+      this.setState({requested: this.requested(user)});
+    }
   }
 
   componentDidMount() {
     const user = this.props.currentUser;
     if (user) {
-      this.setState({requested: this.props.requested});
+      this.setState({requested: this.requested(user)});
     }
   }
 
