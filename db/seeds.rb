@@ -117,7 +117,7 @@ imgs = ["https://s3.us-east-2.amazonaws.com/vacant-pro/seeds/seed_images/vacant_
 #   birth_date: "1980-01-01"
 # })
 
-user = User.find_by_email('jackal')
+host = User.find_by_email('jackal')
 
 p = Random.new
 
