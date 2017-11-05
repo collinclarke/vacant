@@ -23,7 +23,6 @@ class LoginForm extends Component {
     return e => {
       this.setState({ [field]: e.currentTarget.value });
       this.props.clearErrors();
-      Object.values(this.refs).forEach(ref => ref.classList.remove('error-highlight'));
     };
   }
 
@@ -38,9 +37,9 @@ class LoginForm extends Component {
     }
   }
 
-  generateError(error, i) {
+  generateError(error) {
     return (
-      <p className="error" key={i}>{error}</p>
+      <p className="error">{error}</p>
     );
   }
 
@@ -51,6 +50,7 @@ class LoginForm extends Component {
           <h1>Log In</h1>
           <hr />
             <ReactCSSTransitionGroup
+              className="login-errors-wrapper"
               transitionEnterTimeout={500}
               transitionLeaveTimeout={300}
               transitionName="errors">

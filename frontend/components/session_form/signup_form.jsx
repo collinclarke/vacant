@@ -80,7 +80,9 @@ class SignupForm extends Component {
     return e => {
       this.setState({ [field]: e.currentTarget.value });
       this.props.clearErrors();
-      Object.values(this.refs).forEach(ref => ref.classList.remove('error-highlight'));
+      Object.values(this.refs)
+      .forEach(ref => ref.classList
+        .remove('error-highlight', 'bday-error-highlight'));
     };
   }
 

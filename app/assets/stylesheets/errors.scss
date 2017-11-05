@@ -1,14 +1,17 @@
 $orange: #ffb800;
 
-
+.login-errors-wrapper {
+  width: 100%;
+}
 .login-errors {
   display: flex;
   flex-flow: row;
   width: 100%;
   border: 1px solid $orange;
   border-radius: .25rem;
-  height: 3.2rem;
+  height: 3.6rem;
   margin-bottom: 1rem;
+  align-items: center;
 
   i {
     background: $orange;
