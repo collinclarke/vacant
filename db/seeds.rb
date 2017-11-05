@@ -121,7 +121,7 @@ host = User.find_by_email('jackal')
 
 p = Random.new
 
-10.times do |i|
+30.times do |i|
   address = Faker::Address.street_name
   spot = Spot.create({
     title: titles[i + 20],
