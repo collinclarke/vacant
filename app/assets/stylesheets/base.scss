@@ -1,7 +1,13 @@
 main {
-  font-family: helvetica, sans-serif;
   // display: grid;
   background: white;
+}
+
+@font-face {
+  font-family: "GT-Pressura";
+  src: font-url("GT-Pressura-Regular.otf") format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .relative {
@@ -29,7 +35,7 @@ main {
 }
 button {
   width: 100%;
-  padding: 1rem;
+  padding: 0 1rem;
   height: 3.2rem;
   border-radius: .2rem;
   margin-top: .7rem;

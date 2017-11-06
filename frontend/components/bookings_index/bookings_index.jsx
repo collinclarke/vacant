@@ -5,6 +5,7 @@ class BookingsIndex extends Component {
 
   componentDidMount() {
     this.props.fetchBookings();
+    document.querySelector('header').classList.add('fixed');
   }
 
   bookingsHelper() {

@@ -36,6 +36,10 @@ class SpotShow extends Component {
     document.querySelector('header').classList.remove('fixed');
   }
 
+  componentWillUnmoutn() {
+    document.querySelector('header').classList.add('fixed');
+  }
+
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.spotId !== nextProps.match.params.spotId) {
       this.props.fetchSpot(nextProps.match.params.spotId);

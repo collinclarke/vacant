@@ -69,7 +69,7 @@ $break: 1440px;
 .spot-type {
   margin-top: .5rem;
   text-transform: uppercase;
-  font-size: .65rem;
+  font-size: .8rem;
   font-weight: bold;
   letter-spacing: .14rem;
   color: rgb(57, 87, 106);
@@ -78,7 +78,8 @@ $break: 1440px;
 .spot-title {
   color: #2f2f2f;
   font-size: 1.2rem;
-  letter-spacing: .08rem;
+  letter-spacing: .1rem;
+  line-height: 1.2rem;
   font-weight: bold;
   margin: 0 0 .02rem 0;
 }
