@@ -14,7 +14,5 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  window.getState = store.getState;
-  window.receiveSpots = receiveSpots;
   ReactDOM.render(<Root store={store}/>, document.getElementById('root'));
 });
