@@ -1,5 +1,5 @@
-import { RECEIVE_BOOKING, RECEIVE_BOOKING_ERRORS, CLEAR_ERRORS } from '../actions/booking_actions';
-
+import { RECEIVE_BOOKING, RECEIVE_BOOKING_ERRORS} from '../actions/booking_actions';
+import { CLEAR_ERRORS } from '../actions/session_actions';
 const initialState = [];
 
 const bookingsErrorsReducer = (state = initialState, action) => {

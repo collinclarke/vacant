@@ -37,6 +37,7 @@ class BookingForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+
     const user = nextProps.currentUser;
     if (user) {
       this.setState({requested: this.requested(user)});
@@ -44,6 +45,7 @@ class BookingForm extends Component {
   }
 
   componentDidMount() {
+    this.props.clearErrors();
     const user = this.props.currentUser;
     if (user) {
       this.setState({requested: this.requested(user)});
