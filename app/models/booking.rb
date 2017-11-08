@@ -53,7 +53,7 @@ class Booking < ApplicationRecord
     .where.not(id: self.id)
     .where(spot_id: spot_id)
     .where.not('start_date > :end_date OR end_date < :start_date',
-                start_date: start_date, end_date: end_date)
+                start_date: self.start_date, end_date: self.end_date)
   end
 
   def overlapping_approved_requests
@@ -73,7 +73,9 @@ class Booking < ApplicationRecord
   end
 
   def start_must_come_before_end
-    errors[:start_date] << 'must come before end date' if start_date > end_date
+    if (start_date && end_date)
+      errors[:start_date] << 'must come before end date' if self.start_date > self.end_date
+    end
   end
 
 

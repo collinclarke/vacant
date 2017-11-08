@@ -3,6 +3,7 @@ $orange: #ffb800;
 .login-errors-wrapper {
   width: 100%;
 }
+
 .login-errors {
   display: flex;
   flex-flow: row;
@@ -35,6 +36,10 @@ $orange: #ffb800;
     font-size: 1rem;
     margin: 1rem;
   }
+}
+
+.booking-errors {
+  flex-flow: column nowrap;
 }
 
 .error-highlight {

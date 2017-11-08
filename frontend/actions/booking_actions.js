@@ -20,8 +20,9 @@ export const receiveBooking = payload => {
 
 export const fetchBookings = () => dispatch => {
   const dispatchBooking = bookings => dispatch(receiveBookings(bookings));
+  const dispatchErrors = errors => dispatch(receiveErrors(errors));
   return ApiUtil.fetchBookings()
-  .then(dispatchBooking);
+  .then(dispatchBooking, dispatchErrors);
 };
 
 export const receiveBookings = payload => {

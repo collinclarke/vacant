@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RatingBlurb from '../widgets/rating_blurb';
 import { Link } from 'react-router-dom';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class BookingForm extends Component {
   constructor(props) {
@@ -49,6 +50,20 @@ class BookingForm extends Component {
     }
   }
 
+  bookingErrors() {
+    if (this.props.errors[0]) {
+      return (
+        <div key="errors" className="login-errors booking-errors">
+          <p>Please enter check-in / check-out dates</p>
+        </div>
+      );
+    }
+  }
+
+  generateErrors(errors) {
+    return errors.map(error => <p key={error} className="error">{error}</p>);
+  }
+
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
@@ -64,7 +79,13 @@ class BookingForm extends Component {
         </div>
 
         <hr />
-
+        <ReactCSSTransitionGroup
+          className="login-errors-wrapper"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+          transitionName="errors">
+        { this.bookingErrors() }
+        </ReactCSSTransitionGroup>
         <div className="booking-dates">
           <div className="start-date">
             <label>Check In</label>
