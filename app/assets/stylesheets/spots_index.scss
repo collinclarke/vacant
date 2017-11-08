@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $break: 1440px;
-
+$break-small: 1000px;
 .spots-index {
   margin-top: 3rem;
   display: grid;
@@ -29,22 +29,21 @@ $break: 1440px;
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  max-width: 21vw;
   height: 100%;
+  max-width: 20vw;
   margin-bottom: 2rem;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
   @media screen and (max-width: $break) {
-    max-width: 31vw;
+    max-width: 30vw;
+  }
+  @media screen and (max-width: $break-small) {
+    max-width: 60vw;
   }
 }
 
 .spot-item-image-wrapper {
   overflow: hidden;
-  max-width: 21vw;
-  @media screen and (max-width: $break) {
-    max-width: 31vw;
-  }
-  max-height: 30vh;
+  max-width: 100%;
   img {
     object-fit: fill;
     max-width: 150%;
