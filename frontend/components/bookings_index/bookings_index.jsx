@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BookingItem from './booking_item'
+import BookingItem from './booking_item';
 
 class BookingsIndex extends Component {
 
@@ -19,14 +19,13 @@ class BookingsIndex extends Component {
   }
 
   render() {
-
     return this.props.spots ? (
       <section className="bookings-index">
         { this.bookingsHelper() }
       </section>
     ) : (
       null
-    )
+    );
   }
 }
 
