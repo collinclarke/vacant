@@ -31,6 +31,10 @@
   position: sticky;
   top: 0;
   background: white;
+
+  a {
+    cursor: default;
+  }
 }
 
 #spot-show-nav > ul{
