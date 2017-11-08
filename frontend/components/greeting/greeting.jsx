@@ -42,7 +42,7 @@ class Greeting extends Component {
     return (this.props.currentUser ?
       (
         <section className="header-wrapper">
-          <Link className="main-logo" to="/"><img src={ window.logoUrl } alt="Vacant Logo"/></Link>
+          <Link className="main-logo" to="/spots"><img src={ window.logoUrl } alt="Vacant Logo"/></Link>
           <section className="greeting">
             <div
               className="user-avatar-wrapper nav-avatar">

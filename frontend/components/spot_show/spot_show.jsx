@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Scrollchor from 'react-scrollchor';
 import ReviewItem from './review_item';
 import BookingFormContainer from '../booking_form/booking_form_container';
@@ -59,7 +60,16 @@ class SpotShow extends Component {
     const loading = this.props.loading;
 
     if (loading) {
-      return <div className="loading full-screen">LOADING</div>;
+      return (
+        <ReactCSSTransitionGroup
+          className="loading-wrapper"
+          transitionEnterTimeout={100}
+          transitionLeaveTimeout={100}
+          transitionName="errors">
+          <div className="loading full-screen">LOADING</div>
+        </ReactCSSTransitionGroup>
+
+      );
     }
 
     if (this.props.spot) {

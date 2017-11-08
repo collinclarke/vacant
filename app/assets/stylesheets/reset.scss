@@ -48,3 +48,7 @@ button:hover {
 a:active {
   color: inherit;
 }
+
+a:focus {
+  outline: none;
+}

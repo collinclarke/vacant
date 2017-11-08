@@ -25,6 +25,11 @@ main {
 
 .loading {
   background: rgba(213, 213, 213, 0.74);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  
 }
 
 .splash-page {
