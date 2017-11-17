@@ -15,6 +15,7 @@ class Greeting extends Component {
     this.openSessionModal = this.openSessionModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.openPreferencesModal = this.openPreferencesModal.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   openSessionModal (bool) {
@@ -37,6 +38,9 @@ class Greeting extends Component {
     });
   }
 
+  logout() {
+    this.props.logout().then(() => this.props.history.push(`/`));
+  }
 
   render() {
     return (this.props.currentUser ?
@@ -58,9 +62,9 @@ class Greeting extends Component {
               overlayClassName="settings-modal-bg"
             >
               <ul className="user-settings" onMouseEnter={this.openPreferencesModal} onMouseLeave={this.handleCloseModal} >
-                <li id="user-name">{this.props.currentUser.first_name}</li>
+                <li id="user-name">Welcome {this.props.currentUser.first_name}!</li>
                 <li id="user-bookings"><Link to='/bookings'>Your Bookings</Link></li>
-                <li id="logout" onClick={this.props.logout}><span onClick={this.handleCloseModal}>Logout</span></li>
+                <li id="logout" onClick={this.logout}><span onClick={this.handleCloseModal}>Logout</span></li>
               </ul>
             </ReactModal>
           </section>
