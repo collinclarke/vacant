@@ -1,6 +1,6 @@
 # vacant
 A single page app based off of AirBnB. The backend uses Rails and Jbuilder with
-a PSQL database to serve up assets. The frontend is on React/Redux and SASS.
+a PSQL database to serve up data. The frontend utilizes React/Redux and SASS.
 
 [LIVE SITE](https://vacant.herokuapp.com/#/)
 
