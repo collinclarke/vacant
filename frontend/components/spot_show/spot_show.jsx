@@ -13,10 +13,16 @@ class SpotShow extends Component {
   constructor() {
     super();
     this.state = {
-      sessionModalIsOpen: false
+      sessionModalIsOpen: false,
+      index: 0
     };
     this.openSessionModal = this.openSessionModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  handleShow(i) {
+    this.setState({index: i});
+    this.refs[i].scrollIntoView({behavior: 'smooth', block: 'center'});
   }
 
   openSessionModal() {
@@ -94,18 +100,14 @@ class SpotShow extends Component {
 
           <nav id="spot-show-nav">
             <ul>
-              <li><Scrollchor to="">Overview</Scrollchor></li>
+              <li><a onClick={this.handleShow.bind(this, 0)}>Overview</a></li>
               <li>
                 <span className="list-bullet">&bull;</span>
-                <Scrollchor to="">Reviews</Scrollchor>
+                <a onClick={this.handleShow.bind(this, 1)}>Ratings</a>
               </li>
               <li>
                 <span className="list-bullet">&bull;</span>
-                <Scrollchor to="">The Host</Scrollchor>
-              </li>
-              <li>
-                <span className="list-bullet">&bull;</span>
-                <Scrollchor to="">Location</Scrollchor>
+                <a onClick={this.handleShow.bind(this, 2)}>Reviews</a>
               </li>
             </ul>
           </nav>
@@ -116,7 +118,7 @@ class SpotShow extends Component {
               overall={ ratings.overall }/>
           </section>
 
-          <section id="overview" className="spot-show-details">
+          <section id="overview" ref={0} className="spot-show-details">
             <div className="spot-show-title">{ title }</div>
             <div className="spot-show-subtitle">
               <div className="spot-show-type-address">
@@ -126,13 +128,13 @@ class SpotShow extends Component {
             </div>
           </section>
 
-          <section className="spot-ratings">
+          <section className="spot-ratings"  ref={1}>
               <div className="ratings-header">
                  Overall <RatingBlurb rating={ratings.overall} numReviews={ numReviews }/>
               </div>
           </section>
 
-          <section className="spot-reviews">
+          <section className="spot-reviews"  ref={2}>
             <ul>
             {this.reviewHelper()}
             </ul>
