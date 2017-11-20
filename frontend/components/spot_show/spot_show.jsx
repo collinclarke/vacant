@@ -43,7 +43,7 @@ class SpotShow extends Component {
     document.querySelector('header').classList.remove('fixed');
   }
 
-  componentWillUnmoutn() {
+  componentWillUnmount() {
     document.querySelector('header').classList.add('fixed');
   }
 
