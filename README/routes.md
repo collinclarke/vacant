@@ -1,30 +1,25 @@
 #### Backend Routes
 
 ```ruby
-Rails.application.routes.draw do
-  root to: "static_pages#root"
+root to: "static_pages#root"
 
-  namespace :api, defaults: { format: :json } do
-    resources :spots do
-      resources :reviews, only: [:create, :update]
-      resources :bookings, only: [:create, :destroy]
-    end
-    resources :watchings, only: [:create, :destroy]
-    resources :users, only: [:create, :update, :destroy] do
-      resources :reviews, only: [:create, :update]
-    end
-    resource :session, only: [:create, :destroy]
-
+namespace :api, defaults: { format: :json } do
+  resources :users, only: [:create, :update, :destroy]
+  resources :bookings, only: [:index]
+  resource :session, only: [:create, :destroy]
+  resources :spots, only: [:show, :index] do
+    resources :reviews, only: [:index, :create]
+    resources :bookings, only: [:create]
   end
-
 end
 ```
 
 #### Frontend routes
 
 ```javascript
-<Route exact path="/spots/:id/#reviews" component={ReviewContainer}/>
-<Route path="/spots/:id" component={SpotShowContainer}/>
-<Route exact path="/spots" component={SpotsIndexContainer}/>
-<Route exact path="/users/show/:id" component={UserShowContainer}/>
+<AuthRoute exact path='/spots/:spotId/newReview' component={ ReviewFormContainer } />
+<AuthRoute exact path='/bookings' component={ BookingsIndexContainer } />
+<Route exact path='/spots/:spotId' component={ SpotShowContainer } />
+<Route exact path='/spots' component={ SpotsSearchContainer } />
+<Route exact path='/' component={ SplashPage } />
 ```
