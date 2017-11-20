@@ -16,6 +16,7 @@ class Greeting extends Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.openPreferencesModal = this.openPreferencesModal.bind(this);
     this.logout = this.logout.bind(this);
+    this.handleLogoClick = this.handleLogoClick.bind(this);
   }
 
   openSessionModal (bool) {
@@ -38,6 +39,14 @@ class Greeting extends Component {
     });
   }
 
+  handleLogoClick() {
+    if (this.props.history.location.pathname === "/") {
+      this.props.history.push("/spots");
+    } else {
+      this.props.history.push("/");
+    }
+  }
+
   logout() {
     this.props.logout().then(() => this.props.history.push(`/`));
   }
@@ -46,7 +55,7 @@ class Greeting extends Component {
     return (this.props.currentUser ?
       (
         <section className="header-wrapper">
-          <Link className="main-logo" to="/spots"><img src={ window.logoUrl } alt="Vacant Logo"/></Link>
+          <div className="main-logo" onClick={this.handleLogoClick}><img src={ window.logoUrl } alt="Vacant Logo"/></div>
           <section className="greeting">
             <div
               className="user-avatar-wrapper nav-avatar">
@@ -71,7 +80,7 @@ class Greeting extends Component {
         </section>
       ) : (
         <section className="header-wrapper">
-          <Link className="main-logo" to="/"><img src={ window.logoUrl } alt="Vacant Logo"/></Link>
+          <div className="main-logo" onClick={this.handleLogoClick}><img src={ window.logoUrl } alt="Vacant Logo"/></div>
           <section className="greeting">
 
             <p onClick={() => this.openSessionModal(false)}>Sign Up</p>

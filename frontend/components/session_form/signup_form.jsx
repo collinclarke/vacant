@@ -22,15 +22,8 @@ class SignupForm extends Component {
       first_name: "",
       last_name: "",
       birth_date: "",
+      taken: ""
     };
-  }
-
-  componentDidMount() {
-
-  }
-
-  componentWillUpdate() {
-
   }
 
   handleErrors(errors) {
@@ -40,7 +33,7 @@ class SignupForm extends Component {
         password: "",
         first_name: "",
         last_name: "",
-        birth_date: "",
+        birth_date: ""
       };
     } else {
       errors.forEach(error => {
@@ -59,6 +52,9 @@ class SignupForm extends Component {
           break;
           case "Password is too short (minimum is 6 characters)":
           this.errors.password = error;
+          break;
+          case "Email has already been taken":
+          this.errors.email = error;
           break;
         }
       });

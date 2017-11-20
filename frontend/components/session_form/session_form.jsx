@@ -30,16 +30,28 @@ class SessionForm extends Component {
 
   handleSubmit(user) {
     if (this.state.formTypeLogin) {
-      this.props.login(user).then(this.closeModal, null).then(() => this.props.history.push(`/spots`));
+      this.props.login(user).then(this.closeModal, null).then(() => {
+        if (this.props.history.location.pathname === "/") {
+          this.props.history.push(`/spots`);
+        }
+      });
     } else {
-      this.props.signup(user).then(this.closeModal, null).then(() => this.props.history.push(`/spots`));
+      this.props.signup(user).then(this.closeModal, null).then(() => {
+        if (this.props.history.location.pathname === "/") {
+          this.props.history.push(`/spots`);
+        }
+      });
     }
   }
 
   loginDemoUser(e) {
     e.preventDefault();
     const demo = {email:"demovacantuser@gmail.com", password:"starwars"};
-    this.props.login(demo).then(this.props.closeModal()).then(() => this.props.history.push(`/spots`));
+    this.props.login(demo).then(this.props.closeModal()).then(() => {
+      if (this.props.history.location.pathname === "/") {
+        this.props.history.push(`/spots`);
+      }
+    });
   }
 
   render() {

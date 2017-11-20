@@ -17,7 +17,6 @@ export const signup = (user) => dispatch => {
 };
 
 export const logout = () => dispatch => {
-  debugger
   return API.logout().then( () => dispatch(logoutCurrentUser()) );
 };
 
