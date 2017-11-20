@@ -1,3 +1,8 @@
+$break: 1440px;
+$break-small: 1000px;
+$break-tiny: 500px;
+
+
 main {
   // display: grid;
   background: white;
@@ -33,12 +38,6 @@ main {
 
 }
 
-.splash-page {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-}
 button {
   width: 100%;
   padding: 0 1rem;

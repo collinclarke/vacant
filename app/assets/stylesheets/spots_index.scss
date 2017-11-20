@@ -31,13 +31,16 @@ $break-small: 1000px;
   align-items: flex-start;
   height: 100%;
   max-width: 20vw;
+  min-width: 20vw;
   margin-bottom: 2rem;
   margin-right: 1rem;
   @media screen and (max-width: $break) {
     max-width: 30vw;
+    min-width: 30vw;
   }
   @media screen and (max-width: $break-small) {
     max-width: 60vw;
+    min-width: 60vw;
   }
 }
 
