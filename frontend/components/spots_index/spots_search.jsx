@@ -27,11 +27,11 @@ class SpotsIndex extends Component {
     return (
       <section className="spots-index">
         <SpotsList spots={arrSpots} handleMouseover={this.handleMouseover}/>
+        <SpotsMap updateBounds={this.props.updateBounds} hover={this.state.hover} spots={this.props.spots}/>
 
       </section>
     );
   }
-  // <SpotsMap updateBounds={this.props.updateBounds} hover={this.state.hover} spots={this.props.spots}/>
 
 }
 
