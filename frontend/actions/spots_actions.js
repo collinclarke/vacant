@@ -36,13 +36,13 @@ export const receiveSpot = (payload) => {
   };
 };
 
-export const loadSpot = (spot) => {
+export const loadSpot = () => {
   return {
     type: START_LOADING_SPOT
   };
 };
 
-export const loadSpots = (spot) => {
+export const loadSpots = () => {
   return {
     type: START_LOADING_ALL_SPOTS
   };

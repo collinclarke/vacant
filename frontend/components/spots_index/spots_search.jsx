@@ -14,7 +14,6 @@ class SpotsIndex extends Component {
 
   handleMouseover(e) {
     this.setState({hover: e.currentTarget.getAttribute("spotid")});
-
   }
 
   componentDidMount() {
@@ -26,7 +25,7 @@ class SpotsIndex extends Component {
     const arrSpots = Object.values(this.props.spots);
     return (
       <section className="spots-index">
-        <SpotsList spots={arrSpots} handleMouseover={this.handleMouseover}/>
+        <SpotsList loadSpots={this.props.loadSpots} loading={this.props.loading} spots={arrSpots} handleMouseover={this.handleMouseover}/>
         <SpotsMap updateBounds={this.props.updateBounds} hover={this.state.hover} spots={this.props.spots}/>
 
       </section>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchSpots } from '../../actions/spots_actions';
+import { fetchSpots, loadSpots } from '../../actions/spots_actions';
 import { addGlobalScroll } from '../../actions/listener_actions';
 import { updateBounds } from '../../actions/filter_actions';
 import SpotsSearch from './spots_search';
@@ -8,7 +8,8 @@ import SpotsSearch from './spots_search';
 
 const mapStateToProps = state => {
   return {
-    spots: state.entities.spots
+    spots: state.entities.spots,
+    loading: state.ui.loading.indexLoading
   };
 };
 
@@ -16,6 +17,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     // fetchSpots: () => dispatch(fetchSpots()),
+    loadSpots: () => dispatch(loadSpots()),
     updateBounds: bounds => dispatch(updateBounds(bounds)),
     addGlobalScroll: () => dispatch(addGlobalScroll())
   };

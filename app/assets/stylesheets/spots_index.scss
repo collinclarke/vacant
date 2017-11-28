@@ -92,3 +92,18 @@ $break-small: 1000px;
   letter-spacing: .04rem;
   margin-bottom: .06rem;
 }
+
+#no-spots {
+  width: 66vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    filter: invert(80%);
+    padding-right: 2rem;
+  }
+  font-size: 2rem;
+  color: rgb(175, 175, 175);
+  align-self: center;
+}

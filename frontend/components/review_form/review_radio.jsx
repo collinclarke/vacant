@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import RatingBlurb from '../widgets/rating_blurb';
-import lodash from 'lodash';
 
 class ReviewRadio extends Component {
   constructor(props) {
@@ -46,7 +45,7 @@ class ReviewRadio extends Component {
           <input id="five" onChange={this.handleOptionChange}
             checked={this.state.selectedOption === '5'} type="radio" value="5"/>
           <RatingBlurb rating={this.state.selectedOption} />
-          <button type="button" type="submit"></button>
+          <button type="submit"></button>
       </form>
     );
   }

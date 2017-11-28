@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Overall, UserImpression, PublicReview, Success } from './review_form_steps';
 import Ratings from './review_ratings';
-import lodash from 'lodash';
 
 class ReviewForm extends Component {
   constructor(props) {
@@ -19,11 +18,9 @@ class ReviewForm extends Component {
 
   componentDidMount() {
     this.props.fetchSpot(this.props.match.params.spotId);
-    // document.querySelector('header').classList.add('hidden');
   }
 
   componentWillUnmount() {
-    // document.querySelector('header').classList.remove('hidden');
   }
 
   handleSubmit(value) {

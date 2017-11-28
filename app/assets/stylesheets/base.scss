@@ -30,12 +30,11 @@ main {
 }
 
 .loading {
-  background: rgba(213, 213, 213, 0.74);
+  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-
+  color: rgb(97, 97, 97);
 }
 
 button {

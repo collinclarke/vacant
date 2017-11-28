@@ -40,10 +40,10 @@ class Greeting extends Component {
   }
 
   handleLogoClick() {
-    if (this.props.history.location.pathname === "/") {
-      this.props.history.push("/spots");
-    } else {
+    if (this.props.history.location.pathname === "/spots") {
       this.props.history.push("/");
+    } else {
+      this.props.history.push("/spots");
     }
   }
 
