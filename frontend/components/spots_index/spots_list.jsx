@@ -30,14 +30,13 @@ class SpotsList extends Component {
   render() {
     const {loading, spots}= this.props;
     if (loading) {
-
       return (
         <ReactCSSTransitionGroup
           className="loading-wrapper"
-          transitionEnterTimeout={100}
-          transitionLeaveTimeout={100}
+          transitionEnterTimeout={200}
+          transitionLeaveTimeout={200}
           transitionName="errors">
-          <div className="loading full-screen">LOADING</div>
+          <div className="loading-spots">LOADING</div>
         </ReactCSSTransitionGroup>
       );
     } else {

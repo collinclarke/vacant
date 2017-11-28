@@ -37,6 +37,15 @@ main {
   color: rgb(97, 97, 97);
 }
 
+.loading-spots {
+  width: 66vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(97, 97, 97);
+}
+
 button {
   width: 100%;
   padding: 0 1rem;
