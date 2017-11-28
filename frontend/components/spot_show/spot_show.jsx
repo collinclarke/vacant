@@ -22,7 +22,7 @@ class SpotShow extends Component {
 
   handleShow(i) {
     this.setState({index: i});
-    this.refs[i].scrollIntoView({behavior: 'smooth', block: 'center'});
+    this.refs[i].scrollIntoView({behavior: 'smooth', block: 'end'});
   }
 
   openSessionModal() {
