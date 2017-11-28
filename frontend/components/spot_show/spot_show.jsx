@@ -55,11 +55,13 @@ class SpotShow extends Component {
 
   reviewHelper() {
     const { reviews } = this.props.spot;
+    if (reviews) {
     return reviews.map(reviewId => {
-      if (this.props.reviews[reviewId]) {
+      if (this.props.reviews[reviewId] && this.props.reviews[reviewId].public_review) {
         return <ReviewItem key={reviewId} review={ this.props.reviews[reviewId] }/>;
       }
     });
+    }
   }
 
   render() {
