@@ -8,7 +8,8 @@ const mapStateToProps = state => {
   return {
     currentUser: state.session.currentUser,
     bookings: state.entities.bookings,
-    spots: state.entities.spots
+    spots: state.entities.spots,
+    loading: state.ui.loading.bookingsIndexLoading
   };
 };
 

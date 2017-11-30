@@ -2,6 +2,7 @@ export const RECEIVE_BOOKING = "RECEIVE_BOOKING";
 export const RECEIVE_BOOKINGS = "RECEIVE_BOOKINGS";
 export const RECEIVE_BOOKING_ERRORS = "RECEIVE_BOOKING_ERRORS";
 export const REMOVE_BOOKING = "REMOVE_BOOKING";
+export const START_LOADING_BOOKINGS = "START_LOADING_BOOKINGS";
 import * as ApiUtil from '../util/booking_util';
 
 export const createBooking = booking => dispatch => {
@@ -12,6 +13,7 @@ export const createBooking = booking => dispatch => {
 };
 
 export const fetchBookings = () => dispatch => {
+  dispatch(loadBookings());
   const dispatchBooking = bookings => dispatch(receiveBookings(bookings));
   const dispatchErrors = errors => dispatch(receiveBookingErrors(errors));
   return ApiUtil.fetchBookings()
@@ -50,5 +52,11 @@ const removeBooking = bookingId => {
   return {
     type: REMOVE_BOOKING,
     bookingId
+  };
+};
+
+const loadBookings = () => {
+  return {
+    type: START_LOADING_BOOKINGS
   };
 };

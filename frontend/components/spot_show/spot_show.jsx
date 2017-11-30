@@ -88,7 +88,7 @@ class SpotShow extends Component {
           transitionEnterTimeout={100}
           transitionLeaveTimeout={100}
           transitionName="errors">
-          <div className="loading full-screen">LOADING</div>
+          <div className="loading full-screen"><img src={window.loadingGif}/></div>
         </ReactCSSTransitionGroup>
 
       );

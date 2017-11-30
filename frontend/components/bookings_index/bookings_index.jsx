@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BookingItem from './booking_item';
 import { Link } from 'react-router-dom';
 import lodash from 'lodash';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class BookingsIndex extends Component {
 
@@ -38,13 +39,26 @@ class BookingsIndex extends Component {
   }
 
   render() {
-    return this.props.spots ? (
-      <section className="bookings-index">
-        { this.bookingsHelper() }
-      </section>
-    ) : (
-      null
-    );
+    const {spots, loading} = this.props;
+    if (loading) {
+      return (
+        <ReactCSSTransitionGroup
+          className="loading-wrapper"
+          transitionEnterTimeout={200}
+          transitionLeaveTimeout={200}
+          transitionName="errors">
+          <div className="loading-spot"><img src={window.loadingGif}/></div>
+        </ReactCSSTransitionGroup>
+      );
+    } else {
+      return this.props.spots ? (
+        <section className="bookings-index">
+          { this.bookingsHelper() }
+        </section>
+      ) : (
+        null
+      );
+    }
   }
 }
 

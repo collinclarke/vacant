@@ -14,7 +14,7 @@ export const fetchSpot = (spotId) => dispatch => {
   return ApiUtil.fetchSpot(spotId).then(spot => dispatch(receiveSpot(spot)));
 };
 
-export const updatefilter = (filter, value) => {
+const updatefilter = (filter, value) => {
   return {
     type: UPDATE_FILTER,
     filter,
@@ -22,21 +22,21 @@ export const updatefilter = (filter, value) => {
   };
 };
 
-export const receiveSpots = (payload) => {
+const receiveSpots = (payload) => {
   return {
     type: RECEIVE_SPOTS,
     payload
   };
 };
 
-export const receiveSpot = (payload) => {
+const receiveSpot = (payload) => {
   return {
     type: RECEIVE_SPOT,
     payload
   };
 };
 
-export const loadSpot = () => {
+const loadSpot = () => {
   return {
     type: START_LOADING_SPOT
   };

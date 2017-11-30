@@ -36,7 +36,7 @@ class SpotsList extends Component {
           transitionEnterTimeout={200}
           transitionLeaveTimeout={200}
           transitionName="errors">
-          <div className="loading-spots">LOADING</div>
+          <div className="loading-spots"><img src={window.loadingGif}/></div>
         </ReactCSSTransitionGroup>
       );
     } else {

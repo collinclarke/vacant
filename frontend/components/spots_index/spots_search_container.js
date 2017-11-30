@@ -9,7 +9,7 @@ import SpotsSearch from './spots_search';
 const mapStateToProps = state => {
   return {
     spots: state.entities.spots,
-    loading: state.ui.loading.indexLoading
+    loading: state.ui.loading.spotsIndexLoading
   };
 };
 
