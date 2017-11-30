@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Scrollchor from 'react-scrollchor';
 import ReviewItem from './review_item';
 import BookingFormContainer from '../booking_form/booking_form_container';
@@ -81,24 +80,14 @@ class SpotShow extends Component {
   render() {
     const loading = this.props.loading;
 
-    if (loading) {
-      return (
-        <ReactCSSTransitionGroup
-          className="loading-wrapper"
-          transitionEnterTimeout={100}
-          transitionLeaveTimeout={100}
-          transitionName="errors">
-          <div className="loading full-screen"><img src={window.loadingGif}/></div>
-        </ReactCSSTransitionGroup>
-
-      );
-    }
 
     if (this.props.spot) {
       const { title, address, price, kind, cover_image, id, reviews, ratings, numReviews, host_name } = this.props.spot;
       return (
         <section className="spot-show">
-
+          { loading &&
+            <div className="loading full-screen"><img src={window.loadingGif}/></div>
+          }
           <ReactModal
             isOpen={this.state.sessionModalIsOpen}
             onRequestClose={this.handleCloseModal}

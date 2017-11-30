@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SpotIndexItem from './spot_index_item';
 import lodash from 'lodash';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class SpotsList extends Component {
 
@@ -29,27 +28,22 @@ class SpotsList extends Component {
 
   render() {
     const {loading, spots}= this.props;
-    if (loading) {
-      return (
-        <ReactCSSTransitionGroup
-          className="loading-wrapper"
-          transitionEnterTimeout={200}
-          transitionLeaveTimeout={200}
-          transitionName="errors">
-          <div className="loading-spots"><img src={window.loadingGif}/></div>
-        </ReactCSSTransitionGroup>
-      );
-    } else {
+
       return (
         <section className="spots-list" id="spots-list">
+
+        { loading &&
+          <div className="loading-spots"><img src={window.loadingGif}/></div>
+        }
+
         <ul>
-        { _.isEmpty(spots) ? this.noSpots() : this.spotRender() }
+          { _.isEmpty(spots) ? this.noSpots() : this.spotRender() }
         </ul>
+
         </section>
       );
     }
 
-  }
 }
 
 export default SpotsList;
