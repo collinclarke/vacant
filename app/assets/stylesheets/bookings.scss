@@ -7,6 +7,24 @@
   justify-content: flex-start;
 }
 
+#no-bookings {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    filter: invert(80%);
+    padding-right: 2rem;
+  }
+  a {
+    margin-left: 2rem;
+  }
+  font-size: 2rem;
+  color: rgb(175, 175, 175);
+  align-self: center;
+}
+
 .booking-item {
   max-width: 30vw;
   min-width: 30vw;

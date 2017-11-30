@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import BookingItem from './booking_item';
+import { Link } from 'react-router-dom';
+import lodash from 'lodash';
 
 class BookingsIndex extends Component {
 
@@ -15,7 +17,19 @@ class BookingsIndex extends Component {
       const spot = this.props.spots[booking.spot_id];
       index.push(<BookingItem key={booking.id} booking={booking} spot={spot}/>);
     });
-    return index;
+    if (_.isEmpty(index)) {
+      return this.noBookings();
+    } else {
+      return index;
+    }
+  }
+
+  noBookings() {
+    return (
+      <div id="no-bookings">
+      <img src="https://s3.us-east-2.amazonaws.com/vacant-pro/icons/missing.png"/> <span>No bookings yet!</span>
+      <Link to="/spots">Back to spots</Link></div>
+    );
   }
 
   render() {
