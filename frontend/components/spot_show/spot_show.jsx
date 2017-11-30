@@ -6,6 +6,7 @@ import BookingFormContainer from '../booking_form/booking_form_container';
 import ReactModal from 'react-modal';
 import SessionFormContainer from '../session_form/session_form_container';
 import RatingBlurb from '../widgets/rating_blurb';
+import lodash from 'lodash';
 
 
 class SpotShow extends Component {
@@ -53,14 +54,27 @@ class SpotShow extends Component {
     }
   }
 
+  noReviews() {
+    return (
+      <div id="no-reviews">
+      <img src="https://s3.us-east-2.amazonaws.com/vacant-pro/icons/missing.png"/> <span>No public reviews yet...</span>
+      </div>
+    );
+  }
+
   reviewHelper() {
     const { reviews } = this.props.spot;
     if (reviews) {
-    return reviews.map(reviewId => {
-      if (this.props.reviews[reviewId] && this.props.reviews[reviewId].public_review) {
-        return <ReviewItem key={reviewId} review={ this.props.reviews[reviewId] }/>;
+      const reviewList = reviews.map(reviewId => {
+        if (this.props.reviews[reviewId] && this.props.reviews[reviewId].public_review) {
+          return <ReviewItem key={reviewId} review={ this.props.reviews[reviewId] }/>;
+        }
+      });
+      if (_.isEmpty(reviews)) {
+        return this.noReviews();
+      } else {
+        return reviewList;
       }
-    });
     }
   }
 

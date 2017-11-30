@@ -28,3 +28,18 @@
   font-size: .8rem;
   font-weight: lighter;
 }
+
+#no-reviews {
+  padding-bottom: 4rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: center;
+  img {
+    height: 3rem;
+    filter: invert(80%);
+    padding-right: 1rem;
+  }
+  font-size: 1.5rem;
+  color: rgb(175, 175, 175);
+}
