@@ -26,12 +26,14 @@
 }
 
 #booking-removal {
-  color: white;
+  color: red;
   position: absolute;
-  width: 10rem;
-  right: 0rem;
-  bottom: 0rem;
+  width: 9rem;
+  left: 10rem;
+  bottom: .1rem;
   cursor: pointer;
+  background: transparent;
+  border: 1px solid red;
 }
 
 .booking-item {
