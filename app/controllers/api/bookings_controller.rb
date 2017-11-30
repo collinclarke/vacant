@@ -13,6 +13,11 @@ class Api::BookingsController < ApplicationController
     @bookings = current_user.bookings.includes(:spot)
   end
 
+  def destroy
+    current_spot_booking.destroy
+    render "api/bookings/show"
+  end
+
   def approve
     current_spot_booking.approve!
   end

@@ -12,3 +12,10 @@ export const fetchBookings = () => {
     url: `api/bookings`
   });
 };
+
+export const deleteBooking = (bookingId) => {
+  return $.ajax({
+    type: "DELETE",
+    url: `api/bookings/${bookingId}`
+  });
+};

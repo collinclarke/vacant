@@ -25,13 +25,20 @@
   align-self: center;
 }
 
+#booking-removal {
+  color: white;
+  position: absolute;
+  width: 10rem;
+  right: 0rem;
+  bottom: 0rem;
+  cursor: pointer;
+}
+
 .booking-item {
   max-width: 30vw;
   min-width: 30vw;
   margin: 0 1rem 1rem 0;
-}
-
-.booking-item {
+  position: relative;
   li {
     list-style: none;
   }
