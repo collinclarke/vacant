@@ -25,19 +25,7 @@ html {
   overflow: hidden;
 }
 
-input:focus {
-  outline: none;
-}
-
-select:focus {
-  outline: none;
-}
-
-div:focus {
-  outline: none;
-}
-
-button:focus {
+input:focus, select:focus, div:focus, button:focus, a:focus {
   outline: none;
 }
 
@@ -47,8 +35,4 @@ button:hover {
 
 a:active {
   color: inherit;
-}
-
-a:focus {
-  outline: none;
 }
