@@ -1,11 +1,10 @@
 class Api::SpotsController < ApplicationController
   def index
-    spots = bounds ? Spot.in_bounds(bounds) : Spot.all
-    @spots = spots.includes(:reviews)
+    @spots = bounds ? Spot.in_bounds(bounds).includes(:reviews) : Spot.includes(:reviews)
   end
 
   def show
-    @spot = Spot.find(params[:id])
+    @spot = Spot.includes(:reviews).find(params[:id])
   end
 
   private
