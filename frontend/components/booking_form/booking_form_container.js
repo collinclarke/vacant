@@ -8,9 +8,11 @@ import BookingForm from './booking_form';
 const mapStateToProps = (state, ownProps) => {
 
   const currentUser = state.session.currentUser;
+  const spot = state.entities.spots[state.ui.spotDisplay];
   return ({
     currentUser,
-    errors: state.errors.bookings
+    errors: state.errors.bookings,
+    spotId: state.ui.spotDisplay
   });
 
 };

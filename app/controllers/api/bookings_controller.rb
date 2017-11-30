@@ -15,7 +15,7 @@ class Api::BookingsController < ApplicationController
 
   def destroy
     current_spot_booking.destroy
-    render "api/bookings/show"
+    # render "api/bookings/show"
   end
 
   def approve

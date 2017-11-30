@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import ReviewForm from './review_form';
 import { submitReview } from "../../actions/review_actions";
 import { fetchSpot } from '../../actions/spots_actions';
+import { cancelBooking } from '../../actions/booking_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -17,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchSpot: spotId => dispatch(fetchSpot(spotId)),
-    submitReview: review => dispatch(submitReview(review))
+    submitReview: review => dispatch(submitReview(review)),
+    cancelBooking: bookingId => dispatch(cancelBooking(bookingId))
   };
 };
 

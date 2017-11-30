@@ -15,6 +15,14 @@ json.set! "reviews" do
   end
 end
 
+json.set! "bookings" do
+  @spot.bookings.each do |booking|
+    json.set! booking.id do
+      json.partial! 'api/bookings/booking', booking: booking
+    end
+  end
+end
+
 
 if current_user
   json.set! "currentUser" do

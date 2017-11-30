@@ -17,9 +17,7 @@ class BookingForm extends Component {
   }
 
   requested(currentUser) {
-    return currentUser ? (
-      currentUser.bookings.includes(parseInt(this.props.match.params.spotId))
-    ) : ( false );
+    currentUser.bookedSpots
   }
 
   handleSubmit(e) {
