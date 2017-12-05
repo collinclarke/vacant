@@ -17,7 +17,8 @@ class BookingForm extends Component {
   }
 
   requested(currentUser) {
-    return currentUser.bookedSpots.includes(this.props.spotId);
+
+    if (currentUser) return currentUser.bookedSpots.includes(this.props.spotId);
   }
 
   handleSubmit(e) {
@@ -33,21 +34,6 @@ class BookingForm extends Component {
       })
     ).then(() => this.requested = true);
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   const user = nextProps.currentUser;
-  //   if (user) {
-  //     this.setState({requested: this.requested(user)});
-  //   }
-  // }
-  //
-  // componentDidMount() {
-  //   this.props.clearErrors();
-  //   const user = this.props.currentUser;
-  //   if (user) {
-  //     this.setState({requested: this.requested(user)});
-  //   }
-  // }
 
   bookingErrors() {
     if (this.props.errors[0]) {
