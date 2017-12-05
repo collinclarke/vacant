@@ -10,15 +10,24 @@ class BookingForm extends Component {
       start_date: null,
       end_date: null,
       residents: 1,
+      requested: this.requested(),
     };
-    this.requested = this.requested(props.currentUser);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
   }
 
-  requested(currentUser) {
+  componentWillMount() {
+    this.setState({requested: this.requested()});
+  }
 
-    if (currentUser) return currentUser.bookedSpots.includes(this.props.spotId);
+  requested() {
+    const { currentUser, spotId } = this.props;
+    if (currentUser) {
+      const spots = currentUser.bookedSpots;
+      if (spots) {
+        return spots.includes(this.props.spotId);
+      }
+    }
   }
 
   handleSubmit(e) {
@@ -27,12 +36,16 @@ class BookingForm extends Component {
       this.props.openSessionModal();
       return;
     }
+    e.currentTarget.disabled = true;
     this.props.createBooking(Object.assign({}, this.state, {
         user_id: this.props.currentUser.id,
         spot_id: this.props.spotId,
         status: 'PENDING'
       })
-    ).then(() => this.requested = true);
+    ).then(() => {
+      this.setState({requested: true});
+    });
+    e.currentTarget.disabled = false;
   }
 
   bookingErrors() {
@@ -108,7 +121,7 @@ class BookingForm extends Component {
 
 
   render() {
-    return this.requested ? (
+    return this.state.requested ? (
       <div className="booking-form spot-requested">
         <p>Spot Requested</p>
         <Link to={`/spots/${this.props.spotId}/newReview`}><button type="button">Leave a Review!</button></Link>

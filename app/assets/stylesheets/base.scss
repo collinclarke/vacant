@@ -59,6 +59,10 @@ button {
   color: white;
 }
 
+button:disabled {
+  background-color: #8a5d5e;
+}
+
 button:active {
   max-height: 3.2rem;
 }

@@ -20,8 +20,8 @@ export const fetchBookings = () => dispatch => {
   .then(dispatchBooking, dispatchErrors);
 };
 
-export const cancelBooking = bookingId => dispatch => {
-  const dispatchRemoval = () => dispatch(removeBooking(bookingId));
+export const cancelBooking = (bookingId, spotId) => dispatch => {
+  const dispatchRemoval = () => dispatch(removeBooking(bookingId, spotId));
   const dispatchErrors = errors => dispatch(receiveBookingErrors(errors));
   return ApiUtil.deleteBooking(bookingId)
   .then(dispatchRemoval, dispatchErrors);
@@ -48,10 +48,11 @@ const receiveBookingErrors = errors => {
   };
 };
 
-const removeBooking = bookingId => {
+const removeBooking = (bookingId, spotId)=> {
   return {
     type: REMOVE_BOOKING,
-    bookingId
+    bookingId,
+    spotId
   };
 };
 

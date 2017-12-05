@@ -42,7 +42,6 @@ class ReviewForm extends Component {
       }
     );
     this.props.submitReview(review)
-    .then(() => this.props.cancelBooking())
     .then(() => this.props.history.push(`/spots/${this.props.match.params.spotId}`));
   }
 

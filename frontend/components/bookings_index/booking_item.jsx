@@ -4,13 +4,16 @@ import SpotIndexItem from '../spots_index/spot_index_item';
 class BookingItem extends Component {
 
   render() {
+    const { id, spot, booking, cancelBooking } = this.props;
     return (
       <div className="booking-item">
 
-        <SpotIndexItem spot={this.props.spot}/>
-        <div className="status"><span>Status:</span> {this.props.booking.status}</div>
-        <div className="start-date-booking">{this.props.booking.start_date} - {this.props.booking.end_date}</div>
-        <div id="booking-removal" onClick={ () => this.props.cancelBooking(this.props.id) }>Cancel booking</div>
+        <SpotIndexItem spot={spot}/>
+        <div className="status"><span>Status:</span> {booking.status}</div>
+        <div className="start-date-booking">{booking.start_date} - {booking.end_date}</div>
+        <div id="booking-removal" onClick={ () => {
+          cancelBooking(id, spot.id);
+        } }>Cancel booking</div>
       </div>
     );
   }

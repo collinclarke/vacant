@@ -16,7 +16,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchBookings: () => dispatch(fetchBookings()),
-    cancelBooking: (bookingId) => dispatch(cancelBooking(bookingId))
+    cancelBooking: (bookingId, spotId) => dispatch(cancelBooking(bookingId, spotId))
   };
 };
 
