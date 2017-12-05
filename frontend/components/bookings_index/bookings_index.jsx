@@ -16,6 +16,7 @@ class BookingsIndex extends Component {
     const index = [];
     arrBookings.forEach(booking => {
       const spot = this.props.spots[booking.spot_id];
+      debugger
       index.push(
         <BookingItem key={booking.id}
         id={booking.id}

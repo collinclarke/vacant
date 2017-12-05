@@ -10,7 +10,7 @@ class BookingForm extends Component {
       start_date: null,
       end_date: null,
       residents: 1,
-      requested: this.requested(),
+      requested: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
@@ -25,7 +25,7 @@ class BookingForm extends Component {
     if (currentUser) {
       const spots = currentUser.bookedSpots;
       if (spots) {
-        return spots.includes(this.props.spotId);
+        return spots.includes(spotId);
       }
     }
   }

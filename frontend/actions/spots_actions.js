@@ -10,7 +10,7 @@ export const fetchSpots = (filters) => dispatch => {
 };
 
 export const fetchSpot = (spotId) => dispatch => {
-  dispatch(loadSpot());
+  dispatch(loadSpot(spotId));
   return ApiUtil.fetchSpot(spotId).then(spot => dispatch(receiveSpot(spot)));
 };
 
@@ -36,9 +36,10 @@ const receiveSpot = (payload) => {
   };
 };
 
-const loadSpot = () => {
+const loadSpot = (spotId) => {
   return {
-    type: START_LOADING_SPOT
+    type: START_LOADING_SPOT,
+    spotId
   };
 };
 

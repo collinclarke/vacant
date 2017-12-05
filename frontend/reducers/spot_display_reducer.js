@@ -1,4 +1,4 @@
-import { RECEIVE_SPOT } from '../actions/spots_actions';
+import { RECEIVE_SPOT, START_LOADING_SPOT } from '../actions/spots_actions';
 
 
 const spotDisplayReducer = (state = null, action) => {
@@ -7,6 +7,8 @@ const spotDisplayReducer = (state = null, action) => {
     case RECEIVE_SPOT:
       const spot = action.payload.spot;
       return spot.id;
+    case START_LOADING_SPOT:
+      return action.spotId;
     default:
       return state;
   }
