@@ -7,17 +7,17 @@ class BookingForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      requested: false,
       start_date: null,
       end_date: null,
       residents: 1,
     };
+    this.requested = this.requested(props.currentUser);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
   }
 
   requested(currentUser) {
-    currentUser.bookedSpots
+    return currentUser.bookedSpots.includes(this.props.spotId);
   }
 
   handleSubmit(e) {
@@ -31,24 +31,23 @@ class BookingForm extends Component {
         spot_id: this.props.spotId,
         status: 'PENDING'
       })
-    ).then(() => this.setState({requested: true}));
+    ).then(() => this.requested = true);
   }
 
-  componentWillReceiveProps(nextProps) {
-
-    const user = nextProps.currentUser;
-    if (user) {
-      this.setState({requested: this.requested(user)});
-    }
-  }
-
-  componentDidMount() {
-    this.props.clearErrors();
-    const user = this.props.currentUser;
-    if (user) {
-      this.setState({requested: this.requested(user)});
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   const user = nextProps.currentUser;
+  //   if (user) {
+  //     this.setState({requested: this.requested(user)});
+  //   }
+  // }
+  //
+  // componentDidMount() {
+  //   this.props.clearErrors();
+  //   const user = this.props.currentUser;
+  //   if (user) {
+  //     this.setState({requested: this.requested(user)});
+  //   }
+  // }
 
   bookingErrors() {
     if (this.props.errors[0]) {
@@ -123,7 +122,7 @@ class BookingForm extends Component {
 
 
   render() {
-    return this.state.requested ? (
+    return this.requested ? (
       <div className="booking-form spot-requested">
         <p>Spot Requested</p>
         <Link to={`/spots/${this.props.spotId}/newReview`}><button type="button">Leave a Review!</button></Link>

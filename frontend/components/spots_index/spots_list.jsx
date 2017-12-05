@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SpotIndexItem from './spot_index_item';
 import lodash from 'lodash';
-
 class SpotsList extends Component {
 
   componentDidMount() {
@@ -30,6 +29,7 @@ class SpotsList extends Component {
     const {loading, spots}= this.props;
 
       return (
+
         <section className="spots-list" id="spots-list">
 
         { loading &&

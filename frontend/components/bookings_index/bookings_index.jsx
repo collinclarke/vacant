@@ -47,7 +47,7 @@ class BookingsIndex extends Component {
           transitionEnterTimeout={200}
           transitionLeaveTimeout={200}
           transitionName="errors">
-          <div className="loading-spot"><img src={window.loadingGif}/></div>
+          <div className="loading-bookings"><img src={window.loadingGif}/></div>
         </ReactCSSTransitionGroup>
       );
     } else {
