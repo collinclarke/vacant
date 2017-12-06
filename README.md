@@ -8,7 +8,7 @@ a PSQL database to serve up data. The frontend utilizes React/Redux and SASS.
 
 
 
-![splash page](./README/images/splash.png)
+![splash page](./README/images/Splash.gif)
 
 ## Features
 - User authentication with demo login
@@ -25,20 +25,20 @@ a PSQL database to serve up data. The frontend utilizes React/Redux and SASS.
 
 ### Spot browse and Map
 
-![spots map search](./README/images/spotsMap2.gif)
+![spots map search](./README/images/MapBounds.gif)
 
 - Dragging the map changes what spots are displayed
 - Google maps infowindows include spot prices and highlight on spot hover
 
 
 ### Spot view and book
-![spot booking](./README/images/bookingForm.gif)
+![spot booking](./README/images/Bookings.gif)
 
 - User can request to book spots
 - User can view requested spots and booking status
 
 ### Spot reviews
-![spot show](./README/images/review4.gif)
+![spot show](./README/images/Review.gif)
 
 - Users can leave reviews on spots they have booked
 
