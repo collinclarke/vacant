@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SpotsList from './spots_list';
 import SpotsMap from './spots_map';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 class SpotsIndex extends Component {
 
@@ -24,11 +26,17 @@ class SpotsIndex extends Component {
   render() {
     const arrSpots = Object.values(this.props.spots);
     return (
-      <section className="spots-index">
-        <SpotsList loadSpots={this.props.loadSpots} loading={this.props.loading} spots={arrSpots} handleMouseover={this.handleMouseover}/>
-        <SpotsMap updateBounds={this.props.updateBounds} hover={this.state.hover} spots={this.props.spots}/>
-
-      </section>
+      <ReactCSSTransitionGroup component="section"
+        className="spots-index"
+        transitionName="fade-in"
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={500}
+        >
+          <SpotsList loadSpots={this.props.loadSpots} loading={this.props.loading} spots={arrSpots} handleMouseover={this.handleMouseover}/>
+          <SpotsMap updateBounds={this.props.updateBounds} hover={this.state.hover} spots={this.props.spots}/>
+      </ReactCSSTransitionGroup>
     );
   }
 

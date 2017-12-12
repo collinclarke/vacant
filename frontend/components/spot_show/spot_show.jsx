@@ -6,7 +6,7 @@ import ReactModal from 'react-modal';
 import SessionFormContainer from '../session_form/session_form_container';
 import RatingBlurb from '../widgets/rating_blurb';
 import lodash from 'lodash';
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class SpotShow extends Component {
 
@@ -84,6 +84,13 @@ class SpotShow extends Component {
     if (this.props.spot) {
       const { title, address, price, kind, cover_image, id, reviews, ratings, numReviews, host_name } = this.props.spot;
       return (
+        <ReactCSSTransitionGroup
+          transitionName="fade-in"
+          transitionAppear={true}
+          transitionAppearTimeout={500}
+          transitionEnter={false}
+          transitionLeave={false}
+          >
         <section className="spot-show">
           { loading &&
             <div className="loading full-screen"><img src={window.loadingGif}/></div>
@@ -99,9 +106,11 @@ class SpotShow extends Component {
             <SessionFormContainer closeModal={this.handleCloseModal} />
           </ReactModal>
 
-          <section className="spot-show-image">
-            <img src= { cover_image } alt="spot image"/>
-          </section>
+
+              <section className="spot-show-image">
+                <img src= { cover_image } alt="spot image"/>
+              </section>
+
 
           <nav id="spot-show-nav">
             <ul>
@@ -146,6 +155,7 @@ class SpotShow extends Component {
           </section>
 
         </section>
+        </ReactCSSTransitionGroup>
       );
     } else {
       return null;

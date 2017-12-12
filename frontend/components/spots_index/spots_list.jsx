@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import SpotIndexItem from './spot_index_item';
 import lodash from 'lodash';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+
 class SpotsList extends Component {
 
   componentDidMount() {
@@ -8,14 +11,29 @@ class SpotsList extends Component {
   }
 
   spotRender() {
-    return (
-      this.props.spots.map( spot =>
+
+    const { spots } = this.props;
+    const spotsList = spots.map( spot =>
+      <ReactCSSTransitionGroup
+      key={spot.id}
+      transitionName="fade-in-long"
+      transitionAppear={true}
+      transitionAppearTimeout={1000}
+      transitionEnterTimeout={1000}
+      transitionLeaveTimeout={1000} >
         <SpotIndexItem
+        key={spot.id}
         handleMouseover={this.props.handleMouseover}
-        className="spot-index-item" key={spot.id} spot={spot}
-        />
-      )
-    );
+        className="spot-index-item" spot={spot} />
+      </ReactCSSTransitionGroup>
+    )
+
+    if (_.isEmpty(spotsList) ) {
+      return this.noSpots();
+    } else {
+      return spotsList
+    }
+
   }
 
   noSpots() {
@@ -26,20 +44,26 @@ class SpotsList extends Component {
   }
 
   render() {
-    const {loading, spots}= this.props;
+    const {loading, spots} = this.props;
 
       return (
-
         <section className="spots-list" id="spots-list">
 
-        { loading &&
-          <div className="loading-spots"><img src={window.loadingGif}/></div>
-        }
-
-        <ul>
-          { _.isEmpty(spots) ? this.noSpots() : this.spotRender() }
-        </ul>
-
+          <ReactCSSTransitionGroup
+            transitionName="fade-in"
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500}>
+            { loading &&
+              <div className="loading-spots">
+                <img src={window.loadingGif}/>
+              </div>
+             }
+          </ReactCSSTransitionGroup>
+          <ul>
+            { this.spotRender() }
+          </ul>
         </section>
       );
     }

@@ -13,16 +13,26 @@ class BookingsIndex extends Component {
 
   bookingsHelper() {
     const arrBookings = Object.values(this.props.bookings);
-    const index = [];
-    arrBookings.forEach(booking => {
+
+    const index = arrBookings.map(booking => {
       const spot = this.props.spots[booking.spot_id];
-      index.push(
-        <BookingItem key={booking.id}
+      return (
+      <ReactCSSTransitionGroup
+          key={booking.id}
+          transitionName="fade-in"
+          transitionAppear={true}
+          transitionAppearTimeout={500}
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={500} >
+        <BookingItem
         id={booking.id}
         booking={booking}
         cancelBooking={this.props.cancelBooking}
-        spot={spot}/>);
+        spot={spot}/>
+      </ReactCSSTransitionGroup>
+      );
     });
+
     if (_.isEmpty(index)) {
       return this.noBookings();
     } else {
@@ -40,25 +50,24 @@ class BookingsIndex extends Component {
 
   render() {
     const {spots, loading} = this.props;
-    if (loading) {
-      return (
-        <ReactCSSTransitionGroup
-          className="loading-wrapper"
-          transitionEnterTimeout={200}
-          transitionLeaveTimeout={200}
-          transitionName="errors">
-          <div className="loading-bookings"><img src={window.loadingGif}/></div>
-        </ReactCSSTransitionGroup>
-      );
-    } else {
-      return this.props.spots ? (
-        <section className="bookings-index">
-          { this.bookingsHelper() }
-        </section>
-      ) : (
-        null
-      );
-    }
+    return (
+      <ReactCSSTransitionGroup
+        transitionName="fade-in"
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={500} >
+
+      <section className="bookings-index">
+      { loading &&
+        <div className="loading-bookings">
+          <img src={window.loadingGif}/>
+        </div>
+      }
+            { this.bookingsHelper() }
+      </section>
+      </ReactCSSTransitionGroup>
+    )
   }
 }
 

@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import { Link } from 'react-router-dom';
 import RatingBlurb from '../widgets/rating_blurb';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 
 class SpotIndexItem extends Component {
 
   render() {
-    if (this.props.spot) {
       const { title, address, price, kind, image_url, id, ratings, numReviews } = this.props.spot;
       return (
         <li onMouseOver={this.props.handleMouseover} spotid={ id }>
           <Link to={`/spots/${id}`} className="spot-details">
             <div className="spot-item-image-wrapper">
+
               <img src= { image_url } alt="spot image"/>
             </div>
             <span className="spot-type">{ kind }</span>
@@ -22,10 +24,8 @@ class SpotIndexItem extends Component {
           </Link>
         </li>
       );
-    } else {
-      return null;
-    }
   }
+
 }
 
 export default SpotIndexItem;

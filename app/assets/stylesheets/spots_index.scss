@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $break: 1440px;
-$break-small: 1000px;
+$break-small: 1200px;
 .spots-index {
   margin-top: 3rem;
   display: grid;
@@ -18,7 +18,7 @@ $break-small: 1000px;
   margin-top: 4rem;
 }
 
-.spots-list ul {
+.spots-list > ul {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
