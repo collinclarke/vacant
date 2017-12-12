@@ -14,18 +14,10 @@ class SpotsList extends Component {
 
     const { spots } = this.props;
     const spotsList = spots.map( spot =>
-      <ReactCSSTransitionGroup
-      key={spot.id}
-      transitionName="fade-in-long"
-      transitionAppear={true}
-      transitionAppearTimeout={1000}
-      transitionEnterTimeout={1000}
-      transitionLeaveTimeout={1000} >
         <SpotIndexItem
         key={spot.id}
         handleMouseover={this.props.handleMouseover}
         className="spot-index-item" spot={spot} />
-      </ReactCSSTransitionGroup>
     )
 
     if (_.isEmpty(spotsList) ) {

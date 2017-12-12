@@ -7,6 +7,16 @@ import RatingBlurb from '../widgets/rating_blurb';
 
 
 class SpotIndexItem extends Component {
+  constructor(props) {
+    super(props)
+    this.imageLoaded = this.imageLoaded.bind(this);
+  }
+
+  imageLoaded (e) {
+    const cl = e.target.classList
+    cl.remove("hidden");
+    cl.add("img-transition")
+  }
 
   render() {
       const { title, address, price, kind, image_url, id, ratings, numReviews } = this.props.spot;
@@ -15,7 +25,10 @@ class SpotIndexItem extends Component {
           <Link to={`/spots/${id}`} className="spot-details">
             <div className="spot-item-image-wrapper">
 
-              <img src= { image_url } alt="spot image"/>
+              <img
+                className="hidden"
+                onLoad={this.imageLoaded}
+                src= { image_url } alt="spot image"/>
             </div>
             <span className="spot-type">{ kind }</span>
             <span className="spot-title">{ title }</span>

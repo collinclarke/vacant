@@ -25,6 +25,7 @@ class BookingsIndex extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={500} >
         <BookingItem
+        key={booking.id}
         id={booking.id}
         booking={booking}
         cancelBooking={this.props.cancelBooking}

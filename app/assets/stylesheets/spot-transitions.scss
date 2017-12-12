@@ -17,3 +17,20 @@
   opacity: 1;
   transition: opacity 500ms ease-in;
 }
+
+.img-transition {
+  animation: 1s ease-out 0s 1 blurIn;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+@keyframes blurIn {
+  0% {
+    filter: blur(3px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}

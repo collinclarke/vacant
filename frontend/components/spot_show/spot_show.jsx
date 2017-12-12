@@ -18,6 +18,7 @@ class SpotShow extends Component {
     };
     this.openSessionModal = this.openSessionModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.imageLoaded = this.imageLoaded.bind(this);
   }
 
   handleShow(i) {
@@ -77,6 +78,12 @@ class SpotShow extends Component {
     }
   }
 
+  imageLoaded (e) {
+    const cl = e.target.classList
+    cl.remove("hidden");
+    cl.add("img-transition")
+  }
+
   render() {
     const loading = this.props.loading;
 
@@ -108,7 +115,9 @@ class SpotShow extends Component {
 
 
               <section className="spot-show-image">
-                <img src= { cover_image } alt="spot image"/>
+                <img className="hidden" onLoad={this.imageLoaded}
+                  src= { cover_image } alt="spot image"
+                />
               </section>
 
 

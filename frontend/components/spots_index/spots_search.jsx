@@ -29,8 +29,6 @@ class SpotsIndex extends Component {
       <ReactCSSTransitionGroup component="section"
         className="spots-index"
         transitionName="fade-in"
-        transitionAppear={true}
-        transitionAppearTimeout={500}
         transitionEnterTimeout={500}
         transitionLeaveTimeout={500}
         >

@@ -64,6 +64,7 @@ class BookingForm extends Component {
 
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
+    this.props.clearErrors();
   }
 
   dateFields() {
