@@ -13,17 +13,16 @@ class SpotsList extends Component {
   spotRender() {
 
     const { spots } = this.props;
-    const spotsList = spots.map( spot =>
-        <SpotIndexItem
-        key={spot.id}
-        handleMouseover={this.props.handleMouseover}
-        className="spot-index-item" spot={spot} />
-    )
 
-    if (_.isEmpty(spotsList) ) {
+    if (_.isEmpty(spots) ) {
       return this.noSpots();
     } else {
-      return spotsList
+      return spots.map( spot =>
+          <SpotIndexItem
+          key={spot.id}
+          handleMouseover={this.props.handleMouseover}
+          className="spot-index-item" spot={spot} />
+      )
     }
 
   }

@@ -5,6 +5,10 @@ import lodash from 'lodash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class BookingsIndex extends Component {
+  constructor(props) {
+    super(props);
+    this.bookingsHelper = this.bookingsHelper.bind(this);
+  }
 
   componentDidMount() {
     this.props.fetchBookings();
@@ -12,32 +16,33 @@ class BookingsIndex extends Component {
   }
 
   bookingsHelper() {
-    const arrBookings = Object.values(this.props.bookings);
-
-    const index = arrBookings.map(booking => {
-      const spot = this.props.spots[booking.spot_id];
-      return (
-      <ReactCSSTransitionGroup
-          key={booking.id}
-          transitionName="fade-in"
-          transitionAppear={true}
-          transitionAppearTimeout={500}
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={500} >
-        <BookingItem
-        key={booking.id}
-        id={booking.id}
-        booking={booking}
-        cancelBooking={this.props.cancelBooking}
-        spot={spot}/>
-      </ReactCSSTransitionGroup>
-      );
-    });
-
-    if (_.isEmpty(index)) {
+    const { spots, bookings } = this.props;
+    const arrBookings = Object.values(bookings);
+    if (_.isEmpty(spots)) {
       return this.noBookings();
     } else {
-      return index;
+      return arrBookings.map(booking => {
+        const spot = spots[booking.spot_id];
+        if (spot) {
+          return (
+            <ReactCSSTransitionGroup
+                key={booking.id}
+                transitionName="fade-in"
+                transitionAppear={true}
+                transitionAppearTimeout={500}
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={500} >
+              <BookingItem
+              key={booking.id}
+              id={booking.id}
+              booking={booking}
+              cancelBooking={this.props.cancelBooking}
+              spot={spot}/>
+            </ReactCSSTransitionGroup>
+          )} else {
+            return null;
+          }
+      });
     }
   }
 
@@ -65,7 +70,7 @@ class BookingsIndex extends Component {
           <img src={window.loadingGif}/>
         </div>
       }
-            { this.bookingsHelper() }
+      { this.bookingsHelper() }
       </section>
       </ReactCSSTransitionGroup>
     )
