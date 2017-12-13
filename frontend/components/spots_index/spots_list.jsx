@@ -52,10 +52,17 @@ class SpotsList extends Component {
               </div>
              }
           </ReactCSSTransitionGroup>
-          <ul>
+          <ReactCSSTransitionGroup
+            component="ul"
+            transitionName="fade-in"
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500} >
             { this.spotRender() }
-          </ul>
+        </ReactCSSTransitionGroup>
         </section>
+
       );
     }
 

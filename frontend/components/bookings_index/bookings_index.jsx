@@ -18,7 +18,7 @@ class BookingsIndex extends Component {
   bookingsHelper() {
     const { spots, bookings } = this.props;
     const arrBookings = Object.values(bookings);
-    if (_.isEmpty(spots)) {
+    if (_.isEmpty(bookings)) {
       return this.noBookings();
     } else {
       return arrBookings.map(booking => {

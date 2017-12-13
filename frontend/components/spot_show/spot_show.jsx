@@ -91,13 +91,6 @@ class SpotShow extends Component {
     if (this.props.spot) {
       const { title, address, price, kind, cover_image, id, reviews, ratings, numReviews, host_name } = this.props.spot;
       return (
-        <ReactCSSTransitionGroup
-          transitionName="fade-in"
-          transitionAppear={true}
-          transitionAppearTimeout={500}
-          transitionEnter={false}
-          transitionLeave={false}
-          >
         <section className="spot-show">
           { loading &&
             <div className="loading full-screen"><img src={window.loadingGif}/></div>
@@ -164,7 +157,6 @@ class SpotShow extends Component {
           </section>
 
         </section>
-        </ReactCSSTransitionGroup>
       );
     } else {
       return null;
